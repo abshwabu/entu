@@ -86,19 +86,20 @@ class ManageSettings extends Page implements HasForms
                                 ->model($this->setting)
                                 ->image()
                                 ->imageEditor()
+                                ->maxSize(10240)
+                                ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
                                 ->label('Portrait / Bio Photo')
-                                ->helperText('Featured in About section and bio overlays.'),
+                                ->helperText('Featured in About section and bio overlays (max 10MB).'),
 
                             SpatieMediaLibraryFileUpload::make('cv')
                                 ->collection('cv')
                                 ->model($this->setting)
+                                ->maxSize(10240)
                                 ->acceptedFileTypes([
                                     'application/pdf',
-                                    'application/msword',
-                                    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
                                 ])
                                 ->label('Resume / CV (PDF)')
-                                ->helperText('Downloadable CV file on About & Contact pages.'),
+                                ->helperText('Downloadable resume on the About page (PDF only, max 10MB).'),
                         ]),
                     ]),
 
@@ -143,6 +144,14 @@ class ManageSettings extends Page implements HasForms
                                 ->url()
                                 ->placeholder('https://tiktok.com/@entucreative'),
                         ]),
+                    ]),
+
+                    Tabs\Tab::make('Analytics & SEO')->icon('heroicon-o-chart-bar')->schema([
+                        TextInput::make('analytics_id')
+                            ->label('Analytics ID / Domain')
+                            ->maxLength(255)
+                            ->placeholder('e.g. G-XXXXXXXXXX for Google Analytics, or entucreative.com for Plausible')
+                            ->helperText('Supports Plausible Analytics (domain name) or Google Analytics (GA4 Measurement ID starting with G-). Left blank to disable tracking.'),
                     ]),
 
                     Tabs\Tab::make('Footer')->icon('heroicon-o-document-text')->schema([

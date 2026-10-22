@@ -29,6 +29,7 @@ class Setting extends Model implements HasMedia
         'facebook',
         'tiktok',
         'footer_text',
+        'analytics_id',
     ];
 
     protected static function booted(): void
@@ -36,11 +37,13 @@ class Setting extends Model implements HasMedia
         static::saved(function () {
             Cache::forget('app_settings');
             Cache::forget('home_page_data');
+            Cache::forget('sitemap_xml_content');
         });
 
         static::deleted(function () {
             Cache::forget('app_settings');
             Cache::forget('home_page_data');
+            Cache::forget('sitemap_xml_content');
         });
     }
 

@@ -163,12 +163,14 @@ class ProjectResource extends Resource
                                 ->collection('cover')
                                 ->image()
                                 ->imageEditor()
+                                ->maxSize(10240)
+                                ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp', 'image/svg+xml', 'image/gif'])
                                 ->imageEditorAspectRatios([
                                     '16:9',
                                     '4:3',
                                     '1:1',
                                 ])
-                                ->helperText('Main visual featured on portfolio cards (600w & 1600w WebP generated).'),
+                                ->helperText('Main visual featured on portfolio cards (max 10MB, WebP conversions generated).'),
                         ]),
 
                         Section::make('Project Gallery')->schema([
@@ -178,7 +180,9 @@ class ProjectResource extends Resource
                                 ->reorderable()
                                 ->image()
                                 ->imageEditor()
-                                ->helperText('Upload and drag-to-reorder detail shots and process work.'),
+                                ->maxSize(10240)
+                                ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp', 'image/svg+xml', 'image/gif'])
+                                ->helperText('Upload and drag-to-reorder detail shots and process work (max 10MB each).'),
                         ]),
                     ])->columnSpan(1),
                 ]),

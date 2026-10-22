@@ -12,7 +12,8 @@ class AppLayout extends Component
         public ?string $description = null,
         public ?string $canonical = null,
         public ?string $image = null,
-        public ?string $ogType = null
+        public ?string $ogType = null,
+        public mixed $jsonLd = null
     ) {}
 
     public function render(): View

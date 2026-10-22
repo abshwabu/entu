@@ -23,4 +23,13 @@ Route::post('/contact', [ContactController::class, 'store'])
     ->middleware('throttle:5,1')
     ->name('contact.store');
 
+// SEO: Dynamic Sitemap and Robots.txt
+Route::get('/sitemap.xml', [\App\Http\Controllers\Public\SitemapController::class, 'index'])->name('sitemap');
+Route::get('/robots.txt', function () {
+    $sitemapUrl = url('/sitemap.xml');
+    $content = "User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /admin/\nDisallow: /livewire/\n\nSitemap: {$sitemapUrl}\n";
+    return response($content, 200, ['Content-Type' => 'text/plain']);
+});
+
+
 

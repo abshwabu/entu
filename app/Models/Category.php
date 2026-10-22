@@ -31,10 +31,12 @@ class Category extends Model
     {
         static::saved(function () {
             \Illuminate\Support\Facades\Cache::forget('home_page_data');
+            \Illuminate\Support\Facades\Cache::forget('sitemap_xml_content');
         });
 
         static::deleted(function () {
             \Illuminate\Support\Facades\Cache::forget('home_page_data');
+            \Illuminate\Support\Facades\Cache::forget('sitemap_xml_content');
         });
     }
 

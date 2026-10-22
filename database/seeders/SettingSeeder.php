@@ -29,6 +29,7 @@ class SettingSeeder extends Seeder
                 'facebook' => 'https://facebook.com/entucreative',
                 'tiktok' => 'https://tiktok.com/@entucreative',
                 'footer_text' => '© 2026 Entu Creative. All rights reserved. Crafted with intentionality.',
+                'analytics_id' => null,
             ]
         );
 

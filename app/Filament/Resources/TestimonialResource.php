@@ -64,6 +64,8 @@ class TestimonialResource extends Resource
                                 ->image()
                                 ->avatar()
                                 ->imageEditor()
+                                ->maxSize(10240)
+                                ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
                                 ->label('Client Avatar'),
 
                             Toggle::make('is_published')

@@ -10,6 +10,57 @@
     $seoTitle = $project->seo_title ?: $project->title;
     $seoDescription = $project->seo_description ?: ($project->summary ?: \Illuminate\Support\Str::limit(strip_tags($project->description ?? ''), 160));
     $ogImage = $coverUrl ?: asset('images/logo.svg');
+
+    $jsonLd = [
+        '@context' => 'https://schema.org',
+        '@graph' => [
+            [
+                '@type' => 'VisualArtwork',
+                'name' => $project->title,
+                'headline' => $seoTitle,
+                'description' => $seoDescription,
+                'image' => $ogImage,
+                'datePublished' => $project->published_at?->toIso8601String() ?? now()->toIso8601String(),
+                'dateModified' => $project->updated_at->toIso8601String(),
+                'artMedium' => implode(', ', $project->tools_used ?? ['Digital Graphic Design']),
+                'genre' => $project->category?->name ?? 'Graphic Design',
+                'creator' => [
+                    '@type' => 'Person',
+                    'name' => 'Entu Creative',
+                    'url' => url('/'),
+                ],
+            ],
+            [
+                '@type' => 'BreadcrumbList',
+                'itemListElement' => array_values(array_filter([
+                    [
+                        '@type' => 'ListItem',
+                        'position' => 1,
+                        'name' => 'Home',
+                        'item' => url('/'),
+                    ],
+                    [
+                        '@type' => 'ListItem',
+                        'position' => 2,
+                        'name' => 'Work',
+                        'item' => route('work.index'),
+                    ],
+                    $project->category ? [
+                        '@type' => 'ListItem',
+                        'position' => 3,
+                        'name' => $project->category->name,
+                        'item' => route('work.category', $project->category->slug),
+                    ] : null,
+                    [
+                        '@type' => 'ListItem',
+                        'position' => $project->category ? 4 : 3,
+                        'name' => $project->title,
+                        'item' => $project->url,
+                    ],
+                ])),
+            ],
+        ],
+    ];
 @endphp
 
 <x-app-layout
@@ -18,6 +69,7 @@
     :image="$ogImage"
     :ogType="'article'"
     :canonical="$project->url"
+    :jsonLd="$jsonLd"
 >
     <div
         x-data="projectDetail({
