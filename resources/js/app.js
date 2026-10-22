@@ -3,6 +3,42 @@ import Alpine from 'alpinejs';
 import intersect from '@alpinejs/intersect';
 
 Alpine.plugin(intersect);
+
+// Global Theme Store
+Alpine.store('theme', {
+    dark: localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches),
+
+    init() {
+        this.apply();
+    },
+
+    toggle() {
+        this.dark = !this.dark;
+        localStorage.setItem('theme', this.dark ? 'dark' : 'light');
+        this.apply();
+    },
+
+    apply() {
+        if (this.dark) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    }
+});
+
+window.toggleTheme = function() {
+    Alpine.store('theme').toggle();
+};
+
+// Listen to OS theme changes if user hasn't explicitly set a preference
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!('theme' in localStorage)) {
+        Alpine.store('theme').dark = e.matches;
+        Alpine.store('theme').apply();
+    }
+});
+
 window.Alpine = Alpine;
 Alpine.start();
 

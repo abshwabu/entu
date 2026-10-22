@@ -220,7 +220,7 @@ class ProjectSeeder extends Seeder
             ],
         ];
 
-        $tempDir = storage_path('app/temp_seed_images');
+        $tempDir = storage_path('app/temp_seed_images_' . uniqid('', true));
         File::ensureDirectoryExists($tempDir);
 
         foreach ($projectsData as $data) {

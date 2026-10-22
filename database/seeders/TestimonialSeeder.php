@@ -37,7 +37,7 @@ class TestimonialSeeder extends Seeder
             ],
         ];
 
-        $tempDir = storage_path('app/temp_seed_avatars');
+        $tempDir = storage_path('app/temp_seed_avatars_' . uniqid('', true));
         File::ensureDirectoryExists($tempDir);
 
         foreach ($testimonials as $data) {

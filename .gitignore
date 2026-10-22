@@ -18,6 +18,7 @@
 /public/storage
 /storage/*.key
 /storage/pail
+/storage/media-library
 /vendor
 /database/*.sqlite
 /database/*.sqlite-journal

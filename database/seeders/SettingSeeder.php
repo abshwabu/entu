@@ -33,7 +33,7 @@ class SettingSeeder extends Seeder
             ]
         );
 
-        $tempDir = storage_path('app/temp_seed_settings');
+        $tempDir = storage_path('app/temp_seed_settings_' . uniqid('', true));
         File::ensureDirectoryExists($tempDir);
 
         // Bio photo placeholder

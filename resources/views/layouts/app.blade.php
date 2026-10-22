@@ -2,20 +2,6 @@
 <html
     lang="{{ str_replace('_', '-', app()->getLocale()) }}"
     class="scroll-smooth"
-    x-data="{
-        darkMode: localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches),
-        toggleTheme() {
-            this.darkMode = !this.darkMode;
-            if (this.darkMode) {
-                document.documentElement.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                document.documentElement.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
-            }
-        }
-    }"
-    :class="{ 'dark': darkMode }"
 >
 <head>
     <meta charset="utf-8">

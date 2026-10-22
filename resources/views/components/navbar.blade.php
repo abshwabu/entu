@@ -71,16 +71,16 @@
                 <!-- Dark Mode Toggle Button -->
                 <button
                     type="button"
-                    @click="toggleTheme()"
+                    @click="$store.theme.toggle()"
                     class="p-2 rounded-full text-neutral-600 dark:text-neutral-300 hover:bg-neutral-200/60 dark:hover:bg-neutral-800 transition-colors focus-visible:outline-2 focus-visible:outline-amber-500"
                     aria-label="Toggle dark mode theme"
                 >
                     <!-- Sun icon (shown in dark mode) -->
-                    <svg x-show="darkMode" class="w-5 h-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    <svg x-show="$store.theme.dark" x-cloak class="w-5 h-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
                     </svg>
                     <!-- Moon icon (shown in light mode) -->
-                    <svg x-show="!darkMode" class="w-5 h-5 text-neutral-700" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    <svg x-show="!$store.theme.dark" x-cloak class="w-5 h-5 text-neutral-700 dark:text-neutral-300" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
                     </svg>
                 </button>
@@ -163,6 +163,23 @@
             </a>
 
             <div class="pt-6 border-t border-[#e7e7e2] dark:border-[#26262b] flex flex-col gap-4">
+                <button
+                    type="button"
+                    @click="$store.theme.toggle()"
+                    class="flex items-center justify-between w-full py-2.5 px-4 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-200 text-sm font-medium transition-colors"
+                >
+                    <span class="flex items-center gap-2">
+                        <svg x-show="$store.theme.dark" x-cloak class="w-4 h-4 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+                        </svg>
+                        <svg x-show="!$store.theme.dark" x-cloak class="w-4 h-4 text-neutral-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+                        </svg>
+                        <span x-text="$store.theme.dark ? 'Switch to Light Mode' : 'Switch to Dark Mode'">Switch Theme</span>
+                    </span>
+                    <span class="text-xs uppercase tracking-wider font-semibold text-neutral-400 dark:text-neutral-500" x-text="$store.theme.dark ? 'Dark' : 'Light'"></span>
+                </button>
+
                 <a
                     href="{{ url('/#contact') }}"
                     @click="mobileMenuOpen = false"
