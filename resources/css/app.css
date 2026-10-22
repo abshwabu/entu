@@ -8,6 +8,71 @@
 @source '../**/*.js';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --font-display: 'Syne', ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+    --color-canvas-light: #fbfbf9;
+    --color-canvas-dark: #0d0d0f;
+    --color-surface-light: #ffffff;
+    --color-surface-dark: #17171a;
+    --color-border-light: #e7e7e2;
+    --color-border-dark: #26262b;
+}
+
+@layer utilities {
+    .font-display {
+        font-family: var(--font-display);
+    }
+}
+
+/* Custom cursor styling (fine pointer only) */
+@media (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .custom-cursor-ring {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 36px;
+        height: 36px;
+        border: 1.5px solid rgba(217, 119, 6, 0.6);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+        transform: translate(-50%, -50%);
+        will-change: transform;
+    }
+
+    .custom-cursor-ring.cursor-hover {
+        width: 54px;
+        height: 54px;
+        border-color: rgba(217, 119, 6, 0.9);
+        background-color: rgba(217, 119, 6, 0.08);
+    }
+
+    .custom-cursor-dot {
+        position: fixed;
+        top: -3px;
+        left: -3px;
+        width: 6px;
+        height: 6px;
+        background-color: #d97706;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 10000;
+        will-change: transform;
+    }
+}
+
+/* Accessibility: Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    #custom-cursor, #custom-cursor-dot {
+        display: none !important;
+    }
 }
