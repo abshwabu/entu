@@ -41,14 +41,14 @@
                     Work
                 </a>
                 <a
-                    href="{{ url('/#services') }}"
-                    class="text-neutral-600 dark:text-neutral-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors focus-visible:outline-2 focus-visible:outline-amber-500 rounded-sm"
+                    href="{{ route('services') }}"
+                    class="text-neutral-600 dark:text-neutral-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors {{ request()->routeIs('services') ? 'text-amber-600 dark:text-amber-400 font-semibold' : '' }} focus-visible:outline-2 focus-visible:outline-amber-500 rounded-sm"
                 >
                     Services
                 </a>
                 <a
-                    href="{{ url('/#about') }}"
-                    class="text-neutral-600 dark:text-neutral-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors focus-visible:outline-2 focus-visible:outline-amber-500 rounded-sm"
+                    href="{{ route('about') }}"
+                    class="text-neutral-600 dark:text-neutral-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors {{ request()->routeIs('about') ? 'text-amber-600 dark:text-amber-400 font-semibold' : '' }} focus-visible:outline-2 focus-visible:outline-amber-500 rounded-sm"
                 >
                     About
                 </a>
@@ -59,8 +59,8 @@
                     Testimonials
                 </a>
                 <a
-                    href="{{ url('/#contact') }}"
-                    class="text-neutral-600 dark:text-neutral-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors focus-visible:outline-2 focus-visible:outline-amber-500 rounded-sm"
+                    href="{{ route('contact') }}"
+                    class="text-neutral-600 dark:text-neutral-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors {{ request()->routeIs('contact') ? 'text-amber-600 dark:text-amber-400 font-semibold' : '' }} focus-visible:outline-2 focus-visible:outline-amber-500 rounded-sm"
                 >
                     Contact
                 </a>
@@ -87,7 +87,7 @@
 
                 <!-- Desktop Contact CTA -->
                 <a
-                    href="{{ url('/#contact') }}"
+                    href="{{ route('contact') }}"
                     class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-sm font-semibold rounded-full bg-neutral-900 text-white hover:bg-amber-600 dark:bg-white dark:text-neutral-900 dark:hover:bg-amber-400 dark:hover:text-neutral-950 transition-all duration-200 shadow-xs focus-visible:outline-2 focus-visible:outline-amber-500"
                 >
                     Get in Touch
@@ -134,16 +134,16 @@
                 Portfolio & Work
             </a>
             <a
-                href="{{ url('/#services') }}"
+                href="{{ route('services') }}"
                 @click="mobileMenuOpen = false"
-                class="text-neutral-900 dark:text-white hover:text-amber-600 transition-colors"
+                class="text-neutral-900 dark:text-white hover:text-amber-600 transition-colors {{ request()->routeIs('services') ? 'text-amber-600 dark:text-amber-400 font-bold' : '' }}"
             >
                 Services
             </a>
             <a
-                href="{{ url('/#about') }}"
+                href="{{ route('about') }}"
                 @click="mobileMenuOpen = false"
-                class="text-neutral-900 dark:text-white hover:text-amber-600 transition-colors"
+                class="text-neutral-900 dark:text-white hover:text-amber-600 transition-colors {{ request()->routeIs('about') ? 'text-amber-600 dark:text-amber-400 font-bold' : '' }}"
             >
                 About Entu
             </a>
@@ -155,9 +155,9 @@
                 Client Testimonials
             </a>
             <a
-                href="{{ url('/#contact') }}"
+                href="{{ route('contact') }}"
                 @click="mobileMenuOpen = false"
-                class="text-neutral-900 dark:text-white hover:text-amber-600 transition-colors"
+                class="text-neutral-900 dark:text-white hover:text-amber-600 transition-colors {{ request()->routeIs('contact') ? 'text-amber-600 dark:text-amber-400 font-bold' : '' }}"
             >
                 Contact & Inquiries
             </a>
