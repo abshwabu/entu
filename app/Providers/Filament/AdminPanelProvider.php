@@ -27,6 +27,10 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->brandName('Entu Creative')
+            ->brandLogo(fn () => view('filament.brand'))
+            ->brandLogoHeight('2.25rem')
+            ->favicon('/images/favicon.svg')
             ->colors([
                 'primary' => Color::Amber,
             ])
