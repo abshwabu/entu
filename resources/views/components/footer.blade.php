@@ -95,7 +95,21 @@
 
         <!-- Footer Bottom Bar -->
         <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500 dark:text-neutral-400">
-            <p>{!! $footerText !!}</p>
+            <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
+                <p>{!! $footerText !!}</p>
+                <span class="hidden sm:inline opacity-30" aria-hidden="true">•</span>
+                <p>
+                    Developed by
+                    <a
+                        href="https://abshewabu.dev"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="font-medium text-ink dark:text-paper hover:text-teal-700 dark:hover:text-mint-400 underline underline-offset-2 decoration-mint-500/50 hover:decoration-mint-500 transition-colors"
+                    >
+                        abshewabu.dev
+                    </a>
+                </p>
+            </div>
 
             <div class="flex items-center gap-6">
                 <a href="{{ url('/admin') }}" class="hover:text-ink dark:hover:text-paper transition-colors">
