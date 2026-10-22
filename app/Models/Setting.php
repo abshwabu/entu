@@ -35,10 +35,12 @@ class Setting extends Model implements HasMedia
     {
         static::saved(function () {
             Cache::forget('app_settings');
+            Cache::forget('home_page_data');
         });
 
         static::deleted(function () {
             Cache::forget('app_settings');
+            Cache::forget('home_page_data');
         });
     }
 

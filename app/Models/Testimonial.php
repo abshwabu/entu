@@ -28,6 +28,17 @@ class Testimonial extends Model implements HasMedia
         ];
     }
 
+    protected static function booted(): void
+    {
+        static::saved(function () {
+            \Illuminate\Support\Facades\Cache::forget('home_page_data');
+        });
+
+        static::deleted(function () {
+            \Illuminate\Support\Facades\Cache::forget('home_page_data');
+        });
+    }
+
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('avatar')
