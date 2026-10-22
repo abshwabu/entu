@@ -19,6 +19,9 @@
         $metaDescription = $description ?? $siteTagline;
         $canonicalUrl = $canonical ?? url()->current();
         $ogImage = $image ?? asset('images/og-image.png');
+        if (! \Illuminate\Support\Str::startsWith($ogImage, ['http://', 'https://'])) {
+            $ogImage = url($ogImage);
+        }
 
         $defaultPersonSchema = [
             '@context' => 'https://schema.org',
