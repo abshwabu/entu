@@ -13,14 +13,14 @@
 @endphp
 
 <div
-    {{ $attributes->merge(['class' => 'relative flex flex-col justify-between p-8 sm:p-10 rounded-3xl bg-paper-raised dark:bg-ink-soft border border-black/10 dark:border-white/10 transition-all duration-300 hover:border-brand-400/40 hover:shadow-lg']) }}
+    {{ $attributes->merge(['class' => 'relative flex flex-col justify-between p-8 sm:p-10 rounded-3xl bg-paper-raised dark:bg-panel-soft border border-black/10 dark:border-white/10 transition-all duration-300 hover:border-mint-500/40 hover:shadow-lg']) }}
     x-data="{ shown: false }"
     x-intersect.margin.-80px="shown = true"
     :class="{ 'opacity-100 translate-y-0': shown, 'opacity-0 translate-y-8': !shown }"
     class="transition-all duration-700 ease-out"
 >
     <!-- Quotation Graphic -->
-    <div class="mb-6 text-brand-800/30 dark:text-brand-400/30" aria-hidden="true">
+    <div class="mb-6 text-teal-700/30 dark:text-mint-400/30" aria-hidden="true">
         <svg class="w-10 h-10 fill-current" viewBox="0 0 24 24">
             <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
         </svg>
@@ -38,10 +38,10 @@
                 src="{{ $avatarUrl }}"
                 alt="{{ $testimonial->author_name }}"
                 loading="lazy"
-                class="w-12 h-12 rounded-full object-cover ring-2 ring-brand-400/30"
+                class="w-12 h-12 rounded-full object-cover ring-2 ring-mint-500/30"
             />
         @else
-            <div class="w-12 h-12 rounded-full bg-brand-400/20 text-brand-800 dark:text-brand-400 font-display font-bold flex items-center justify-center text-sm ring-2 ring-brand-400/20">
+            <div class="w-12 h-12 rounded-full bg-mint-500/15 text-ink dark:text-mint-400 font-display font-bold flex items-center justify-center text-sm ring-2 ring-mint-500/20">
                 {{ $initials }}
             </div>
         @endif

@@ -6,10 +6,10 @@
                 <!-- Left: Headline & Actions -->
                 <div class="lg:col-span-7 space-y-8 z-10">
                     <!-- Status Badge -->
-                    <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-brand-400/15 border border-brand-400/25 text-xs font-semibold text-brand-800 dark:text-brand-400">
+                    <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-mint-500/15 border border-mint-500/30 text-xs font-semibold text-ink dark:text-mint-400">
                         <span class="relative flex h-2 w-2">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-800 dark:bg-brand-400"></span>
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-mint-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-mint-600 dark:bg-mint-400"></span>
                         </span>
                         <span>Available for Select Projects 2026</span>
                     </div>
@@ -75,7 +75,7 @@
                 >
                     <div class="relative mx-auto w-full max-w-md lg:max-w-none h-[420px] sm:h-[480px]">
                         <!-- Decorative ambient glow -->
-                        <div class="absolute -inset-4 bg-brand-aurora-subtle rounded-3xl blur-2xl -z-10" aria-hidden="true"></div>
+                        <div class="absolute -inset-4 bg-silk-subtle rounded-3xl blur-2xl -z-10" aria-hidden="true"></div>
 
                         @foreach($heroProjects as $idx => $hp)
                             @php
@@ -91,7 +91,7 @@
                                 x-transition:leave="transition ease-in duration-500"
                                 x-transition:leave-start="opacity-100 scale-100 translate-y-0"
                                 x-transition:leave-end="opacity-0 scale-95 -translate-y-4"
-                                class="absolute inset-0 rounded-3xl overflow-hidden bg-neutral-900 shadow-2xl border border-white/20 dark:border-white/10 group cursor-pointer"
+                                class="absolute inset-0 rounded-3xl overflow-hidden bg-panel-deep shadow-2xl border border-white/20 dark:border-white/10 group cursor-pointer"
                                 style="display: {{ $idx === 0 ? 'block' : 'none' }};"
                             >
                                 @if($hpCoverUrl)
@@ -102,15 +102,15 @@
                                         loading="{{ $idx === 0 ? 'eager' : 'lazy' }}"
                                     />
                                 @else
-                                    <div class="w-full h-full bg-neutral-800 flex items-center justify-center text-white">
-                                        <span class="font-display font-bold text-xl">{{ $hp->title }}</span>
+                                    <div class="w-full h-full bg-panel-soft flex items-center justify-center text-mint-400 font-display font-bold text-xl">
+                                        {{ $hp->title }}
                                     </div>
                                 @endif
 
                                 <!-- Project Overlay Pill -->
-                                <div class="absolute inset-x-4 bottom-4 p-4 rounded-2xl bg-black/65 backdrop-blur-md border border-white/10 text-white flex items-center justify-between">
+                                <div class="absolute inset-x-4 bottom-4 p-4 rounded-2xl bg-panel-deep/85 backdrop-blur-md border border-white/10 text-white flex items-center justify-between">
                                     <div class="space-y-0.5 max-w-[70%]">
-                                        <span class="text-[10px] uppercase font-bold tracking-widest text-brand-400">
+                                        <span class="text-[10px] uppercase font-bold tracking-widest text-mint-400">
                                             {{ $hp->category?->name ?? 'Featured Project' }}
                                         </span>
                                         <h3 class="font-display font-bold text-sm sm:text-base truncate">
@@ -120,7 +120,7 @@
 
                                     <a
                                         href="#work"
-                                        class="p-2 rounded-full bg-white/20 text-white hover:bg-brand-400 hover:text-ink transition-colors"
+                                        class="p-2 rounded-full bg-white/20 text-white hover:bg-mint-500 hover:text-panel-deep transition-colors"
                                         aria-label="View {{ $hp->title }}"
                                     >
                                         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
@@ -139,8 +139,8 @@
                                 <button
                                     type="button"
                                     @click="activeSlide = {{ $idx }}"
-                                    class="h-1.5 transition-all duration-300 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
-                                    :class="activeSlide === {{ $idx }} ? 'w-8 bg-brand-400' : 'w-2 bg-neutral-300 dark:bg-neutral-700 hover:bg-neutral-400'"
+                                    class="h-1.5 transition-all duration-300 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-mint-500"
+                                    :class="activeSlide === {{ $idx }} ? 'w-8 bg-mint-500' : 'w-2 bg-neutral-300 dark:bg-panel-soft hover:bg-neutral-400'"
                                     aria-label="Switch to featured project slide {{ $idx + 1 }}"
                                 ></button>
                             @endforeach
@@ -152,7 +152,7 @@
     </section>
 
     <!-- 2. SELECTED WORK (Asymmetric Masonry Grid) -->
-    <section id="work" class="py-24 bg-paper-raised dark:bg-ink border-y border-black/10 dark:border-white/10 transition-colors duration-300">
+    <section id="work" class="py-24 bg-paper-raised dark:bg-panel border-y border-black/10 dark:border-white/10 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-6">
                 <x-section-heading
@@ -165,7 +165,7 @@
                 <div class="shrink-0">
                     <a
                         href="{{ route('work.index') }}"
-                        class="inline-flex items-center gap-2 text-sm font-semibold text-brand-800 dark:text-brand-400 hover:text-brand-900 dark:hover:text-brand-300 group focus-visible:outline-2 focus-visible:outline-brand-400 rounded-sm"
+                        class="inline-flex items-center gap-2 text-sm font-semibold text-ink dark:text-mint-400 hover:text-panel dark:hover:text-mint-300 group focus-visible:outline-2 focus-visible:outline-mint-500 rounded-sm"
                     >
                         <span>View all work</span>
                         <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
@@ -231,7 +231,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 @foreach($services as $index => $service)
                     <div
-                        class="p-8 sm:p-10 rounded-3xl bg-paper-raised dark:bg-ink-soft border border-black/10 dark:border-white/10 flex flex-col justify-between space-y-6 hover:border-brand-400/50 hover:shadow-lg transition-all duration-300"
+                        class="p-8 sm:p-10 rounded-3xl bg-paper-raised dark:bg-panel-soft border border-black/10 dark:border-white/10 flex flex-col justify-between space-y-6 hover:border-mint-500/50 hover:shadow-lg transition-all duration-300"
                         x-data="{ shown: false }"
                         x-intersect.margin.-80px="shown = true"
                         :class="{ 'opacity-100 translate-y-0': shown, 'opacity-0 translate-y-8': !shown }"
@@ -239,7 +239,7 @@
                     >
                         <div class="space-y-5">
                             <div class="flex items-center justify-between">
-                                <span class="w-12 h-12 rounded-2xl bg-brand-400/15 text-brand-800 dark:text-brand-400 flex items-center justify-center font-display font-bold text-lg border border-brand-400/25">
+                                <span class="w-12 h-12 rounded-2xl bg-mint-500/15 text-ink dark:text-mint-400 flex items-center justify-center font-display font-bold text-lg border border-mint-500/25">
                                     0{{ $index + 1 }}
                                 </span>
 
@@ -262,7 +262,7 @@
                         <div class="pt-4 border-t border-black/10 dark:border-white/10">
                             <a
                                 href="#contact"
-                                class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-brand-800 dark:text-brand-400 hover:text-brand-900 dark:hover:text-brand-300 group focus:outline-none"
+                                class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ink dark:text-mint-400 hover:text-panel dark:hover:text-mint-300 group focus:outline-none"
                             >
                                 <span>Inquire about this</span>
                                 <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
@@ -277,7 +277,7 @@
     </section>
 
     <!-- 4. ABOUT TEASER -->
-    <section id="about" class="py-24 bg-paper dark:bg-ink border-y border-black/10 dark:border-white/10 transition-colors duration-300">
+    <section id="about" class="py-24 bg-paper dark:bg-panel border-y border-black/10 dark:border-white/10 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
                 <!-- Bio Photo -->
@@ -287,22 +287,22 @@
                         $bioUrl = $bioPhoto ? $bioPhoto->getUrl() : null;
                     @endphp
 
-                    <div class="relative mx-auto max-w-md rounded-3xl overflow-hidden aspect-[4/5] bg-neutral-200 dark:bg-ink-raised shadow-2xl border-4 border-paper-raised dark:border-white/10">
+                    <div class="relative mx-auto max-w-md rounded-3xl overflow-hidden aspect-[4/5] bg-neutral-200 dark:bg-panel-deep shadow-2xl border-4 border-paper-raised dark:border-white/10">
                         @if($bioUrl)
                             <img src="{{ $bioUrl }}" alt="Entu Creative portrait" class="w-full h-full object-cover" loading="lazy" />
                         @else
-                            <div class="w-full h-full flex flex-col items-center justify-center p-8 bg-gradient-to-br from-ink-soft to-ink text-paper text-center">
-                                <span class="font-display font-extrabold text-4xl mb-2 text-brand-400">ENTU</span>
+                            <div class="w-full h-full flex flex-col items-center justify-center p-8 bg-gradient-to-br from-panel-deep to-panel text-paper text-center">
+                                <span class="font-display font-extrabold text-4xl mb-2 text-mint-400">ENTU</span>
                                 <span class="text-xs uppercase tracking-widest text-neutral-400">Graphic Designer & Art Director</span>
                             </div>
                         @endif
 
-                        <div class="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-black/60 backdrop-blur-md border border-white/10 text-white text-xs flex justify-between items-center">
+                        <div class="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-panel-deep/80 backdrop-blur-md border border-white/10 text-white text-xs flex justify-between items-center">
                             <div>
                                 <p class="font-bold text-sm">Entu</p>
                                 <p class="text-neutral-300">{{ setting('location', 'Addis Ababa, Ethiopia') }}</p>
                             </div>
-                            <span class="px-2.5 py-1 rounded-full bg-brand-400 text-ink font-semibold text-[10px] uppercase tracking-wider">
+                            <span class="px-2.5 py-1 rounded-full bg-mint-500 text-panel-deep font-bold text-[10px] uppercase tracking-wider">
                                 Independent
                             </span>
                         </div>
@@ -381,7 +381,7 @@
                     @keydown.left="prev()"
                     tabindex="0"
                     aria-label="Client Testimonials Slider"
-                    class="focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 rounded-3xl"
+                    class="focus:outline-none focus-visible:ring-2 focus-visible:ring-mint-500 rounded-3xl"
                 >
                     <!-- Slider Viewport -->
                     <div class="relative min-h-[320px] sm:min-h-[280px]">
@@ -409,7 +409,7 @@
                             <button
                                 type="button"
                                 @click="prev()"
-                                class="p-3 rounded-full border border-black/10 dark:border-white/10 text-neutral-700 dark:text-neutral-200 hover:bg-black/5 dark:hover:bg-white/10 transition-colors focus-visible:outline-2 focus-visible:outline-brand-400"
+                                class="p-3 rounded-full border border-black/10 dark:border-white/10 text-neutral-700 dark:text-neutral-200 hover:bg-black/5 dark:hover:bg-white/10 transition-colors focus-visible:outline-2 focus-visible:outline-mint-500"
                                 aria-label="Previous testimonial"
                             >
                                 <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
@@ -423,8 +423,8 @@
                                     <button
                                         type="button"
                                         @click="current = {{ $index }}"
-                                        class="h-2 rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
-                                        :class="current === {{ $index }} ? 'w-8 bg-brand-400' : 'w-2 bg-neutral-300 dark:bg-neutral-700 hover:bg-neutral-400'"
+                                        class="h-2 rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-mint-500"
+                                        :class="current === {{ $index }} ? 'w-8 bg-mint-500' : 'w-2 bg-neutral-300 dark:bg-panel-soft hover:bg-neutral-400'"
                                         aria-label="Navigate to testimonial {{ $index + 1 }}"
                                     ></button>
                                 @endforeach
@@ -434,7 +434,7 @@
                             <button
                                 type="button"
                                 @click="next()"
-                                class="p-3 rounded-full border border-black/10 dark:border-white/10 text-neutral-700 dark:text-neutral-200 hover:bg-black/5 dark:hover:bg-white/10 transition-colors focus-visible:outline-2 focus-visible:outline-brand-400"
+                                class="p-3 rounded-full border border-black/10 dark:border-white/10 text-neutral-700 dark:text-neutral-200 hover:bg-black/5 dark:hover:bg-white/10 transition-colors focus-visible:outline-2 focus-visible:outline-mint-500"
                                 aria-label="Next testimonial"
                             >
                                 <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
@@ -449,18 +449,18 @@
     </section>
 
     <!-- 6. CTA BAND -->
-    <section id="contact" class="py-24 bg-brand-aurora text-white border-t border-white/10 transition-colors duration-300 relative overflow-hidden">
+    <section id="contact" class="py-24 bg-silk text-white border-t border-white/10 transition-colors duration-300 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="max-w-3xl mx-auto text-center space-y-8">
-                <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-400/20 border border-brand-400/30 text-xs font-semibold uppercase tracking-wider text-brand-400">
+            <div class="max-w-4xl mx-auto rounded-3xl sm:rounded-[40px] bg-panel/85 backdrop-blur-md border border-silk-aqua/25 p-10 sm:p-16 text-center space-y-8 shadow-2xl">
+                <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-mint-500/20 border border-mint-500/30 text-xs font-semibold uppercase tracking-wider text-mint-400">
                     Let’s Connect
                 </span>
 
-                <h2 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
+                <h2 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-white">
                     Let’s create something together.
                 </h2>
 
-                <p class="text-base sm:text-lg text-neutral-300 font-normal max-w-xl mx-auto leading-relaxed">
+                <p class="text-base sm:text-lg text-neutral-200 font-normal max-w-xl mx-auto leading-relaxed">
                     Have an upcoming brand launch, packaging redesign, or art direction project? Let’s make it unforgettable.
                 </p>
 

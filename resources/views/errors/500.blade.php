@@ -19,14 +19,14 @@
             <div class="pt-4 flex flex-wrap items-center justify-center gap-4">
                 <a
                     href="{{ route('home') }}"
-                    class="px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-400 text-ink hover:bg-brand-500 transition-all duration-200 shadow-md"
+                    class="px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider bg-mint-500 text-panel-deep hover:bg-mint-400 transition-all duration-200 shadow-md"
                 >
                     &larr; Return to Safety
                 </a>
 
                 <a
                     href="{{ route('contact') }}"
-                    class="px-8 py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-all duration-200 border border-[#e5e5df] dark:border-[#2a2a30]"
+                    class="px-8 py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-neutral-100 dark:bg-panel-soft text-neutral-800 dark:text-neutral-200 hover:bg-neutral-200 dark:hover:bg-panel-raised transition-all duration-200 border border-[#e5e5df] dark:border-panel-soft"
                 >
                     Report Issue
                 </a>

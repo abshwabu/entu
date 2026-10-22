@@ -24,7 +24,7 @@
         </p>
         <a
             href="{{ route('work.index') }}"
-            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-brand-400 text-ink hover:bg-brand-500 transition-colors shadow-sm"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-mint-500 text-panel-deep hover:bg-mint-400 transition-colors shadow-sm"
         >
             View All Work
         </a>

@@ -158,8 +158,9 @@ def generate_variants():
     
     # Draw smaller geometric "e" in center of icon
     draw = ImageDraw.Draw(icon)
+    font_path = "/usr/share/fonts/noto/NotoSans-Bold.ttf"
     try:
-        font_e = ImageFont.truetype("/usr/share/fonts/liberation/LiberationSans-Bold.ttf", 240)
+        font_e = ImageFont.truetype(font_path, 240)
     except:
         font_e = ImageFont.load_default()
     bbox_e = draw.textbbox((0, 0), "e", font=font_e)
@@ -171,24 +172,36 @@ def generate_variants():
     # 4. Mono Black (transparent bg)
     mono_black = Image.new("RGBA", (512, 512), (0, 0, 0, 0))
     draw_mb = ImageDraw.Draw(mono_black)
-    draw_mb.ellipse((16, 16, 496, 496), fill=(10, 10, 10, 255))
-    draw_mb.text(((512 - w_e)/2, (512 - h_e)/2 - 25), "e", fill=(246, 248, 242, 255), font=font_e)
+    draw_mb.ellipse((16, 16, 496, 496), fill=(15, 34, 41, 255))
+    draw_mb.text(((512 - w_e)/2, (512 - h_e)/2 - 25), "e", fill=(244, 248, 247, 255), font=font_e)
     mono_black.save("public/brand/logo-mono-black.png", "PNG", optimize=True)
     
     # 5. Mono White (transparent bg)
     mono_white = Image.new("RGBA", (512, 512), (0, 0, 0, 0))
     draw_mw = ImageDraw.Draw(mono_white)
-    draw_mw.ellipse((16, 16, 496, 496), fill=(246, 248, 242, 255))
-    draw_mw.text(((512 - w_e)/2, (512 - h_e)/2 - 25), "e", fill=(10, 10, 10, 255), font=font_e)
+    draw_mw.ellipse((16, 16, 496, 496), fill=(244, 248, 247, 255))
+    draw_mw.text(((512 - w_e)/2, (512 - h_e)/2 - 25), "e", fill=(15, 34, 41, 255), font=font_e)
     mono_white.save("public/brand/logo-mono-white.png", "PNG", optimize=True)
     
-    # 6. Favicon set
-    fav_16 = icon.resize((16, 16), Image.Resampling.LANCZOS)
-    fav_32 = icon.resize((32, 32), Image.Resampling.LANCZOS)
-    fav_48 = icon.resize((48, 48), Image.Resampling.LANCZOS)
-    fav_180 = icon.resize((180, 180), Image.Resampling.LANCZOS)
-    fav_192 = icon.resize((192, 192), Image.Resampling.LANCZOS)
-    fav_512 = icon.resize((512, 512), Image.Resampling.LANCZOS)
+    # 6. Favicon set: Teal Panel & Mint 'e'
+    fav_master = Image.new("RGBA", (512, 512), (23, 51, 63, 255)) # Panel deep #17333F
+    draw_fav = ImageDraw.Draw(fav_master)
+    draw_fav.rounded_rectangle([24, 24, 488, 488], radius=96, fill=(31, 68, 82, 255), outline=(46, 230, 200, 120), width=8)
+    try:
+        font_fav_e = ImageFont.truetype(font_path, 280)
+    except:
+        font_fav_e = ImageFont.load_default()
+    bbox_fe = draw_fav.textbbox((0, 0), "e", font=font_fav_e)
+    w_fe = bbox_fe[2] - bbox_fe[0]
+    h_fe = bbox_fe[3] - bbox_fe[1]
+    draw_fav.text(((512 - w_fe)/2, (512 - h_fe)/2 - 30), "e", fill=(45, 245, 176, 255), font=font_fav_e)
+    
+    fav_16 = fav_master.resize((16, 16), Image.Resampling.LANCZOS)
+    fav_32 = fav_master.resize((32, 32), Image.Resampling.LANCZOS)
+    fav_48 = fav_master.resize((48, 48), Image.Resampling.LANCZOS)
+    fav_180 = fav_master.resize((180, 180), Image.Resampling.LANCZOS)
+    fav_192 = fav_master.resize((192, 192), Image.Resampling.LANCZOS)
+    fav_512 = fav_master.resize((512, 512), Image.Resampling.LANCZOS)
     
     fav_16.save("public/favicon-16x16.png", "PNG")
     fav_32.save("public/favicon-32x32.png", "PNG")
@@ -198,46 +211,67 @@ def generate_variants():
     fav_512.save("public/android-chrome-512x512.png", "PNG")
     fav_48.save("public/favicon.ico", format="ICO", sizes=[(16, 16), (32, 32), (48, 48)])
     
-    # 7. Generate OG Image (1200x630)
-    og = Image.new("RGBA", (1200, 630), (10, 10, 10, 255))
+    # 7. Generate OG Image (1200x630) with Silk Backdrop and Translucent Panel Card
+    # Silk base texture
+    og_w, og_h = 1200, 630
+    c_aqua = np.array([46, 230, 200], dtype=np.float32)
+    c_teal = np.array([14, 140, 138], dtype=np.float32)
+    c_deep = np.array([23, 51, 63], dtype=np.float32)
     
-    # Draw soft aurora gradient on the right/center
-    y_grid, x_grid = np.ogrid[:630, :1200]
-    aurora_center_x, aurora_center_y = 900, 315
-    dx_og = x_grid - aurora_center_x
-    dy_og = (y_grid - aurora_center_y) * 1.5
-    dist_og = np.sqrt(dx_og*dx_og + dy_og*dy_og)
-    aurora_alpha = np.clip((500 - dist_og) / 500, 0, 1) ** 1.8
+    y, x = np.mgrid[0:og_h, 0:og_w].astype(np.float32)
+    angle = math.radians(35)
+    u = x * math.cos(angle) + y * math.sin(angle)
+    v = -x * math.sin(angle) + y * math.cos(angle)
     
-    # Aurora green color
-    c_aurora = np.array([126, 211, 33], dtype=float)
-    og_arr = np.array(og)
-    og_arr[..., 0] = np.clip(10 + aurora_alpha * 80, 0, 255).astype(np.uint8)
-    og_arr[..., 1] = np.clip(10 + aurora_alpha * 180, 0, 255).astype(np.uint8)
-    og_arr[..., 2] = np.clip(10 + aurora_alpha * 20, 0, 255).astype(np.uint8)
-    og = Image.fromarray(og_arr, "RGBA")
+    wave = np.sin(u * 0.008 + np.cos(v * 0.006) * 1.5) * 0.5 + 0.5
+    silk_og = np.zeros((og_h, og_w, 3), dtype=np.float32)
+    for i in range(3):
+        silk_og[..., i] = (1.0 - wave) * c_deep[i] + wave * 0.6 * c_teal[i] + wave * 0.4 * c_aqua[i]
     
-    # Paste logo icon on OG image
-    logo_for_og = icon.resize((320, 320), Image.Resampling.LANCZOS)
-    og.paste(logo_for_og, (780, 155), logo_for_og)
+    og_base = Image.fromarray(np.clip(silk_og, 0, 255).astype(np.uint8), "RGB")
     
-    # Typography on OG image
+    # Translucent slate-teal panel card on top
+    panel_overlay = Image.new("RGBA", (og_w, og_h), (0, 0, 0, 0))
+    p_draw = ImageDraw.Draw(panel_overlay)
+    
+    # Panel rect
+    p_x1, p_y1, p_x2, p_y2 = 60, 60, 1140, 570
+    p_draw.rounded_rectangle(
+        [p_x1, p_y1, p_x2, p_y2],
+        radius=40,
+        fill=(31, 68, 82, 218), # Panel #1F4452 at 85% opacity
+        outline=(46, 230, 200, 75), # Silk aqua highlight border
+        width=2
+    )
+    
+    # Composite panel onto silk
+    og = Image.alpha_composite(og_base.convert("RGBA"), panel_overlay)
+    
+    # Paste logo on right side with dark badge container for high contrast
+    logo_bg = Image.new("RGBA", (280, 280), (23, 51, 63, 230))
+    logo_bg_draw = ImageDraw.Draw(logo_bg)
+    logo_bg_draw.rounded_rectangle([0, 0, 280, 280], radius=32, outline=(46, 230, 200, 80), width=2)
+    logo_resized = icon.resize((240, 240), Image.Resampling.LANCZOS)
+    logo_bg.paste(logo_resized, (20, 20), logo_resized)
+    og.paste(logo_bg, (810, 175), logo_bg)
+    
+    # Typography on panel card
     draw_og = ImageDraw.Draw(og)
     try:
-        font_og_title = ImageFont.truetype("/usr/share/fonts/liberation/LiberationSans-Bold.ttf", 64)
-        font_og_sub = ImageFont.truetype("/usr/share/fonts/liberation/LiberationSans-Bold.ttf", 26)
-        font_og_tag = ImageFont.truetype("/usr/share/fonts/liberation/LiberationSans-Bold.ttf", 20)
+        font_og_title = ImageFont.truetype(font_path, 60)
+        font_og_sub = ImageFont.truetype(font_path, 24)
+        font_og_tag = ImageFont.truetype(font_path, 18)
     except:
         font_og_title = font_og_sub = font_og_tag = ImageFont.load_default()
         
-    draw_og.text((90, 160), "ENTU CREATIVE", fill=(166, 240, 0, 255), font=font_og_tag)
-    draw_og.text((90, 220), "Graphic Designer\n& Art Director", fill=(246, 248, 242, 255), font=font_og_title, spacing=12)
-    draw_og.text((90, 420), "Brand Identity • Packaging • Editorial", fill=(142, 148, 132, 255), font=font_og_sub)
+    draw_og.text((120, 140), "E N T U   C R E A T I V E", fill=(45, 245, 176, 255), font=font_og_tag)
+    draw_og.text((120, 200), "Graphic Designer\n& Art Director", fill=(244, 248, 247, 255), font=font_og_title, spacing=14)
+    draw_og.text((120, 420), "Brand Identity • Packaging Design • Visual Systems", fill=(166, 194, 201, 255), font=font_og_sub)
     
     os.makedirs("public/images", exist_ok=True)
     og.convert("RGB").save("public/images/og-image.png", "PNG", optimize=True)
     og.convert("RGB").save("public/brand/og-image.png", "PNG", optimize=True)
-    print("Generated all logo and favicon variants successfully!")
+    print("Generated all logo, favicon, and OG assets successfully!")
 
 if __name__ == "__main__":
     generate_variants()

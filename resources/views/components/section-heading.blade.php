@@ -20,8 +20,8 @@
     class="transition-all duration-700 ease-out"
 >
     @if($tag)
-        <span class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-brand-800 dark:text-brand-400 mb-3 px-3 py-1 rounded-full bg-brand-400/15 border border-brand-400/25">
-            <span class="w-1.5 h-1.5 rounded-full bg-brand-800 dark:bg-brand-400"></span>
+        <span class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-ink dark:text-mint-400 mb-3 px-3 py-1 rounded-full bg-mint-500/15 border border-mint-500/30">
+            <span class="w-1.5 h-1.5 rounded-full bg-mint-600 dark:bg-mint-400"></span>
             {{ $tag }}
         </span>
     @endif

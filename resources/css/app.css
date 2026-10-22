@@ -13,52 +13,75 @@
     --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
     --font-display: 'Montserrat', 'Syne', ui-sans-serif, system-ui, -apple-system, sans-serif;
 
-    /* Brand Scale: Lime to Deep Emerald */
-    --color-brand-50: #F5FDE6;
-    --color-brand-100: #E9FBC7;
-    --color-brand-200: #D4F792;
-    --color-brand-300: #BCF250;
-    --color-brand-400: #A6F000; /* Bright Electric Lime */
-    --color-brand-500: #7ED321; /* Core Lime */
-    --color-brand-600: #64BC0A;
-    --color-brand-700: #4FA800; /* Mid Green */
-    --color-brand-800: #2A6B00; /* Deep Green */
-    --color-brand-900: #1E4D00;
-    --color-brand-950: #0F2900;
+    /* Mint Scale (Lettering from reference is #2DF5B0 = mint-500) */
+    --color-mint-50: #EAFAF4;
+    --color-mint-100: #D2F6E8;
+    --color-mint-200: #A6F0D3;
+    --color-mint-300: #74E8BC;
+    --color-mint-400: #48F8B6;
+    --color-mint-500: #2DF5B0; /* Sampled mint lettering */
+    --color-mint-600: #17D997;
+    --color-mint-700: #0EB57C;
+    --color-mint-800: #0A8B60;
+    --color-mint-900: #076647;
+    --color-mint-950: #033B29;
 
-    /* Semantic Neutral Base Tokens */
-    --color-ink: #0A0A0A;
-    --color-ink-soft: #141414;
-    --color-ink-raised: #1C1C1C;
-    --color-paper: #F6F8F2;
+    /* Panel Scale: Slate-teal surfaces */
+    --color-panel-50: #F0F6F8;
+    --color-panel-100: #DCE8EC;
+    --color-panel-200: #B9D1D9;
+    --color-panel-300: #8CB3C0;
+    --color-panel-400: #5F92A3;
+    --color-panel-500: #3D7183;
+    --color-panel-600: #2C5868;
+    --color-panel-700: #244B5A;
+    --color-panel-800: #1F4452; /* Sampled Panel (dark mode canvas) */
+    --color-panel-900: #17333F; /* Sampled Panel-deep (footer, lightbox, dark cards) */
+    --color-panel-950: #0F2229; /* Deepest teal-black */
+
+    /* Panel semantic aliases */
+    --color-panel: #1F4452;
+    --color-panel-deep: #17333F;
+    --color-panel-soft: #254F5E;
+    --color-panel-raised: #2C5A6B;
+
+    /* Silk accents */
+    --color-silk-aqua: #2EE6C8; /* Silk aqua highlight */
+    --color-silk-teal: #0E8C8A; /* Silk teal midtone */
+
+    /* Semantic Light & Dark Neutrals */
+    --color-paper: #F4F8F7; /* Faint teal-tinted white */
     --color-paper-raised: #FFFFFF;
+    --color-ink: #0F2229; /* Deep teal-black text */
+    --color-ink-soft: #17333F;
+    --color-ink-raised: #1F4452;
 }
 
 :root {
-    --canvas: #F6F8F2;
+    --canvas: #F4F8F7;
     --surface: #FFFFFF;
     --surface-raised: #FFFFFF;
-    --line: rgba(10, 10, 10, 0.10);
-    --text-primary: #0A0A0A;
-    --text-muted: #52525B;
-    --accent: #2A6B00;
-    --accent-contrast: #A6F000;
+    --line: rgba(15, 34, 41, 0.10);
+    --text-primary: #0F2229;
+    --text-muted: #526B72;
+    --accent: #2DF5B0;
+    --accent-contrast: #0F2229;
 }
 
 .dark {
-    --canvas: #0A0A0A;
-    --surface: #141414;
-    --surface-raised: #1C1C1C;
-    --line: rgba(255, 255, 255, 0.10);
-    --text-primary: #F6F8F2;
-    --text-muted: #9CA3AF;
-    --accent: #A6F000;
-    --accent-contrast: #0A0A0A;
+    --canvas: #1F4452;
+    --surface: #254F5E;
+    --surface-raised: #2C5A6B;
+    --line: rgba(255, 255, 255, 0.12);
+    --text-primary: #F4F8F7;
+    --text-muted: #A6C2C9;
+    --accent: #2DF5B0;
+    --accent-contrast: #17333F;
 }
 
 ::selection {
-    background-color: #A6F000;
-    color: #0A0A0A;
+    background-color: #2DF5B0;
+    color: #17333F;
 }
 
 [x-cloak] {
@@ -71,45 +94,46 @@
     }
 }
 
-/* Reusable Signature Aurora Mesh Gradient Utility */
-@keyframes aurora-drift {
+/* Reusable Signature Glossy Silk Backdrop Utility */
+@keyframes silk-drift {
     0% {
-        background-position: 0% 50%, 100% 50%, 50% 0%;
-        background-size: 140% 140%, 160% 160%, 180% 180%;
+        background-position: 0% 0%, 100% 50%, 40% 90%;
+        background-size: 150% 150%, 160% 160%, 180% 180%;
     }
     50% {
-        background-position: 100% 50%, 0% 50%, 50% 100%;
+        background-position: 80% 60%, 20% 80%, 90% 20%;
         background-size: 180% 180%, 140% 140%, 160% 160%;
     }
     100% {
-        background-position: 0% 50%, 100% 50%, 50% 0%;
-        background-size: 140% 140%, 160% 160%, 180% 180%;
+        background-position: 0% 0%, 100% 50%, 40% 90%;
+        background-size: 150% 150%, 160% 160%, 180% 180%;
     }
 }
 
-.bg-brand-aurora {
-    background-color: #0A0A0A;
+.bg-silk {
+    background-color: #17333F;
     background-image:
-        radial-gradient(ellipse 80% 60% at 20% 20%, rgba(166, 240, 0, 0.28) 0%, transparent 60%),
-        radial-gradient(ellipse 70% 70% at 85% 75%, rgba(126, 211, 33, 0.22) 0%, transparent 60%),
-        radial-gradient(ellipse 90% 80% at 50% 50%, rgba(42, 107, 0, 0.24) 0%, transparent 70%);
+        radial-gradient(ellipse 90% 65% at 20% 15%, rgba(46, 230, 200, 0.35) 0%, transparent 60%),
+        radial-gradient(ellipse 80% 80% at 85% 75%, rgba(14, 140, 138, 0.40) 0%, transparent 65%),
+        radial-gradient(ellipse 70% 60% at 50% 45%, rgba(45, 245, 176, 0.20) 0%, transparent 55%),
+        linear-gradient(135deg, rgba(23, 51, 63, 0.95) 0%, rgba(31, 68, 82, 0.85) 50%, rgba(15, 34, 41, 0.98) 100%);
     background-repeat: no-repeat;
-    animation: aurora-drift 24s ease-in-out infinite alternate;
+    animation: silk-drift 28s ease-in-out infinite alternate;
 }
 
-.bg-brand-aurora-subtle {
-    background-color: #0A0A0A;
+.bg-silk-subtle {
+    background-color: #17333F;
     background-image:
-        radial-gradient(circle at 15% 20%, rgba(166, 240, 0, 0.18) 0%, transparent 50%),
-        radial-gradient(circle at 85% 80%, rgba(126, 211, 33, 0.14) 0%, transparent 55%),
-        radial-gradient(circle at 50% 50%, rgba(42, 107, 0, 0.16) 0%, transparent 65%);
+        radial-gradient(circle at 15% 20%, rgba(46, 230, 200, 0.20) 0%, transparent 55%),
+        radial-gradient(circle at 85% 80%, rgba(14, 140, 138, 0.25) 0%, transparent 60%),
+        radial-gradient(circle at 50% 50%, rgba(45, 245, 176, 0.12) 0%, transparent 65%);
     background-size: 150% 150%, 160% 160%, 170% 170%;
-    animation: aurora-drift 28s ease-in-out infinite alternate;
+    animation: silk-drift 32s ease-in-out infinite alternate;
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .bg-brand-aurora,
-    .bg-brand-aurora-subtle {
+    .bg-silk,
+    .bg-silk-subtle {
         animation: none !important;
     }
 }
@@ -122,7 +146,7 @@
         left: 0;
         width: 36px;
         height: 36px;
-        border: 1.5px solid rgba(166, 240, 0, 0.7);
+        border: 1.5px solid rgba(45, 245, 176, 0.7);
         border-radius: 50%;
         pointer-events: none;
         z-index: 9999;
@@ -134,8 +158,8 @@
     .custom-cursor-ring.cursor-hover {
         width: 54px;
         height: 54px;
-        border-color: rgba(166, 240, 0, 0.95);
-        background-color: rgba(166, 240, 0, 0.12);
+        border-color: rgba(45, 245, 176, 0.95);
+        background-color: rgba(45, 245, 176, 0.15);
     }
 
     .custom-cursor-dot {
@@ -144,7 +168,7 @@
         left: -3px;
         width: 6px;
         height: 6px;
-        background-color: #A6F000;
+        background-color: #2DF5B0;
         border-radius: 50%;
         pointer-events: none;
         z-index: 10000;
@@ -162,11 +186,11 @@
 .skeleton-shimmer {
     position: relative;
     overflow: hidden;
-    background-color: #E8EBE2;
+    background-color: #E2ECE9;
 }
 
 .dark .skeleton-shimmer {
-    background-color: #141414;
+    background-color: #17333F;
 }
 
 .skeleton-shimmer::after {
@@ -191,8 +215,8 @@
     background-image: linear-gradient(
         90deg,
         rgba(255, 255, 255, 0) 0,
-        rgba(166, 240, 0, 0.04) 20%,
-        rgba(166, 240, 0, 0.08) 60%,
+        rgba(45, 245, 176, 0.05) 20%,
+        rgba(45, 245, 176, 0.10) 60%,
         rgba(255, 255, 255, 0)
     );
 }
