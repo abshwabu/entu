@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use Filament\Enums\ThemeMode;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -30,9 +31,22 @@ class AdminPanelProvider extends PanelProvider
             ->brandName('Entu Creative')
             ->brandLogo(fn () => view('filament.brand'))
             ->brandLogoHeight('2.25rem')
-            ->favicon('/images/favicon.svg')
+            ->favicon('/brand/favicon-32x32.png')
+            ->defaultThemeMode(ThemeMode::Dark)
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => [
+                    50 => '247, 254, 231',
+                    100 => '236, 252, 203',
+                    200 => '217, 249, 157',
+                    300 => '190, 242, 100',
+                    400 => '166, 240, 0',
+                    500 => '126, 211, 33',
+                    600 => '101, 184, 10',
+                    700 => '79, 168, 0',
+                    800 => '42, 107, 0',
+                    900 => '30, 77, 0',
+                    950 => '14, 41, 0',
+                ],
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')

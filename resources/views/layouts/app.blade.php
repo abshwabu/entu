@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html
     lang="{{ str_replace('_', '-', app()->getLocale()) }}"
-    class="scroll-smooth"
+    class="dark scroll-smooth"
 >
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <!-- Theme Color matching brand base -->
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0A0A0A">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F6F8F2">
 
     @php
         $siteTitle = setting('site_title', 'Entu Creative — Graphic Designer & Art Director');
@@ -14,7 +18,7 @@
         $pageTitle = isset($title) && filled($title) ? $title . ' — ' . config('app.name', 'Entu Creative') : $siteTitle;
         $metaDescription = $description ?? $siteTagline;
         $canonicalUrl = $canonical ?? url()->current();
-        $ogImage = $image ?? asset('images/logo.svg');
+        $ogImage = $image ?? asset('images/og-image.png');
 
         $defaultPersonSchema = [
             '@context' => 'https://schema.org',
@@ -57,23 +61,33 @@
     <meta name="twitter:description" content="{{ $metaDescription }}">
     <meta name="twitter:image" content="{{ $ogImage }}">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="{{ asset('images/favicon.svg') }}">
-    <link rel="apple-touch-icon" href="{{ asset('images/favicon.svg') }}">
+    <!-- Favicon & Web Manifest -->
+    <link rel="icon" type="image/svg+xml" href="{{ asset('brand/favicon.svg') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
+    <link rel="manifest" href="{{ asset('site.webmanifest') }}">
 
-    <!-- Google Fonts: Syne (Display) & Plus Jakarta Sans (Body) with font-display: swap and preloading -->
+    <!-- Google Fonts: Montserrat (Brand Display), Syne (Display), & Plus Jakarta Sans (Body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Syne:wght@500;600;700;800&display=swap">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Syne:wght@500;600;700;800&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Anti-FOUT Dark Mode Script -->
+    <!-- Anti-FOUT Dark Mode Script: Dark is Default -->
     <script>
-        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
+        (function() {
+            var stored = localStorage.getItem('theme');
+            if (stored === 'light') {
+                document.documentElement.classList.remove('dark');
+            } else if (stored === 'dark') {
+                document.documentElement.classList.add('dark');
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+                document.documentElement.classList.remove('dark');
+            } else {
+                document.documentElement.classList.add('dark');
+            }
+        })();
     </script>
 
     <!-- Analytics Integration (Conditional on settings) -->
@@ -107,10 +121,10 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     {{ $head ?? '' }}
 </head>
-<body class="bg-[#fbfbf9] text-[#17171a] dark:bg-[#0d0d0f] dark:text-[#f4f4f5] font-sans antialiased selection:bg-amber-500 selection:text-white transition-colors duration-300 min-h-screen flex flex-col">
+<body class="bg-paper text-ink dark:bg-ink dark:text-paper font-sans antialiased selection:bg-brand-400 selection:text-ink transition-colors duration-300 min-h-screen flex flex-col">
     <!-- Non-JavaScript Fallback Notice -->
     <noscript>
-        <div class="bg-amber-600 text-white text-xs font-semibold py-2.5 px-4 text-center">
+        <div class="bg-brand-800 text-paper text-xs font-semibold py-2.5 px-4 text-center">
             JavaScript is disabled in your browser. All portfolio artwork, case studies, and contact details remain fully accessible.
         </div>
     </noscript>
@@ -140,7 +154,7 @@
         x-transition:leave-start="opacity-100 translate-y-0 scale-100"
         x-transition:leave-end="opacity-0 translate-y-4 scale-95"
         @click="window.scrollTo({ top: 0, behavior: 'smooth' })"
-        class="fixed bottom-6 right-6 z-40 p-3 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-950 shadow-xl border border-neutral-700/30 hover:bg-amber-600 dark:hover:bg-amber-400 dark:hover:text-neutral-950 hover:scale-105 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-amber-500"
+        class="fixed bottom-6 right-6 z-40 p-3 rounded-full bg-ink-soft text-paper dark:bg-ink-raised dark:text-paper shadow-xl border border-white/10 hover:bg-brand-400 hover:text-ink dark:hover:bg-brand-400 dark:hover:text-ink hover:scale-105 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-brand-400"
         aria-label="Back to top of page"
         style="display: none;"
     >

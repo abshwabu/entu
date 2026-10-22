@@ -11,14 +11,58 @@
 
 @theme {
     --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
-    --font-display: 'Syne', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --font-display: 'Montserrat', 'Syne', ui-sans-serif, system-ui, -apple-system, sans-serif;
 
-    --color-canvas-light: #fbfbf9;
-    --color-canvas-dark: #0d0d0f;
-    --color-surface-light: #ffffff;
-    --color-surface-dark: #17171a;
-    --color-border-light: #e7e7e2;
-    --color-border-dark: #26262b;
+    /* Brand Scale: Lime to Deep Emerald */
+    --color-brand-50: #F5FDE6;
+    --color-brand-100: #E9FBC7;
+    --color-brand-200: #D4F792;
+    --color-brand-300: #BCF250;
+    --color-brand-400: #A6F000; /* Bright Electric Lime */
+    --color-brand-500: #7ED321; /* Core Lime */
+    --color-brand-600: #64BC0A;
+    --color-brand-700: #4FA800; /* Mid Green */
+    --color-brand-800: #2A6B00; /* Deep Green */
+    --color-brand-900: #1E4D00;
+    --color-brand-950: #0F2900;
+
+    /* Semantic Neutral Base Tokens */
+    --color-ink: #0A0A0A;
+    --color-ink-soft: #141414;
+    --color-ink-raised: #1C1C1C;
+    --color-paper: #F6F8F2;
+    --color-paper-raised: #FFFFFF;
+}
+
+:root {
+    --canvas: #F6F8F2;
+    --surface: #FFFFFF;
+    --surface-raised: #FFFFFF;
+    --line: rgba(10, 10, 10, 0.10);
+    --text-primary: #0A0A0A;
+    --text-muted: #52525B;
+    --accent: #2A6B00;
+    --accent-contrast: #A6F000;
+}
+
+.dark {
+    --canvas: #0A0A0A;
+    --surface: #141414;
+    --surface-raised: #1C1C1C;
+    --line: rgba(255, 255, 255, 0.10);
+    --text-primary: #F6F8F2;
+    --text-muted: #9CA3AF;
+    --accent: #A6F000;
+    --accent-contrast: #0A0A0A;
+}
+
+::selection {
+    background-color: #A6F000;
+    color: #0A0A0A;
+}
+
+[x-cloak] {
+    display: none !important;
 }
 
 @layer utilities {
@@ -27,8 +71,47 @@
     }
 }
 
-[x-cloak] {
-    display: none !important;
+/* Reusable Signature Aurora Mesh Gradient Utility */
+@keyframes aurora-drift {
+    0% {
+        background-position: 0% 50%, 100% 50%, 50% 0%;
+        background-size: 140% 140%, 160% 160%, 180% 180%;
+    }
+    50% {
+        background-position: 100% 50%, 0% 50%, 50% 100%;
+        background-size: 180% 180%, 140% 140%, 160% 160%;
+    }
+    100% {
+        background-position: 0% 50%, 100% 50%, 50% 0%;
+        background-size: 140% 140%, 160% 160%, 180% 180%;
+    }
+}
+
+.bg-brand-aurora {
+    background-color: #0A0A0A;
+    background-image:
+        radial-gradient(ellipse 80% 60% at 20% 20%, rgba(166, 240, 0, 0.28) 0%, transparent 60%),
+        radial-gradient(ellipse 70% 70% at 85% 75%, rgba(126, 211, 33, 0.22) 0%, transparent 60%),
+        radial-gradient(ellipse 90% 80% at 50% 50%, rgba(42, 107, 0, 0.24) 0%, transparent 70%);
+    background-repeat: no-repeat;
+    animation: aurora-drift 24s ease-in-out infinite alternate;
+}
+
+.bg-brand-aurora-subtle {
+    background-color: #0A0A0A;
+    background-image:
+        radial-gradient(circle at 15% 20%, rgba(166, 240, 0, 0.18) 0%, transparent 50%),
+        radial-gradient(circle at 85% 80%, rgba(126, 211, 33, 0.14) 0%, transparent 55%),
+        radial-gradient(circle at 50% 50%, rgba(42, 107, 0, 0.16) 0%, transparent 65%);
+    background-size: 150% 150%, 160% 160%, 170% 170%;
+    animation: aurora-drift 28s ease-in-out infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bg-brand-aurora,
+    .bg-brand-aurora-subtle {
+        animation: none !important;
+    }
 }
 
 /* Custom cursor styling (fine pointer only) */
@@ -39,7 +122,7 @@
         left: 0;
         width: 36px;
         height: 36px;
-        border: 1.5px solid rgba(217, 119, 6, 0.6);
+        border: 1.5px solid rgba(166, 240, 0, 0.7);
         border-radius: 50%;
         pointer-events: none;
         z-index: 9999;
@@ -51,8 +134,8 @@
     .custom-cursor-ring.cursor-hover {
         width: 54px;
         height: 54px;
-        border-color: rgba(217, 119, 6, 0.9);
-        background-color: rgba(217, 119, 6, 0.08);
+        border-color: rgba(166, 240, 0, 0.95);
+        background-color: rgba(166, 240, 0, 0.12);
     }
 
     .custom-cursor-dot {
@@ -61,7 +144,7 @@
         left: -3px;
         width: 6px;
         height: 6px;
-        background-color: #d97706;
+        background-color: #A6F000;
         border-radius: 50%;
         pointer-events: none;
         z-index: 10000;
@@ -79,11 +162,11 @@
 .skeleton-shimmer {
     position: relative;
     overflow: hidden;
-    background-color: #e5e5df;
+    background-color: #E8EBE2;
 }
 
 .dark .skeleton-shimmer {
-    background-color: #1f1f23;
+    background-color: #141414;
 }
 
 .skeleton-shimmer::after {
@@ -96,8 +179,8 @@
     background-image: linear-gradient(
         90deg,
         rgba(255, 255, 255, 0) 0,
-        rgba(255, 255, 255, 0.2) 20%,
-        rgba(255, 255, 255, 0.5) 60%,
+        rgba(255, 255, 255, 0.25) 20%,
+        rgba(255, 255, 255, 0.6) 60%,
         rgba(255, 255, 255, 0)
     );
     animation: shimmer 2s infinite;
@@ -108,8 +191,8 @@
     background-image: linear-gradient(
         90deg,
         rgba(255, 255, 255, 0) 0,
-        rgba(255, 255, 255, 0.04) 20%,
-        rgba(255, 255, 255, 0.08) 60%,
+        rgba(166, 240, 0, 0.04) 20%,
+        rgba(166, 240, 0, 0.08) 60%,
         rgba(255, 255, 255, 0)
     );
 }

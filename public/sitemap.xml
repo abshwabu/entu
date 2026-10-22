@@ -2,115 +2,115 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     <url>
     <loc>http://localhost</loc>
-    <lastmod>2026-10-22T10:39:43+03:00</lastmod>
+    <lastmod>2026-10-22T11:14:38+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
             </url>
     <url>
     <loc>http://localhost/work</loc>
-    <lastmod>2026-10-22T10:39:43+03:00</lastmod>
+    <lastmod>2026-10-22T11:14:38+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
             </url>
     <url>
     <loc>http://localhost/work/branding</loc>
-    <lastmod>2026-10-22T10:39:31+03:00</lastmod>
+    <lastmod>2026-10-22T11:14:26+03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
             </url>
     <url>
     <loc>http://localhost/work/packaging</loc>
-    <lastmod>2026-10-22T10:39:31+03:00</lastmod>
+    <lastmod>2026-10-22T11:14:26+03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
             </url>
     <url>
     <loc>http://localhost/work/poster-print</loc>
-    <lastmod>2026-10-22T10:39:31+03:00</lastmod>
+    <lastmod>2026-10-22T11:14:26+03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
             </url>
     <url>
     <loc>http://localhost/work/social-media</loc>
-    <lastmod>2026-10-22T10:39:31+03:00</lastmod>
+    <lastmod>2026-10-22T11:14:26+03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
             </url>
     <url>
     <loc>http://localhost/work/illustration</loc>
-    <lastmod>2026-10-22T10:39:31+03:00</lastmod>
+    <lastmod>2026-10-22T11:14:26+03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
             </url>
     <url>
     <loc>http://localhost/work/branding/liyu-botanical-beauty</loc>
-    <lastmod>2026-10-22T10:39:33+03:00</lastmod>
+    <lastmod>2026-10-22T11:14:28+03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
             </url>
     <url>
     <loc>http://localhost/work/packaging/bole-brewing-seasonal-series</loc>
-    <lastmod>2026-10-22T10:39:36+03:00</lastmod>
+    <lastmod>2026-10-22T11:14:31+03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
             </url>
     <url>
     <loc>http://localhost/work/poster-print/echoes-of-modernism-exhibition-catalog</loc>
-    <lastmod>2026-10-22T10:39:38+03:00</lastmod>
+    <lastmod>2026-10-22T11:14:33+03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
             </url>
     <url>
     <loc>http://localhost/work/social-media/aura-mindful-living-campaign</loc>
-    <lastmod>2026-10-22T10:39:40+03:00</lastmod>
+    <lastmod>2026-10-22T11:14:35+03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
             </url>
     <url>
     <loc>http://localhost/work/illustration/city-in-motion-iconography</loc>
-    <lastmod>2026-10-22T10:39:42+03:00</lastmod>
+    <lastmod>2026-10-22T11:14:37+03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
             </url>
     <url>
     <loc>http://localhost/work/branding/kaffa-single-origin-roasters</loc>
-    <lastmod>2026-10-22T10:39:31+03:00</lastmod>
+    <lastmod>2026-10-22T11:14:26+03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
             </url>
     <url>
     <loc>http://localhost/work/branding/zoma-eco-architecture-institute</loc>
-    <lastmod>2026-10-22T10:39:32+03:00</lastmod>
+    <lastmod>2026-10-22T11:14:27+03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
             </url>
     <url>
     <loc>http://localhost/work/packaging/habesha-spice-heritage-collection</loc>
-    <lastmod>2026-10-22T10:39:34+03:00</lastmod>
+    <lastmod>2026-10-22T11:14:29+03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
             </url>
     <url>
     <loc>http://localhost/work/packaging/sol-tea-atelier-blends</loc>
-    <lastmod>2026-10-22T10:39:35+03:00</lastmod>
+    <lastmod>2026-10-22T11:14:30+03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
             </url>
     <url>
     <loc>http://localhost/work/poster-print/addis-jazz-heritage-fest-2025</loc>
-    <lastmod>2026-10-22T10:39:37+03:00</lastmod>
+    <lastmod>2026-10-22T11:14:32+03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
             </url>
     <url>
     <loc>http://localhost/work/social-media/sora-fashion-week-campaign</loc>
-    <lastmod>2026-10-22T10:39:39+03:00</lastmod>
+    <lastmod>2026-10-22T11:14:34+03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
             </url>
     <url>
     <loc>http://localhost/work/illustration/folklore-flora-illustrated-book</loc>
-    <lastmod>2026-10-22T10:39:41+03:00</lastmod>
+    <lastmod>2026-10-22T11:14:36+03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
             </url>

@@ -4,7 +4,7 @@
 >
     <div class="min-h-[70vh] flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8">
         <div class="max-w-2xl text-center space-y-8">
-            <span class="inline-block px-4 py-1.5 rounded-full text-xs font-mono font-semibold uppercase tracking-widest bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
+            <span class="inline-block px-4 py-1.5 rounded-full text-xs font-mono font-semibold uppercase tracking-widest bg-brand-500/10 text-brand-800 dark:text-brand-400 border border-brand-500/20">
                 Error 404
             </span>
 
@@ -19,7 +19,7 @@
             <div class="pt-4 flex flex-wrap items-center justify-center gap-4">
                 <a
                     href="{{ route('home') }}"
-                    class="px-8 py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-neutral-900 text-white dark:bg-white dark:text-neutral-950 hover:bg-amber-600 dark:hover:bg-amber-400 transition-all duration-200 shadow-md"
+                    class="px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-400 text-ink hover:bg-brand-500 transition-all duration-200 shadow-md"
                 >
                     &larr; Back to Home
                 </a>

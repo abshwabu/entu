@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%" fill="none">
+    <defs>
+        <radialGradient id="aurora-swirl" cx="40%" cy="35%" r="65%">
+            <stop offset="0%" stop-color="#A6F000" />
+            <stop offset="35%" stop-color="#7ED321" />
+            <stop offset="70%" stop-color="#4FA800" />
+            <stop offset="100%" stop-color="#2A6B00" />
+        </radialGradient>
+        <linearGradient id="aurora-linear" x1="10%" y1="0%" x2="90%" y2="100%">
+            <stop offset="0%" stop-color="#A6F000" />
+            <stop offset="45%" stop-color="#7ED321" />
+            <stop offset="80%" stop-color="#4FA800" />
+            <stop offset="100%" stop-color="#2A6B00" />
+        </linearGradient>
+    </defs>
+    
+    <!-- Outer background (pure black) -->
+    <rect width="512" height="512" rx="32" fill="#0A0A0A" />
+    
+    <!-- Gradient Circle -->
+    <circle cx="256" cy="256" r="185" fill="url(#aurora-swirl)" />
+    
+    <!-- Swirl highlight path -->
+    <path d="M 120 280 C 140 180, 260 120, 360 160 C 420 190, 430 290, 370 360 C 310 420, 180 410, 130 340" 
+          stroke="url(#aurora-linear)" stroke-width="28" stroke-linecap="round" fill="none" opacity="0.4" />
+          
+    <!-- Wordmark "entu" -->
+    <text x="256" y="270" text-anchor="middle" font-family="'Montserrat', 'Plus Jakarta Sans', system-ui, sans-serif" font-weight="900" font-size="94" letter-spacing="-3" fill="#0A0A0A">entu</text>
+    
+    <!-- Subtitle "CREATIVE" -->
+    <text x="256" y="315" text-anchor="middle" font-family="'Montserrat', 'Plus Jakarta Sans', system-ui, sans-serif" font-weight="800" font-size="22" letter-spacing="9" fill="#0A0A0A">CREATIVE</text>
+</svg>

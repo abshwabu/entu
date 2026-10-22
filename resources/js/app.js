@@ -4,9 +4,9 @@ import intersect from '@alpinejs/intersect';
 
 Alpine.plugin(intersect);
 
-// Global Theme Store
+// Global Theme Store - Defaulting to Dark Mode
 Alpine.store('theme', {
-    dark: localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches),
+    dark: localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && !window.matchMedia('(prefers-color-scheme: light)').matches),
 
     init() {
         this.apply();
@@ -31,13 +31,15 @@ window.toggleTheme = function() {
     Alpine.store('theme').toggle();
 };
 
-// Listen to OS theme changes if user hasn't explicitly set a preference
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-    if (!('theme' in localStorage)) {
-        Alpine.store('theme').dark = e.matches;
-        Alpine.store('theme').apply();
-    }
-});
+// Listen to OS theme changes if user hasn't explicitly set a preference (defaulting to dark)
+if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
+        if (!('theme' in localStorage)) {
+            Alpine.store('theme').dark = !e.matches;
+            Alpine.store('theme').apply();
+        }
+    });
+}
 
 window.Alpine = Alpine;
 Alpine.start();

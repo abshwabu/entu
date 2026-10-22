@@ -4,10 +4,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-4xl space-y-8">
                 <!-- Status Badge -->
-                <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-semibold text-amber-700 dark:text-amber-400">
+                <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-xs font-semibold text-brand-800 dark:text-brand-400">
                     <span class="relative flex h-2 w-2">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-400"></span>
                     </span>
                     <span>Available for Select Projects & Art Direction</span>
                 </div>
@@ -101,14 +101,14 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 @foreach($services as $index => $service)
                     <div
-                        class="p-8 sm:p-10 rounded-3xl bg-neutral-100 dark:bg-[#141417] border border-[#e7e7e2] dark:border-[#26262b] flex flex-col justify-between space-y-6 hover:border-amber-500/40 hover:shadow-lg transition-all duration-300"
+                        class="p-8 sm:p-10 rounded-3xl bg-neutral-100 dark:bg-[#141417] border border-[#e7e7e2] dark:border-[#26262b] flex flex-col justify-between space-y-6 hover:border-brand-400/40 hover:shadow-lg transition-all duration-300"
                         x-data="{ shown: false }"
                         x-intersect.margin.-80px="shown = true"
                         :class="{ 'opacity-100 translate-y-0': shown, 'opacity-0 translate-y-8': !shown }"
                         class="transition-all duration-700 ease-out"
                     >
                         <div class="space-y-4">
-                            <span class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-display font-bold text-lg border border-amber-500/20">
+                            <span class="w-12 h-12 rounded-2xl bg-brand-500/10 text-brand-800 dark:text-brand-400 flex items-center justify-center font-display font-bold text-lg border border-brand-500/20">
                                 0{{ $index + 1 }}
                             </span>
                             <h3 class="font-display font-bold text-2xl text-neutral-900 dark:text-white">
@@ -122,7 +122,7 @@
                         <div class="pt-4 border-t border-[#e2e2dc] dark:border-[#222226]">
                             <a
                                 href="{{ url('/#contact') }}"
-                                class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-amber-600 dark:text-amber-400 hover:text-amber-700 group focus:outline-none"
+                                class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-brand-800 dark:text-brand-400 hover:text-brand-700 group focus:outline-none"
                             >
                                 <span>Inquire about this</span>
                                 <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
@@ -152,7 +152,7 @@
                             <img src="{{ $bioUrl }}" alt="Entu Creative portrait" class="w-full h-full object-cover" loading="lazy" />
                         @else
                             <div class="w-full h-full flex flex-col items-center justify-center p-8 bg-gradient-to-br from-neutral-800 to-neutral-950 text-white text-center">
-                                <span class="font-display font-extrabold text-4xl mb-2 text-amber-500">ENTU</span>
+                                <span class="font-display font-extrabold text-4xl mb-2 text-brand-400">ENTU</span>
                                 <span class="text-xs uppercase tracking-widest text-neutral-400">Graphic Designer & Art Director</span>
                             </div>
                         @endif
@@ -162,7 +162,7 @@
                                 <p class="font-bold text-sm">Entu</p>
                                 <p class="text-neutral-300">Addis Ababa, Ethiopia</p>
                             </div>
-                            <span class="px-2.5 py-1 rounded-full bg-amber-500 text-neutral-950 font-semibold text-[10px] uppercase tracking-wider">
+                            <span class="px-2.5 py-1 rounded-full bg-brand-400 text-ink font-bold text-[10px] uppercase tracking-wider">
                                 Creative Lead
                             </span>
                         </div>
@@ -224,7 +224,7 @@
     <section id="contact" class="py-24 bg-neutral-900 text-white dark:bg-[#070709] transition-colors duration-300 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="max-w-3xl mx-auto text-center space-y-8">
-                <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/20 border border-amber-500/30 text-xs font-semibold uppercase tracking-wider text-amber-400">
+                <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-500/20 border border-brand-500/30 text-xs font-semibold uppercase tracking-wider text-brand-400">
                     Let's Build Something Memorable
                 </span>
 
@@ -240,7 +240,7 @@
                     <x-button
                         href="mailto:{{ setting('email', 'hello@entucreative.com') }}"
                         size="lg"
-                        variant="white"
+                        variant="primary"
                     >
                         Send an Email Directly
                     </x-button>
@@ -249,7 +249,7 @@
                         href="{{ url('/#contact') }}"
                         size="lg"
                         variant="outline"
-                        class="border-white/30 text-white hover:border-amber-400 hover:text-amber-400"
+                        class="border-white/30 text-white hover:border-brand-400 hover:text-brand-400"
                     >
                         {{ setting('phone', '+251 911 234 567') }}
                     </x-button>

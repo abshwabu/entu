@@ -6,21 +6,21 @@
                 <!-- Left: Headline & Actions -->
                 <div class="lg:col-span-7 space-y-8 z-10">
                     <!-- Status Badge -->
-                    <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-semibold text-amber-700 dark:text-amber-400">
+                    <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-brand-400/15 border border-brand-400/25 text-xs font-semibold text-brand-800 dark:text-brand-400">
                         <span class="relative flex h-2 w-2">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-800 dark:bg-brand-400"></span>
                         </span>
                         <span>Available for Select Projects 2026</span>
                     </div>
 
                     <!-- Heading from Settings -->
-                    <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-neutral-900 dark:text-white leading-[1.08]">
+                    <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-ink dark:text-paper leading-[1.08]">
                         {{ setting('hero_heading', 'Visual Identity & Graphic Design That Commands Attention') }}
                     </h1>
 
                     <!-- Subheading from Settings -->
-                    <p class="text-lg sm:text-2xl text-neutral-600 dark:text-neutral-300 font-normal leading-relaxed max-w-2xl">
+                    <p class="text-lg sm:text-2xl text-neutral-700 dark:text-neutral-300 font-normal leading-relaxed max-w-2xl">
                         {{ setting('hero_subheading', 'Hi, I’m Entu — a multidisciplinary graphic designer specializing in brand identity, packaging, and digital art direction.') }}
                     </p>
 
@@ -36,17 +36,17 @@
                     </div>
 
                     <!-- Studio Metrics -->
-                    <div class="pt-8 grid grid-cols-3 gap-6 border-t border-[#e7e7e2] dark:border-[#222226] max-w-lg">
+                    <div class="pt-8 grid grid-cols-3 gap-6 border-t border-black/10 dark:border-white/10 max-w-lg">
                         <div>
-                            <span class="block font-display text-2xl sm:text-3xl font-bold text-neutral-900 dark:text-white">7+</span>
+                            <span class="block font-display text-2xl sm:text-3xl font-bold text-ink dark:text-paper">7+</span>
                             <span class="text-xs uppercase tracking-wider text-neutral-500 dark:text-neutral-400">Years Craft</span>
                         </div>
                         <div>
-                            <span class="block font-display text-2xl sm:text-3xl font-bold text-neutral-900 dark:text-white">40+</span>
+                            <span class="block font-display text-2xl sm:text-3xl font-bold text-ink dark:text-paper">40+</span>
                             <span class="text-xs uppercase tracking-wider text-neutral-500 dark:text-neutral-400">Identities</span>
                         </div>
                         <div>
-                            <span class="block font-display text-2xl sm:text-3xl font-bold text-neutral-900 dark:text-white">100%</span>
+                            <span class="block font-display text-2xl sm:text-3xl font-bold text-ink dark:text-paper">100%</span>
                             <span class="text-xs uppercase tracking-wider text-neutral-500 dark:text-neutral-400">Bespoke</span>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                 >
                     <div class="relative mx-auto w-full max-w-md lg:max-w-none h-[420px] sm:h-[480px]">
                         <!-- Decorative ambient glow -->
-                        <div class="absolute -inset-4 bg-gradient-to-tr from-amber-500/20 to-neutral-500/10 rounded-3xl blur-2xl -z-10" aria-hidden="true"></div>
+                        <div class="absolute -inset-4 bg-brand-aurora-subtle rounded-3xl blur-2xl -z-10" aria-hidden="true"></div>
 
                         @foreach($heroProjects as $idx => $hp)
                             @php
@@ -110,7 +110,7 @@
                                 <!-- Project Overlay Pill -->
                                 <div class="absolute inset-x-4 bottom-4 p-4 rounded-2xl bg-black/65 backdrop-blur-md border border-white/10 text-white flex items-center justify-between">
                                     <div class="space-y-0.5 max-w-[70%]">
-                                        <span class="text-[10px] uppercase font-bold tracking-widest text-amber-400">
+                                        <span class="text-[10px] uppercase font-bold tracking-widest text-brand-400">
                                             {{ $hp->category?->name ?? 'Featured Project' }}
                                         </span>
                                         <h3 class="font-display font-bold text-sm sm:text-base truncate">
@@ -120,7 +120,7 @@
 
                                     <a
                                         href="#work"
-                                        class="p-2 rounded-full bg-white/20 text-white hover:bg-amber-600 transition-colors"
+                                        class="p-2 rounded-full bg-white/20 text-white hover:bg-brand-400 hover:text-ink transition-colors"
                                         aria-label="View {{ $hp->title }}"
                                     >
                                         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
@@ -139,8 +139,8 @@
                                 <button
                                     type="button"
                                     @click="activeSlide = {{ $idx }}"
-                                    class="h-1.5 transition-all duration-300 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
-                                    :class="activeSlide === {{ $idx }} ? 'w-8 bg-amber-600 dark:bg-amber-400' : 'w-2 bg-neutral-300 dark:bg-neutral-700 hover:bg-neutral-400'"
+                                    class="h-1.5 transition-all duration-300 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
+                                    :class="activeSlide === {{ $idx }} ? 'w-8 bg-brand-400' : 'w-2 bg-neutral-300 dark:bg-neutral-700 hover:bg-neutral-400'"
                                     aria-label="Switch to featured project slide {{ $idx + 1 }}"
                                 ></button>
                             @endforeach
@@ -152,7 +152,7 @@
     </section>
 
     <!-- 2. SELECTED WORK (Asymmetric Masonry Grid) -->
-    <section id="work" class="py-24 bg-white dark:bg-[#111114] border-y border-[#e7e7e2] dark:border-[#222226] transition-colors duration-300">
+    <section id="work" class="py-24 bg-paper-raised dark:bg-ink border-y border-black/10 dark:border-white/10 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-6">
                 <x-section-heading
@@ -165,7 +165,7 @@
                 <div class="shrink-0">
                     <a
                         href="{{ route('work.index') }}"
-                        class="inline-flex items-center gap-2 text-sm font-semibold text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 group focus-visible:outline-2 focus-visible:outline-amber-500 rounded-sm"
+                        class="inline-flex items-center gap-2 text-sm font-semibold text-brand-800 dark:text-brand-400 hover:text-brand-900 dark:hover:text-brand-300 group focus-visible:outline-2 focus-visible:outline-brand-400 rounded-sm"
                     >
                         <span>View all work</span>
                         <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
@@ -231,7 +231,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 @foreach($services as $index => $service)
                     <div
-                        class="p-8 sm:p-10 rounded-3xl bg-neutral-100 dark:bg-[#141417] border border-[#e7e7e2] dark:border-[#26262b] flex flex-col justify-between space-y-6 hover:border-amber-500/40 hover:shadow-lg transition-all duration-300"
+                        class="p-8 sm:p-10 rounded-3xl bg-paper-raised dark:bg-ink-soft border border-black/10 dark:border-white/10 flex flex-col justify-between space-y-6 hover:border-brand-400/50 hover:shadow-lg transition-all duration-300"
                         x-data="{ shown: false }"
                         x-intersect.margin.-80px="shown = true"
                         :class="{ 'opacity-100 translate-y-0': shown, 'opacity-0 translate-y-8': !shown }"
@@ -239,7 +239,7 @@
                     >
                         <div class="space-y-5">
                             <div class="flex items-center justify-between">
-                                <span class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-display font-bold text-lg border border-amber-500/20">
+                                <span class="w-12 h-12 rounded-2xl bg-brand-400/15 text-brand-800 dark:text-brand-400 flex items-center justify-center font-display font-bold text-lg border border-brand-400/25">
                                     0{{ $index + 1 }}
                                 </span>
 
@@ -250,7 +250,7 @@
                                 @endif
                             </div>
 
-                            <h3 class="font-display font-bold text-2xl text-neutral-900 dark:text-white">
+                            <h3 class="font-display font-bold text-2xl text-ink dark:text-paper">
                                 {{ $service->title }}
                             </h3>
 
@@ -259,10 +259,10 @@
                             </p>
                         </div>
 
-                        <div class="pt-4 border-t border-[#e2e2dc] dark:border-[#222226]">
+                        <div class="pt-4 border-t border-black/10 dark:border-white/10">
                             <a
                                 href="#contact"
-                                class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-amber-600 dark:text-amber-400 hover:text-amber-700 group focus:outline-none"
+                                class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-brand-800 dark:text-brand-400 hover:text-brand-900 dark:hover:text-brand-300 group focus:outline-none"
                             >
                                 <span>Inquire about this</span>
                                 <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
@@ -277,7 +277,7 @@
     </section>
 
     <!-- 4. ABOUT TEASER -->
-    <section id="about" class="py-24 bg-white dark:bg-[#111114] border-y border-[#e7e7e2] dark:border-[#222226] transition-colors duration-300">
+    <section id="about" class="py-24 bg-paper dark:bg-ink border-y border-black/10 dark:border-white/10 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
                 <!-- Bio Photo -->
@@ -287,12 +287,12 @@
                         $bioUrl = $bioPhoto ? $bioPhoto->getUrl() : null;
                     @endphp
 
-                    <div class="relative mx-auto max-w-md rounded-3xl overflow-hidden aspect-[4/5] bg-neutral-200 dark:bg-neutral-800 shadow-2xl border-4 border-white dark:border-[#1e1e24]">
+                    <div class="relative mx-auto max-w-md rounded-3xl overflow-hidden aspect-[4/5] bg-neutral-200 dark:bg-ink-raised shadow-2xl border-4 border-paper-raised dark:border-white/10">
                         @if($bioUrl)
                             <img src="{{ $bioUrl }}" alt="Entu Creative portrait" class="w-full h-full object-cover" loading="lazy" />
                         @else
-                            <div class="w-full h-full flex flex-col items-center justify-center p-8 bg-gradient-to-br from-neutral-800 to-neutral-950 text-white text-center">
-                                <span class="font-display font-extrabold text-4xl mb-2 text-amber-500">ENTU</span>
+                            <div class="w-full h-full flex flex-col items-center justify-center p-8 bg-gradient-to-br from-ink-soft to-ink text-paper text-center">
+                                <span class="font-display font-extrabold text-4xl mb-2 text-brand-400">ENTU</span>
                                 <span class="text-xs uppercase tracking-widest text-neutral-400">Graphic Designer & Art Director</span>
                             </div>
                         @endif
@@ -302,7 +302,7 @@
                                 <p class="font-bold text-sm">Entu</p>
                                 <p class="text-neutral-300">{{ setting('location', 'Addis Ababa, Ethiopia') }}</p>
                             </div>
-                            <span class="px-2.5 py-1 rounded-full bg-amber-500 text-neutral-950 font-semibold text-[10px] uppercase tracking-wider">
+                            <span class="px-2.5 py-1 rounded-full bg-brand-400 text-ink font-semibold text-[10px] uppercase tracking-wider">
                                 Independent
                             </span>
                         </div>
@@ -381,7 +381,7 @@
                     @keydown.left="prev()"
                     tabindex="0"
                     aria-label="Client Testimonials Slider"
-                    class="focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-3xl"
+                    class="focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 rounded-3xl"
                 >
                     <!-- Slider Viewport -->
                     <div class="relative min-h-[320px] sm:min-h-[280px]">
@@ -409,7 +409,7 @@
                             <button
                                 type="button"
                                 @click="prev()"
-                                class="p-3 rounded-full border border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-200 hover:bg-neutral-200/60 dark:hover:bg-neutral-800 transition-colors focus-visible:outline-2 focus-visible:outline-amber-500"
+                                class="p-3 rounded-full border border-black/10 dark:border-white/10 text-neutral-700 dark:text-neutral-200 hover:bg-black/5 dark:hover:bg-white/10 transition-colors focus-visible:outline-2 focus-visible:outline-brand-400"
                                 aria-label="Previous testimonial"
                             >
                                 <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
@@ -423,8 +423,8 @@
                                     <button
                                         type="button"
                                         @click="current = {{ $index }}"
-                                        class="h-2 rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
-                                        :class="current === {{ $index }} ? 'w-8 bg-amber-600 dark:bg-amber-400' : 'w-2 bg-neutral-300 dark:bg-neutral-700 hover:bg-neutral-400'"
+                                        class="h-2 rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
+                                        :class="current === {{ $index }} ? 'w-8 bg-brand-400' : 'w-2 bg-neutral-300 dark:bg-neutral-700 hover:bg-neutral-400'"
                                         aria-label="Navigate to testimonial {{ $index + 1 }}"
                                     ></button>
                                 @endforeach
@@ -434,7 +434,7 @@
                             <button
                                 type="button"
                                 @click="next()"
-                                class="p-3 rounded-full border border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-200 hover:bg-neutral-200/60 dark:hover:bg-neutral-800 transition-colors focus-visible:outline-2 focus-visible:outline-amber-500"
+                                class="p-3 rounded-full border border-black/10 dark:border-white/10 text-neutral-700 dark:text-neutral-200 hover:bg-black/5 dark:hover:bg-white/10 transition-colors focus-visible:outline-2 focus-visible:outline-brand-400"
                                 aria-label="Next testimonial"
                             >
                                 <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
@@ -449,10 +449,10 @@
     </section>
 
     <!-- 6. CTA BAND -->
-    <section id="contact" class="py-24 bg-neutral-900 text-white dark:bg-[#070709] transition-colors duration-300 relative overflow-hidden">
+    <section id="contact" class="py-24 bg-brand-aurora text-white border-t border-white/10 transition-colors duration-300 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="max-w-3xl mx-auto text-center space-y-8">
-                <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/20 border border-amber-500/30 text-xs font-semibold uppercase tracking-wider text-amber-400">
+                <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-400/20 border border-brand-400/30 text-xs font-semibold uppercase tracking-wider text-brand-400">
                     Let’s Connect
                 </span>
 
@@ -468,7 +468,7 @@
                     <x-button
                         href="mailto:{{ setting('email', 'hello@entucreative.com') }}"
                         size="lg"
-                        variant="white"
+                        variant="primary"
                     >
                         Start a Conversation
                     </x-button>
@@ -476,8 +476,7 @@
                     <x-button
                         href="tel:{{ setting('phone', '+251911234567') }}"
                         size="lg"
-                        variant="outline"
-                        class="border-white/30 text-white hover:border-amber-400 hover:text-amber-400"
+                        variant="secondary"
                     >
                         {{ setting('phone', '+251 911 234 567') }}
                     </x-button>

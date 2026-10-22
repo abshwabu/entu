@@ -9,7 +9,7 @@
 
     $seoTitle = $project->seo_title ?: $project->title;
     $seoDescription = $project->seo_description ?: ($project->summary ?: \Illuminate\Support\Str::limit(strip_tags($project->description ?? ''), 160));
-    $ogImage = $coverUrl ?: asset('images/logo.svg');
+    $ogImage = $coverUrl ?: asset('brand/og-image.png');
 
     $jsonLd = [
         '@context' => 'https://schema.org',
@@ -87,23 +87,23 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Admin Preview Mode Banner (Only shown for unpublished items previewed by admins) -->
             @if(!$project->is_published && $canPreview)
-                <div class="mb-8 p-4 sm:p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-800 dark:text-amber-300 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div class="mb-8 p-4 sm:p-5 rounded-2xl bg-brand-400/15 border border-brand-400/30 text-brand-800 dark:text-brand-300 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                     <div class="flex items-center gap-3">
-                        <span class="w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center shrink-0">
-                            <svg class="w-4 h-4 text-amber-600 dark:text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+                        <span class="w-8 h-8 rounded-full bg-brand-400/20 flex items-center justify-center shrink-0">
+                            <svg class="w-4 h-4 text-brand-800 dark:text-brand-400" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
                             </svg>
                         </span>
                         <div>
                             <h4 class="font-bold text-sm">Preview Mode Active</h4>
-                            <p class="text-xs text-amber-700 dark:text-amber-400">
+                            <p class="text-xs text-brand-800/80 dark:text-brand-300">
                                 This project is unpublished and hidden from visitors. You are seeing this because you are logged in as an administrator.
                             </p>
                         </div>
                     </div>
                     <a
                         href="/admin/projects/{{ $project->id }}/edit"
-                        class="shrink-0 text-xs font-semibold px-4 py-2 rounded-lg bg-amber-600 text-white hover:bg-amber-700 transition-colors"
+                        class="shrink-0 text-xs font-semibold px-4 py-2 rounded-lg bg-brand-400 text-ink hover:bg-brand-500 transition-colors"
                     >
                         Edit in Admin &rarr;
                     </a>
@@ -115,7 +115,7 @@
                 @if($project->category)
                     <a
                         href="{{ route('work.category', $project->category->slug) }}"
-                        class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-neutral-500 hover:text-amber-600 dark:text-neutral-400 dark:hover:text-amber-400 transition-colors group focus-visible:outline-2 focus-visible:outline-amber-500 rounded-sm"
+                        class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-neutral-500 hover:text-brand-800 dark:text-neutral-400 dark:hover:text-brand-400 transition-colors group focus-visible:outline-2 focus-visible:outline-brand-400 rounded-sm"
                     >
                         <svg class="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
@@ -125,7 +125,7 @@
                 @else
                     <a
                         href="{{ route('work.index') }}"
-                        class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-neutral-500 hover:text-amber-600 dark:text-neutral-400 dark:hover:text-amber-400 transition-colors group focus-visible:outline-2 focus-visible:outline-amber-500 rounded-sm"
+                        class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-neutral-500 hover:text-brand-800 dark:text-neutral-400 dark:hover:text-brand-400 transition-colors group focus-visible:outline-2 focus-visible:outline-brand-400 rounded-sm"
                     >
                         <svg class="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
@@ -139,7 +139,7 @@
                     @if($prevProject)
                         <a
                             href="{{ $prevProject->url }}"
-                            class="p-2 rounded-full border border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-300 hover:text-amber-600 dark:hover:text-amber-400 hover:border-amber-500/50 transition-colors"
+                            class="p-2 rounded-full border border-black/10 dark:border-white/10 text-neutral-600 dark:text-neutral-300 hover:text-brand-800 dark:hover:text-brand-400 hover:border-brand-400/50 transition-colors"
                             title="Previous Project: {{ $prevProject->title }}"
                             aria-label="Previous Project: {{ $prevProject->title }}"
                         >
@@ -152,7 +152,7 @@
                     @if($nextProject)
                         <a
                             href="{{ $nextProject->url }}"
-                            class="p-2 rounded-full border border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-300 hover:text-amber-600 dark:hover:text-amber-400 hover:border-amber-500/50 transition-colors"
+                            class="p-2 rounded-full border border-black/10 dark:border-white/10 text-neutral-600 dark:text-neutral-300 hover:text-brand-800 dark:hover:text-brand-400 hover:border-brand-400/50 transition-colors"
                             title="Next Project: {{ $nextProject->title }}"
                             aria-label="Next Project: {{ $nextProject->title }}"
                         >
@@ -170,14 +170,14 @@
                     <div class="mb-4">
                         <a
                             href="{{ route('work.category', $project->category->slug) }}"
-                            class="inline-block px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-widest bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-500/20 hover:bg-amber-500/20 transition-colors"
+                            class="inline-block px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-widest bg-brand-400/15 text-brand-800 dark:text-brand-400 border border-brand-400/25 hover:bg-brand-400/25 transition-colors"
                         >
                             {{ $project->category->name }}
                         </a>
                     </div>
                 @endif
 
-                <h1 class="font-display font-extrabold text-4xl sm:text-6xl lg:text-7xl text-neutral-900 dark:text-white tracking-tight leading-[1.08] max-w-5xl mb-6">
+                <h1 class="font-display font-extrabold text-4xl sm:text-6xl lg:text-7xl text-ink dark:text-paper tracking-tight leading-[1.08] max-w-5xl mb-6">
                     {{ $project->title }}
                 </h1>
 
@@ -223,7 +223,7 @@
                                 href="{{ $project->project_url }}"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-neutral-900 text-white dark:bg-white dark:text-neutral-950 hover:bg-amber-600 dark:hover:bg-amber-400 transition-all duration-200 shadow-xs focus-visible:outline-2 focus-visible:outline-amber-500"
+                                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-brand-400 text-ink hover:bg-brand-500 transition-all duration-200 shadow-xs focus-visible:outline-2 focus-visible:outline-brand-400"
                             >
                                 <span>Live Project</span>
                                 <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
@@ -239,7 +239,7 @@
             @if($coverUrl)
                 <div class="mb-16 sm:mb-24">
                     <figure
-                        class="relative rounded-3xl overflow-hidden bg-neutral-200 dark:bg-neutral-900 shadow-2xl border border-[#e7e7e2] dark:border-[#26262b] cursor-zoom-in group"
+                        class="relative rounded-3xl overflow-hidden bg-neutral-200 dark:bg-ink-soft shadow-2xl border border-black/10 dark:border-white/10 cursor-zoom-in group"
                         @click="openLightbox(0)"
                     >
                         <img
@@ -270,10 +270,10 @@
             <!-- Project Narrative / Rich Text Story -->
             @if($project->description)
                 <section class="mb-20 sm:mb-28 max-w-4xl mx-auto">
-                    <div class="text-xs font-mono font-semibold uppercase tracking-widest text-amber-600 dark:text-amber-400 mb-4">
+                    <div class="text-xs font-mono font-semibold uppercase tracking-widest text-brand-800 dark:text-brand-400 mb-4">
                         The Narrative & Case Study
                     </div>
-                    <div class="prose prose-lg dark:prose-invert max-w-none text-neutral-700 dark:text-neutral-300 leading-relaxed font-sans prose-headings:font-display prose-headings:font-bold prose-headings:tracking-tight prose-a:text-amber-600 hover:prose-a:underline prose-img:rounded-2xl prose-img:shadow-lg">
+                    <div class="prose prose-lg dark:prose-invert max-w-none text-neutral-700 dark:text-neutral-300 leading-relaxed font-sans prose-headings:font-display prose-headings:font-bold prose-headings:tracking-tight prose-a:text-brand-800 dark:prose-a:text-brand-400 hover:prose-a:underline prose-img:rounded-2xl prose-img:shadow-lg">
                         {!! $project->description !!}
                     </div>
                 </section>
@@ -286,7 +286,7 @@
                         <span class="text-xs font-mono font-semibold uppercase tracking-widest text-neutral-400 dark:text-neutral-500 block mb-2">
                             Visual Showcase
                         </span>
-                        <h2 class="font-display font-bold text-2xl sm:text-4xl text-neutral-900 dark:text-white">
+                        <h2 class="font-display font-bold text-2xl sm:text-4xl text-ink dark:text-paper">
                             Project Gallery & System Details
                         </h2>
                     </div>
@@ -370,7 +370,7 @@
                         <button
                             type="button"
                             @click="closeLightbox()"
-                            class="p-2 rounded-full bg-white/10 hover:bg-white/20 text-neutral-200 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-amber-500"
+                            class="p-2 rounded-full bg-white/10 hover:bg-white/20 text-neutral-200 hover:text-brand-400 transition-colors focus-visible:outline-2 focus-visible:outline-brand-400"
                             aria-label="Close Lightbox"
                         >
                             <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
@@ -392,7 +392,7 @@
                         type="button"
                         x-show="items.length > 1"
                         @click.stop="prev()"
-                        class="absolute left-4 sm:left-8 z-20 p-3 sm:p-4 rounded-full bg-black/60 hover:bg-black/90 text-white border border-white/20 hover:border-amber-500 transition-all transform hover:scale-110 focus-visible:outline-2 focus-visible:outline-amber-500 shadow-xl"
+                        class="absolute left-4 sm:left-8 z-20 p-3 sm:p-4 rounded-full bg-black/70 hover:bg-black/95 text-white border border-white/20 hover:border-brand-400 hover:text-brand-400 transition-all transform hover:scale-110 focus-visible:outline-2 focus-visible:outline-brand-400 shadow-xl"
                         aria-label="Previous image"
                     >
                         <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
@@ -414,7 +414,7 @@
                         type="button"
                         x-show="items.length > 1"
                         @click.stop="next()"
-                        class="absolute right-4 sm:right-8 z-20 p-3 sm:p-4 rounded-full bg-black/60 hover:bg-black/90 text-white border border-white/20 hover:border-amber-500 transition-all transform hover:scale-110 focus-visible:outline-2 focus-visible:outline-amber-500 shadow-xl"
+                        class="absolute right-4 sm:right-8 z-20 p-3 sm:p-4 rounded-full bg-black/70 hover:bg-black/95 text-white border border-white/20 hover:border-brand-400 hover:text-brand-400 transition-all transform hover:scale-110 focus-visible:outline-2 focus-visible:outline-brand-400 shadow-xl"
                         aria-label="Next image"
                     >
                         <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
@@ -437,7 +437,7 @@
                                 type="button"
                                 @click="currentIndex = idx"
                                 class="w-12 h-9 rounded-md overflow-hidden border-2 transition-all shrink-0"
-                                :class="currentIndex === idx ? 'border-amber-500 scale-105 opacity-100 shadow-md' : 'border-transparent opacity-40 hover:opacity-80'"
+                                :class="currentIndex === idx ? 'border-brand-400 scale-105 opacity-100 shadow-md ring-2 ring-brand-400/50' : 'border-transparent opacity-40 hover:opacity-80'"
                                 :aria-label="'Jump to slide ' + (idx + 1)"
                             >
                                 <img :src="item.thumb" :alt="item.alt" class="w-full h-full object-cover" />
@@ -448,7 +448,7 @@
             </div>
 
             <!-- Next & Previous Project Navigation Footer -->
-            <div class="pt-16 pb-20 border-t border-[#e7e7e2] dark:border-[#222226]">
+            <div class="pt-16 pb-20 border-t border-black/10 dark:border-white/10">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     @if($prevProject)
                         @php
@@ -457,7 +457,7 @@
                         @endphp
                         <a
                             href="{{ $prevProject->url }}"
-                            class="group p-6 sm:p-8 rounded-3xl bg-neutral-100 dark:bg-[#141417] border border-[#e7e7e2] dark:border-[#26262b] hover:border-amber-500/50 hover:shadow-xl transition-all duration-300 flex items-center gap-6"
+                            class="group p-6 sm:p-8 rounded-3xl bg-paper-raised dark:bg-ink-soft border border-black/10 dark:border-white/10 hover:border-brand-400/50 hover:shadow-xl transition-all duration-300 flex items-center gap-6"
                         >
                             @if($prevCoverUrl)
                                 <div class="w-20 h-20 rounded-2xl overflow-hidden shrink-0 bg-neutral-200 dark:bg-neutral-800">
@@ -471,7 +471,7 @@
                                     </svg>
                                     <span>Previous Project</span>
                                 </span>
-                                <h3 class="font-display font-bold text-lg sm:text-xl text-neutral-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors truncate">
+                                <h3 class="font-display font-bold text-lg sm:text-xl text-ink dark:text-paper group-hover:text-brand-800 dark:group-hover:text-brand-400 transition-colors truncate">
                                     {{ $prevProject->title }}
                                 </h3>
                                 @if($prevProject->category)
@@ -488,7 +488,7 @@
                         @endphp
                         <a
                             href="{{ $nextProject->url }}"
-                            class="group p-6 sm:p-8 rounded-3xl bg-neutral-100 dark:bg-[#141417] border border-[#e7e7e2] dark:border-[#26262b] hover:border-amber-500/50 hover:shadow-xl transition-all duration-300 flex items-center justify-between gap-6 md:text-right"
+                            class="group p-6 sm:p-8 rounded-3xl bg-paper-raised dark:bg-ink-soft border border-black/10 dark:border-white/10 hover:border-brand-400/50 hover:shadow-xl transition-all duration-300 flex items-center justify-between gap-6 md:text-right"
                         >
                             <div class="space-y-1 overflow-hidden order-2 md:order-1 flex-grow">
                                 <span class="text-xs font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400 flex items-center md:justify-end gap-1.5">
@@ -497,7 +497,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                                     </svg>
                                 </span>
-                                <h3 class="font-display font-bold text-lg sm:text-xl text-neutral-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors truncate">
+                                <h3 class="font-display font-bold text-lg sm:text-xl text-ink dark:text-paper group-hover:text-brand-800 dark:group-hover:text-brand-400 transition-colors truncate">
                                     {{ $nextProject->title }}
                                 </h3>
                                 @if($nextProject->category)
@@ -516,7 +516,7 @@
 
             <!-- Related Projects From Category -->
             @if($relatedProjects->count() > 0)
-                <section class="py-16 sm:py-20 border-t border-[#e7e7e2] dark:border-[#222226]">
+                <section class="py-16 sm:py-20 border-t border-black/10 dark:border-white/10">
                     <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-12 gap-4">
                         <x-section-heading
                             tag="More Work"
@@ -527,7 +527,7 @@
 
                         <a
                             href="{{ route('work.index') }}"
-                            class="inline-flex items-center gap-2 text-sm font-semibold text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 group"
+                            class="inline-flex items-center gap-2 text-sm font-semibold text-brand-800 dark:text-brand-400 hover:text-brand-900 dark:hover:text-brand-300 group"
                         >
                             <span>View all projects</span>
                             <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">

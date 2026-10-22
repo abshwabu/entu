@@ -15,7 +15,7 @@
             <div class="mb-10">
                 <a
                     href="{{ route('home') }}"
-                    class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-neutral-500 hover:text-amber-600 dark:text-neutral-400 dark:hover:text-amber-400 transition-colors group focus-visible:outline-2 focus-visible:outline-amber-500 rounded-sm"
+                    class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-neutral-500 hover:text-brand-800 dark:text-neutral-400 dark:hover:text-brand-400 transition-colors group focus-visible:outline-2 focus-visible:outline-brand-400 rounded-sm"
                 >
                     <svg class="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
@@ -26,7 +26,7 @@
 
             <!-- Page Header -->
             <div class="mb-14 sm:mb-20 max-w-3xl">
-                <span class="inline-block text-xs font-mono font-semibold uppercase tracking-widest text-amber-600 dark:text-amber-400 mb-3">
+                <span class="inline-block text-xs font-mono font-semibold uppercase tracking-widest text-brand-800 dark:text-brand-400 mb-3">
                     Start a Conversation
                 </span>
                 <h1 class="font-display font-extrabold text-4xl sm:text-6xl text-neutral-900 dark:text-white tracking-tight mb-4 leading-[1.1]">
@@ -67,16 +67,16 @@
                             <!-- Email -->
                             <a
                                 href="mailto:{{ $email }}"
-                                class="p-4 rounded-2xl bg-white dark:bg-[#151518] border border-[#e7e7e2] dark:border-[#26262b] hover:border-amber-500/50 flex items-center gap-4 group transition-all"
+                                class="p-4 rounded-2xl bg-white dark:bg-[#151518] border border-[#e7e7e2] dark:border-[#26262b] hover:border-brand-400/50 flex items-center gap-4 group transition-all"
                             >
-                                <span class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                                <span class="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-800 dark:text-brand-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                                     <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
                                     </svg>
                                 </span>
                                 <div class="overflow-hidden">
                                     <span class="block text-[11px] font-mono uppercase text-neutral-400">Direct Email</span>
-                                    <span class="font-medium text-sm sm:text-base text-neutral-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors truncate block">
+                                    <span class="font-medium text-sm sm:text-base text-neutral-900 dark:text-white group-hover:text-brand-800 dark:group-hover:text-brand-400 transition-colors truncate block">
                                         {{ $email }}
                                     </span>
                                 </div>
@@ -86,16 +86,16 @@
                             @if($phone)
                                 <a
                                     href="tel:{{ preg_replace('/[^0-9+]/', '', $phone) }}"
-                                    class="p-4 rounded-2xl bg-white dark:bg-[#151518] border border-[#e7e7e2] dark:border-[#26262b] hover:border-amber-500/50 flex items-center gap-4 group transition-all"
+                                    class="p-4 rounded-2xl bg-white dark:bg-[#151518] border border-[#e7e7e2] dark:border-[#26262b] hover:border-brand-400/50 flex items-center gap-4 group transition-all"
                                 >
-                                    <span class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                                    <span class="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-800 dark:text-brand-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                                         <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
                                         </svg>
                                     </span>
                                     <div>
                                         <span class="block text-[11px] font-mono uppercase text-neutral-400">Phone / WhatsApp</span>
-                                        <span class="font-medium text-sm sm:text-base text-neutral-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                                        <span class="font-medium text-sm sm:text-base text-neutral-900 dark:text-white group-hover:text-brand-800 dark:group-hover:text-brand-400 transition-colors">
                                             {{ $phone }}
                                         </span>
                                     </div>
@@ -104,7 +104,7 @@
 
                             <!-- Location -->
                             <div class="p-4 rounded-2xl bg-white dark:bg-[#151518] border border-[#e7e7e2] dark:border-[#26262b] flex items-center gap-4">
-                                <span class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0">
+                                <span class="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-800 dark:text-brand-400 flex items-center justify-center shrink-0">
                                     <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
@@ -185,7 +185,7 @@
                             <!-- Name Field -->
                             <div class="space-y-2">
                                 <label for="name" class="block text-xs font-mono font-semibold uppercase tracking-wider text-neutral-700 dark:text-neutral-300">
-                                    Your Name <span class="text-amber-500">*</span>
+                                    Your Name <span class="text-brand-700 dark:text-brand-400">*</span>
                                 </label>
                                 <input
                                     type="text"
@@ -194,7 +194,7 @@
                                     value="{{ old('name') }}"
                                     required
                                     placeholder="e.g. Maya Lin"
-                                    class="w-full px-4 py-3.5 rounded-xl bg-white dark:bg-[#19191d] border @error('name') border-red-500 dark:border-red-500 @else border-[#dcdcd6] dark:border-[#2a2a30] @enderror text-neutral-900 dark:text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all text-sm"
+                                    class="w-full px-4 py-3.5 rounded-xl bg-white dark:bg-[#19191d] border @error('name') border-red-500 dark:border-red-500 @else border-[#dcdcd6] dark:border-[#2a2a30] @enderror text-neutral-900 dark:text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-brand-400 transition-all text-sm"
                                 />
                                 @error('name')
                                     <p class="text-xs text-red-600 dark:text-red-400 font-medium">{{ $message }}</p>
@@ -204,7 +204,7 @@
                             <!-- Email Field -->
                             <div class="space-y-2">
                                 <label for="email" class="block text-xs font-mono font-semibold uppercase tracking-wider text-neutral-700 dark:text-neutral-300">
-                                    Email Address <span class="text-amber-500">*</span>
+                                    Email Address <span class="text-brand-700 dark:text-brand-400">*</span>
                                 </label>
                                 <input
                                     type="email"
@@ -213,7 +213,7 @@
                                     value="{{ old('email') }}"
                                     required
                                     placeholder="e.g. maya@company.com"
-                                    class="w-full px-4 py-3.5 rounded-xl bg-white dark:bg-[#19191d] border @error('email') border-red-500 dark:border-red-500 @else border-[#dcdcd6] dark:border-[#2a2a30] @enderror text-neutral-900 dark:text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all text-sm"
+                                    class="w-full px-4 py-3.5 rounded-xl bg-white dark:bg-[#19191d] border @error('email') border-red-500 dark:border-red-500 @else border-[#dcdcd6] dark:border-[#2a2a30] @enderror text-neutral-900 dark:text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-brand-400 transition-all text-sm"
                                 />
                                 @error('email')
                                     <p class="text-xs text-red-600 dark:text-red-400 font-medium">{{ $message }}</p>
@@ -231,7 +231,7 @@
                                     name="subject"
                                     value="{{ old('subject', $prefilledSubject) }}"
                                     placeholder="e.g. Brand Identity & Packaging for Artisan Roastery"
-                                    class="w-full px-4 py-3.5 rounded-xl bg-white dark:bg-[#19191d] border @error('subject') border-red-500 dark:border-red-500 @else border-[#dcdcd6] dark:border-[#2a2a30] @enderror text-neutral-900 dark:text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all text-sm"
+                                    class="w-full px-4 py-3.5 rounded-xl bg-white dark:bg-[#19191d] border @error('subject') border-red-500 dark:border-red-500 @else border-[#dcdcd6] dark:border-[#2a2a30] @enderror text-neutral-900 dark:text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-brand-400 transition-all text-sm"
                                 />
                                 @error('subject')
                                     <p class="text-xs text-red-600 dark:text-red-400 font-medium">{{ $message }}</p>
@@ -241,7 +241,7 @@
                             <!-- Message Body Field -->
                             <div class="space-y-2">
                                 <label for="message" class="block text-xs font-mono font-semibold uppercase tracking-wider text-neutral-700 dark:text-neutral-300">
-                                    Project Details & Vision <span class="text-amber-500">*</span>
+                                    Project Details & Vision <span class="text-brand-700 dark:text-brand-400">*</span>
                                 </label>
                                 <textarea
                                     id="message"
@@ -249,7 +249,7 @@
                                     rows="6"
                                     required
                                     placeholder="Tell me about your business, the challenge you are solving, ideal timeline, and any specific deliverables..."
-                                    class="w-full px-4 py-3.5 rounded-xl bg-white dark:bg-[#19191d] border @error('message') border-red-500 dark:border-red-500 @else border-[#dcdcd6] dark:border-[#2a2a30] @enderror text-neutral-900 dark:text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all text-sm resize-y"
+                                    class="w-full px-4 py-3.5 rounded-xl bg-white dark:bg-[#19191d] border @error('message') border-red-500 dark:border-red-500 @else border-[#dcdcd6] dark:border-[#2a2a30] @enderror text-neutral-900 dark:text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-brand-400 transition-all text-sm resize-y"
                                 >{{ old('message', old('body')) }}</textarea>
                                 @error('message')
                                     <p class="text-xs text-red-600 dark:text-red-400 font-medium">{{ $message }}</p>
@@ -263,7 +263,7 @@
                             <div class="pt-2">
                                 <button
                                     type="submit"
-                                    class="w-full py-4 px-8 rounded-full text-xs font-semibold uppercase tracking-widest bg-neutral-900 text-white hover:bg-amber-600 dark:bg-white dark:text-neutral-950 dark:hover:bg-amber-400 transition-all duration-300 shadow-md hover:shadow-xl flex items-center justify-center gap-3 group focus-visible:outline-2 focus-visible:outline-amber-500"
+                                    class="w-full py-4 px-8 rounded-full text-xs font-bold uppercase tracking-widest bg-brand-400 text-ink hover:bg-brand-500 transition-all duration-300 shadow-md hover:shadow-xl flex items-center justify-center gap-3 group focus-visible:outline-2 focus-visible:outline-brand-400"
                                 >
                                     <span>Send Inquiry</span>
                                     <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">

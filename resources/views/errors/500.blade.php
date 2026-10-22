@@ -19,7 +19,7 @@
             <div class="pt-4 flex flex-wrap items-center justify-center gap-4">
                 <a
                     href="{{ route('home') }}"
-                    class="px-8 py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-neutral-900 text-white dark:bg-white dark:text-neutral-950 hover:bg-amber-600 dark:hover:bg-amber-400 transition-all duration-200 shadow-md"
+                    class="px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-400 text-ink hover:bg-brand-500 transition-all duration-200 shadow-md"
                 >
                     &larr; Return to Safety
                 </a>
