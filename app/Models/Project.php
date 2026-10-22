@@ -1,0 +1,96 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
+
+class Project extends Model implements HasMedia
+{
+    use HasFactory, HasSlug, InteractsWithMedia, SoftDeletes;
+
+    protected $fillable = [
+        'category_id',
+        'title',
+        'slug',
+        'client',
+        'year',
+        'summary',
+        'description',
+        'tools_used',
+        'project_url',
+        'is_featured',
+        'is_published',
+        'published_at',
+        'sort_order',
+        'seo_title',
+        'seo_description',
+    ];
+
+    protected function casts(): array
+    {
+        return [
+            'tools_used' => 'array',
+            'is_featured' => 'boolean',
+            'is_published' => 'boolean',
+            'published_at' => 'datetime',
+            'sort_order' => 'integer',
+        ];
+    }
+
+    public function getSlugOptions(): SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('title')
+            ->saveSlugsTo('slug');
+    }
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('cover')
+            ->singleFile();
+
+        $this->addMediaCollection('gallery');
+    }
+
+    public function registerMediaConversions(?Media $media = null): void
+    {
+        $this->addMediaConversion('thumb')
+            ->width(600)
+            ->format('webp')
+            ->nonQueued();
+
+        $this->addMediaConversion('large')
+            ->width(1600)
+            ->format('webp')
+            ->nonQueued();
+    }
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function scopePublished(Builder $query): Builder
+    {
+        return $query->where('is_published', true);
+    }
+
+    public function scopeFeatured(Builder $query): Builder
+    {
+        return $query->where('is_featured', true);
+    }
+
+    public function scopeOrdered(Builder $query): Builder
+    {
+        return $query->orderBy('sort_order')->orderByDesc('published_at');
+    }
+}
