@@ -35,10 +35,10 @@
             <!-- Desktop Navigation Links -->
             <nav class="hidden md:flex items-center gap-8 text-sm font-medium" aria-label="Primary Navigation">
                 <a
-                    href="{{ url('/#work') }}"
-                    class="text-neutral-600 dark:text-neutral-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors focus-visible:outline-2 focus-visible:outline-amber-500 rounded-sm"
+                    href="{{ route('work.index') }}"
+                    class="text-neutral-600 dark:text-neutral-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors {{ request()->routeIs('work.*') || request()->routeIs('project.*') ? 'text-amber-600 dark:text-amber-400 font-semibold' : '' }} focus-visible:outline-2 focus-visible:outline-amber-500 rounded-sm"
                 >
-                    Selected Work
+                    Work
                 </a>
                 <a
                     href="{{ url('/#services') }}"
@@ -127,11 +127,11 @@
     >
         <nav class="flex flex-col gap-6 text-lg font-display font-medium" aria-label="Mobile Navigation">
             <a
-                href="{{ url('/#work') }}"
+                href="{{ route('work.index') }}"
                 @click="mobileMenuOpen = false"
-                class="text-neutral-900 dark:text-white hover:text-amber-600 transition-colors"
+                class="text-neutral-900 dark:text-white hover:text-amber-600 transition-colors {{ request()->routeIs('work.*') || request()->routeIs('project.*') ? 'text-amber-600 dark:text-amber-400 font-bold' : '' }}"
             >
-                Selected Work
+                Portfolio & Work
             </a>
             <a
                 href="{{ url('/#services') }}"

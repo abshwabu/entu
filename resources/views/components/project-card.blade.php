@@ -5,13 +5,15 @@
 
 @php
     $coverMedia = $project->getFirstMedia('cover');
-    $coverUrl = $coverMedia ? $coverMedia->getUrl('large') : ($coverMedia ? $coverMedia->getUrl() : null);
+    $coverThumb = $coverMedia?->hasGeneratedConversion('thumb') ? $coverMedia->getUrl('thumb') : $coverMedia?->getUrl();
+    $coverLarge = $coverMedia?->hasGeneratedConversion('large') ? $coverMedia->getUrl('large') : $coverMedia?->getUrl();
+    $coverUrl = $coverLarge ?: ($coverMedia ? $coverMedia->getUrl() : null);
     $categoryName = $project->category?->name;
-    $detailUrl = url('/projects/' . $project->slug);
+    $detailUrl = $project->url;
 @endphp
 
 <article
-    {{ $attributes->merge(['class' => 'group relative flex flex-col overflow-hidden rounded-2xl bg-neutral-100 dark:bg-[#141417] border border-[#e7e7e2] dark:border-[#26262b] transition-all duration-300 hover:shadow-xl hover:border-amber-500/50']) }}
+    {{ $attributes->merge(['class' => 'group relative flex flex-col overflow-hidden rounded-2xl bg-neutral-100 dark:bg-[#141417] border border-[#e7e7e2] dark:border-[#26262b] transition-all duration-300 hover:shadow-xl hover:border-amber-500/50 break-inside-avoid w-full']) }}
     x-data="{ shown: false }"
     x-intersect.margin.-80px="shown = true"
     :class="{ 'opacity-100 translate-y-0': shown, 'opacity-0 translate-y-8': !shown }"
@@ -22,8 +24,15 @@
         @if($coverUrl)
             <img
                 src="{{ $coverUrl }}"
+                @if($coverThumb && $coverLarge)
+                    srcset="{{ $coverThumb }} 600w, {{ $coverLarge }} 1600w"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 500px"
+                @endif
                 alt="{{ $project->title }} — {{ $categoryName ?? 'Design Project' }}"
+                width="600"
+                height="450"
                 loading="lazy"
+                decoding="async"
                 class="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
             />
         @else
@@ -52,7 +61,16 @@
             </div>
         </div>
 
-        @if($categoryName)
+        @if($categoryName && $project->category)
+            <div class="absolute top-4 left-4 z-10">
+                <a
+                    href="{{ route('work.category', $project->category->slug) }}"
+                    class="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-black/60 backdrop-blur-md text-white border border-white/10 hover:bg-amber-600 transition-colors"
+                >
+                    {{ $categoryName }}
+                </a>
+            </div>
+        @elseif($categoryName)
             <div class="absolute top-4 left-4 z-10">
                 <span class="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-black/60 backdrop-blur-md text-white border border-white/10">
                     {{ $categoryName }}

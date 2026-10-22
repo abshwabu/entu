@@ -104,4 +104,45 @@ class Project extends Model implements HasMedia
     {
         return $query->orderBy('sort_order')->orderByDesc('published_at');
     }
+
+    public function getUrlAttribute(): string
+    {
+        if ($this->category) {
+            return route('work.show', [
+                'category' => $this->category->slug,
+                'project' => $this->slug,
+            ]);
+        }
+
+        return route('project.show', [
+            'project' => $this->slug,
+        ]);
+    }
+
+    public function getLightboxItemsAttribute(): array
+    {
+        $items = [];
+        $cover = $this->getFirstMedia('cover');
+        if ($cover) {
+            $items[] = [
+                'src' => $cover->hasGeneratedConversion('large') ? $cover->getUrl('large') : $cover->getUrl(),
+                'thumb' => $cover->hasGeneratedConversion('thumb') ? $cover->getUrl('thumb') : $cover->getUrl(),
+                'orig' => $cover->getUrl(),
+                'alt' => $this->title . ' — Cover Image',
+                'caption' => $this->title . ' (Cover Showcase)',
+            ];
+        }
+
+        foreach ($this->getMedia('gallery') as $index => $media) {
+            $items[] = [
+                'src' => $media->hasGeneratedConversion('large') ? $media->getUrl('large') : $media->getUrl(),
+                'thumb' => $media->hasGeneratedConversion('thumb') ? $media->getUrl('thumb') : $media->getUrl(),
+                'orig' => $media->getUrl(),
+                'alt' => $this->title . ' — ' . ($media->name ?: 'Detail ' . ($index + 1)),
+                'caption' => $media->getCustomProperty('caption') ?: ($media->name ?: $this->title . ' — Story View ' . ($index + 1)),
+            ];
+        }
+
+        return $items;
+    }
 }

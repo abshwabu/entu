@@ -164,7 +164,7 @@
 
                 <div class="shrink-0">
                     <a
-                        href="#contact"
+                        href="{{ route('work.index') }}"
                         class="inline-flex items-center gap-2 text-sm font-semibold text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 group focus-visible:outline-2 focus-visible:outline-amber-500 rounded-sm"
                     >
                         <span>View all work</span>

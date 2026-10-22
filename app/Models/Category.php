@@ -50,6 +50,11 @@ class Category extends Model
         return $this->hasMany(Project::class);
     }
 
+    public function publishedProjects(): HasMany
+    {
+        return $this->hasMany(Project::class)->where('is_published', true);
+    }
+
     public function scopeOrdered(Builder $query): Builder
     {
         return $query->orderBy('sort_order')->orderBy('name');

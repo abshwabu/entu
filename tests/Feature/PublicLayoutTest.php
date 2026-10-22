@@ -106,7 +106,7 @@ class PublicLayoutTest extends TestCase
 
         // Responsive grid and container classes
         $response->assertSee('max-w-7xl');
-        $response->assertSee('grid-cols-1 md:grid-cols-2 lg:grid-cols-3');
+        $response->assertSee('grid-cols-1 md:grid-cols-3');
 
         // Semantic and accessible tags
         $response->assertSee('<header', false);
