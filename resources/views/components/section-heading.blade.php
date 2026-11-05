@@ -20,13 +20,13 @@
     class="transition-all duration-700 ease-out"
 >
     @if($tag)
-        <span class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-ink dark:text-mint-400 mb-3 px-3 py-1 rounded-full bg-mint-500/15 border border-mint-500/30">
-            <span class="w-1.5 h-1.5 rounded-full bg-mint-600 dark:bg-mint-400"></span>
+        <span class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-text-ink dark:text-lilac mb-3 px-3 py-1 rounded-full bg-brand-500/10 dark:bg-brand-500/20 border border-brand-500/20">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-purple dark:bg-orchid"></span>
             {{ $tag }}
         </span>
     @endif
 
-    <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-ink dark:text-paper leading-[1.15]">
+    <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-text-ink dark:text-white leading-[1.15]">
         {{ $title }}
     </h2>
 

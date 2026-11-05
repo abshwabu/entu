@@ -9,8 +9,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Theme Color matching brand base -->
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1F4452">
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F4F8F7">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0A0710">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F7F4FB">
 
     @php
         $siteTitle = setting('site_title', 'Entu Creative — Graphic Designer & Art Director');
@@ -124,10 +124,10 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     {{ $head ?? '' }}
 </head>
-<body class="bg-paper text-ink dark:bg-panel dark:text-paper font-sans antialiased selection:bg-mint-500 selection:text-panel-deep transition-colors duration-300 min-h-screen flex flex-col">
+<body class="bg-paper text-text-ink dark:bg-ink dark:text-white font-sans antialiased selection:bg-brand-magenta selection:text-white transition-colors duration-300 min-h-screen flex flex-col">
     <!-- Non-JavaScript Fallback Notice -->
     <noscript>
-        <div class="bg-panel-deep text-mint-400 text-xs font-semibold py-2.5 px-4 text-center">
+        <div class="bg-ink-soft text-lilac text-xs font-semibold py-2.5 px-4 text-center border-b border-white/10">
             JavaScript is disabled in your browser. All portfolio artwork, case studies, and contact details remain fully accessible.
         </div>
     </noscript>
@@ -157,7 +157,7 @@
         x-transition:leave-start="opacity-100 translate-y-0 scale-100"
         x-transition:leave-end="opacity-0 translate-y-4 scale-95"
         @click="window.scrollTo({ top: 0, behavior: 'smooth' })"
-        class="fixed bottom-6 right-6 z-40 p-3 rounded-full bg-paper-raised dark:bg-panel-soft text-ink dark:text-paper shadow-xl border border-black/10 dark:border-white/10 hover:bg-mint-500 hover:text-panel-deep dark:hover:bg-mint-500 dark:hover:text-panel-deep hover:scale-105 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-mint-500"
+        class="fixed bottom-6 right-6 z-40 p-3 rounded-full bg-paper-raised dark:bg-ink-raised text-text-ink dark:text-white shadow-xl border border-black/10 dark:border-white/10 hover:bg-brand-gradient hover:text-white hover:scale-105 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-lilac"
         aria-label="Back to top of page"
         style="display: none;"
     >

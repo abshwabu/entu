@@ -17,10 +17,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Page Header -->
             <div class="mb-12 sm:mb-16 text-center max-w-3xl mx-auto">
-                <span class="inline-block text-xs font-mono font-semibold uppercase tracking-widest text-ink dark:text-mint-400 mb-3">
+                <span class="inline-block text-xs font-mono font-semibold uppercase tracking-widest text-text-ink dark:text-lilac mb-3">
                     Portfolio Gallery
                 </span>
-                <h1 class="font-display font-extrabold text-4xl sm:text-6xl text-ink dark:text-paper tracking-tight mb-4">
+                <h1 class="font-display font-extrabold text-4xl sm:text-6xl text-text-ink dark:text-white tracking-tight mb-4">
                     Selected Work
                 </h1>
                 <p class="text-neutral-600 dark:text-neutral-400 text-base sm:text-lg leading-relaxed">
@@ -38,16 +38,16 @@
                     <a
                         href="{{ route('work.index') }}"
                         @click.prevent="filter('', '{{ route('work.index') }}')"
-                        class="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs tracking-wider transition-all duration-200 border focus-visible:outline-2 focus-visible:outline-mint-500 cursor-pointer"
+                        class="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs tracking-wider transition-all duration-200 border focus-visible:outline-2 focus-visible:outline-lilac cursor-pointer"
                         :class="activeSlug === '' 
-                            ? 'bg-mint-500 text-panel-deep border-mint-500 font-bold shadow-xs' 
-                            : 'bg-paper-raised dark:bg-panel-soft text-neutral-700 dark:text-neutral-300 border-black/10 dark:border-white/10 hover:border-mint-500/50'"
+                            ? 'bg-brand-gradient text-white border-transparent font-bold shadow-xs' 
+                            : 'bg-paper-raised dark:bg-ink-soft text-neutral-700 dark:text-neutral-300 border-black/10 dark:border-white/10 hover:border-lilac/50'"
                     >
                         <span>All Projects</span>
                         <span
                             class="px-2 py-0.5 rounded-full text-[11px] font-mono transition-colors"
                             :class="activeSlug === '' 
-                                ? 'bg-panel-deep/15 text-panel-deep font-bold' 
+                                ? 'bg-white/20 text-white font-bold' 
                                 : 'bg-black/5 dark:bg-white/5 text-neutral-600 dark:text-neutral-400'"
                         >
                             {{ $allCount }}
@@ -59,16 +59,16 @@
                         <a
                             href="{{ route('work.category', $cat->slug) }}"
                             @click.prevent="filter('{{ $cat->slug }}', '{{ route('work.category', $cat->slug) }}')"
-                            class="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs tracking-wider transition-all duration-200 border focus-visible:outline-2 focus-visible:outline-mint-500 cursor-pointer"
+                            class="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs tracking-wider transition-all duration-200 border focus-visible:outline-2 focus-visible:outline-lilac cursor-pointer"
                             :class="activeSlug === '{{ $cat->slug }}' 
-                                ? 'bg-mint-500 text-panel-deep border-mint-500 font-bold shadow-xs' 
-                                : 'bg-paper-raised dark:bg-panel-soft text-neutral-700 dark:text-neutral-300 border-black/10 dark:border-white/10 hover:border-mint-500/50'"
+                                ? 'bg-brand-gradient text-white border-transparent font-bold shadow-xs' 
+                                : 'bg-paper-raised dark:bg-ink-soft text-neutral-700 dark:text-neutral-300 border-black/10 dark:border-white/10 hover:border-lilac/50'"
                         >
                             <span>{{ $cat->name }}</span>
                             <span
                                 class="px-2 py-0.5 rounded-full text-[11px] font-mono transition-colors"
                                 :class="activeSlug === '{{ $cat->slug }}' 
-                                    ? 'bg-panel-deep/15 text-panel-deep font-bold' 
+                                    ? 'bg-white/20 text-white font-bold' 
                                     : 'bg-black/5 dark:bg-white/5 text-neutral-600 dark:text-neutral-400'"
                             >
                                 {{ $cat->projects_count }}
@@ -89,15 +89,15 @@
                     x-transition:leave="ease-in duration-150"
                     x-transition:leave-start="opacity-100"
                     x-transition:leave-end="opacity-0"
-                    class="absolute inset-0 z-20 bg-paper/60 dark:bg-panel/60 backdrop-blur-xs flex items-center justify-center rounded-3xl"
+                    class="absolute inset-0 z-20 bg-paper/60 dark:bg-ink/60 backdrop-blur-xs flex items-center justify-center rounded-3xl"
                     style="display: none;"
                 >
-                    <div class="p-4 rounded-2xl bg-paper-raised dark:bg-panel-soft shadow-xl border border-black/10 dark:border-white/10 flex items-center gap-3">
-                        <svg class="animate-spin h-5 w-5 text-mint-400" fill="none" viewBox="0 0 24 24">
+                    <div class="p-4 rounded-2xl bg-paper-raised dark:bg-ink-soft shadow-xl border border-black/10 dark:border-white/10 flex items-center gap-3">
+                        <svg class="animate-spin h-5 w-5 text-lilac" fill="none" viewBox="0 0 24 24">
                             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
                         </svg>
-                        <span class="text-xs font-mono uppercase tracking-wider text-ink dark:text-paper font-semibold">Updating Projects...</span>
+                        <span class="text-xs font-mono uppercase tracking-wider text-text-ink dark:text-white font-semibold">Updating Projects...</span>
                     </div>
                 </div>
 
@@ -117,7 +117,7 @@
                     type="button"
                     @click="loadMore()"
                     :disabled="isLoadingMore"
-                    class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full text-sm font-bold tracking-wide bg-mint-500 text-panel-deep hover:bg-mint-400 transition-all duration-300 shadow-md hover:shadow-xl disabled:opacity-60 disabled:cursor-not-allowed group focus-visible:outline-2 focus-visible:outline-mint-500 cursor-pointer"
+                    class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full text-sm font-bold tracking-wide bg-brand-gradient text-white hover:brightness-110 transition-all duration-300 shadow-md hover:shadow-xl disabled:opacity-60 disabled:cursor-not-allowed group focus-visible:outline-2 focus-visible:outline-lilac cursor-pointer"
                 >
                     <span x-show="!isLoadingMore">Load More Projects</span>
                     <span x-show="isLoadingMore" style="display: none;">Loading More...</span>

@@ -11,7 +11,7 @@
     @scroll.window="isScrolled = (window.pageYOffset > 24)"
     class="sticky top-0 z-50 w-full transition-all duration-300"
     :class="{
-        'bg-paper/90 dark:bg-panel-deep/90 backdrop-blur-md border-b border-black/10 dark:border-white/10 shadow-xs': isScrolled,
+        'bg-paper/90 dark:bg-ink-soft/90 backdrop-blur-md border-b border-black/10 dark:border-white/10 shadow-xs': isScrolled,
         'bg-transparent border-b border-transparent': !isScrolled
     }"
 >
@@ -20,15 +20,15 @@
             <!-- Brand / Logo -->
             <a
                 href="{{ url('/') }}"
-                class="flex items-center gap-3 group focus-visible:outline-2 focus-visible:outline-mint-500 rounded-sm"
+                class="flex items-center gap-3 group focus-visible:outline-2 focus-visible:outline-lilac rounded-sm"
                 aria-label="{{ $siteTitle }} Homepage"
             >
-                <div class="relative w-9 h-9 rounded-full overflow-hidden shadow-sm group-hover:scale-105 transition-transform duration-200">
-                    <img src="{{ asset('brand/logo-icon.svg') }}" alt="Entu Creative" class="w-full h-full object-cover" />
+                <div class="group-hover:scale-105 transition-transform duration-200">
+                    <x-logo size="w-9 h-9" />
                 </div>
-                <span class="font-display font-bold text-lg sm:text-xl tracking-tight text-ink dark:text-paper flex items-center gap-1.5">
+                <span class="font-display font-bold text-lg sm:text-xl tracking-tight text-text-ink dark:text-white flex items-center gap-1.5">
                     <span>Entu</span>
-                    <span class="text-ink dark:text-mint-400 font-light text-base uppercase tracking-widest">Creative</span>
+                    <span class="text-text-ink dark:text-lilac font-light text-base uppercase tracking-widest">Creative</span>
                 </span>
             </a>
 
@@ -36,31 +36,31 @@
             <nav class="hidden md:flex items-center gap-8 text-sm font-medium" aria-label="Primary Navigation">
                 <a
                     href="{{ route('work.index') }}"
-                    class="text-neutral-700 dark:text-neutral-300 hover:text-ink dark:hover:text-mint-400 transition-colors {{ request()->routeIs('work.*') || request()->routeIs('project.*') ? 'text-ink dark:text-mint-400 font-bold underline decoration-mint-500 decoration-2 underline-offset-4 dark:no-underline' : '' }} focus-visible:outline-2 focus-visible:outline-mint-500 rounded-sm"
+                    class="text-neutral-700 dark:text-neutral-300 hover:text-text-ink dark:hover:text-lilac transition-colors {{ request()->routeIs('work.*') || request()->routeIs('project.*') ? 'text-text-ink dark:text-lilac font-bold underline decoration-brand-purple dark:decoration-orchid decoration-2 underline-offset-4' : '' }} focus-visible:outline-2 focus-visible:outline-lilac rounded-sm"
                 >
                     Work
                 </a>
                 <a
                     href="{{ route('services') }}"
-                    class="text-neutral-700 dark:text-neutral-300 hover:text-ink dark:hover:text-mint-400 transition-colors {{ request()->routeIs('services') ? 'text-ink dark:text-mint-400 font-bold underline decoration-mint-500 decoration-2 underline-offset-4 dark:no-underline' : '' }} focus-visible:outline-2 focus-visible:outline-mint-500 rounded-sm"
+                    class="text-neutral-700 dark:text-neutral-300 hover:text-text-ink dark:hover:text-lilac transition-colors {{ request()->routeIs('services') ? 'text-text-ink dark:text-lilac font-bold underline decoration-brand-purple dark:decoration-orchid decoration-2 underline-offset-4' : '' }} focus-visible:outline-2 focus-visible:outline-lilac rounded-sm"
                 >
                     Services
                 </a>
                 <a
                     href="{{ route('about') }}"
-                    class="text-neutral-700 dark:text-neutral-300 hover:text-ink dark:hover:text-mint-400 transition-colors {{ request()->routeIs('about') ? 'text-ink dark:text-mint-400 font-bold underline decoration-mint-500 decoration-2 underline-offset-4 dark:no-underline' : '' }} focus-visible:outline-2 focus-visible:outline-mint-500 rounded-sm"
+                    class="text-neutral-700 dark:text-neutral-300 hover:text-text-ink dark:hover:text-lilac transition-colors {{ request()->routeIs('about') ? 'text-text-ink dark:text-lilac font-bold underline decoration-brand-purple dark:decoration-orchid decoration-2 underline-offset-4' : '' }} focus-visible:outline-2 focus-visible:outline-lilac rounded-sm"
                 >
                     About
                 </a>
                 <a
                     href="{{ url('/#testimonials') }}"
-                    class="text-neutral-700 dark:text-neutral-300 hover:text-ink dark:hover:text-mint-400 transition-colors focus-visible:outline-2 focus-visible:outline-mint-500 rounded-sm"
+                    class="text-neutral-700 dark:text-neutral-300 hover:text-text-ink dark:hover:text-lilac transition-colors focus-visible:outline-2 focus-visible:outline-lilac rounded-sm"
                 >
                     Testimonials
                 </a>
                 <a
                     href="{{ route('contact') }}"
-                    class="text-neutral-700 dark:text-neutral-300 hover:text-ink dark:hover:text-mint-400 transition-colors {{ request()->routeIs('contact') ? 'text-ink dark:text-mint-400 font-bold underline decoration-mint-500 decoration-2 underline-offset-4 dark:no-underline' : '' }} focus-visible:outline-2 focus-visible:outline-mint-500 rounded-sm"
+                    class="text-neutral-700 dark:text-neutral-300 hover:text-text-ink dark:hover:text-lilac transition-colors {{ request()->routeIs('contact') ? 'text-text-ink dark:text-lilac font-bold underline decoration-brand-purple dark:decoration-orchid decoration-2 underline-offset-4' : '' }} focus-visible:outline-2 focus-visible:outline-lilac rounded-sm"
                 >
                     Contact
                 </a>
@@ -72,15 +72,15 @@
                 <button
                     type="button"
                     @click="$store.theme.toggle()"
-                    class="p-2 rounded-full text-neutral-700 dark:text-neutral-300 hover:bg-black/5 dark:hover:bg-white/10 transition-colors focus-visible:outline-2 focus-visible:outline-mint-500"
+                    class="p-2 rounded-full text-neutral-700 dark:text-neutral-300 hover:bg-black/5 dark:hover:bg-white/10 transition-colors focus-visible:outline-2 focus-visible:outline-lilac"
                     aria-label="Toggle dark mode theme"
                 >
                     <!-- Sun icon (shown in dark mode) -->
-                    <svg x-show="$store.theme.dark" x-cloak class="w-5 h-5 text-mint-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    <svg x-show="$store.theme.dark" x-cloak class="w-5 h-5 text-lilac" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
                     </svg>
                     <!-- Moon icon (shown in light mode) -->
-                    <svg x-show="!$store.theme.dark" x-cloak class="w-5 h-5 text-ink dark:text-paper" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    <svg x-show="!$store.theme.dark" x-cloak class="w-5 h-5 text-text-ink" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
                     </svg>
                 </button>
@@ -88,7 +88,7 @@
                 <!-- Desktop Contact CTA -->
                 <a
                     href="{{ route('contact') }}"
-                    class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-sm font-bold rounded-full bg-mint-500 text-panel-deep hover:bg-mint-400 transition-all duration-200 shadow-xs focus-visible:outline-2 focus-visible:outline-mint-500"
+                    class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-sm font-bold rounded-full bg-brand-gradient text-white hover:brightness-110 transition-all duration-200 shadow-xs hover:shadow-[0_4px_16px_rgba(138,31,201,0.4)] focus-visible:outline-2 focus-visible:outline-lilac"
                 >
                     Get in Touch
                 </a>
@@ -97,7 +97,7 @@
                 <button
                     type="button"
                     @click="mobileMenuOpen = !mobileMenuOpen"
-                    class="md:hidden p-2 rounded-lg text-ink dark:text-paper hover:bg-black/5 dark:hover:bg-white/10 transition-colors focus-visible:outline-2 focus-visible:outline-mint-500"
+                    class="md:hidden p-2 rounded-lg text-text-ink dark:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-colors focus-visible:outline-2 focus-visible:outline-lilac"
                     aria-label="Open mobile navigation menu"
                     :aria-expanded="mobileMenuOpen"
                 >
@@ -121,7 +121,7 @@
         x-transition:leave="transition ease-in duration-200"
         x-transition:leave-start="opacity-100 translate-y-0"
         x-transition:leave-end="opacity-0 -translate-y-4"
-        class="md:hidden fixed inset-x-0 top-20 bg-paper/98 dark:bg-panel-deep/98 backdrop-blur-xl border-b border-black/10 dark:border-white/10 shadow-xl px-6 py-8"
+        class="md:hidden fixed inset-x-0 top-20 bg-paper/98 dark:bg-ink-soft/98 backdrop-blur-xl border-b border-black/10 dark:border-white/10 shadow-xl px-6 py-8"
         @click.away="mobileMenuOpen = false"
         style="display: none;"
     >
@@ -129,35 +129,35 @@
             <a
                 href="{{ route('work.index') }}"
                 @click="mobileMenuOpen = false"
-                class="text-ink dark:text-paper hover:text-ink dark:hover:text-mint-400 transition-colors {{ request()->routeIs('work.*') || request()->routeIs('project.*') ? 'text-ink dark:text-mint-400 font-bold underline decoration-mint-500 decoration-2 dark:no-underline' : '' }}"
+                class="text-text-ink dark:text-white hover:text-text-ink dark:hover:text-lilac transition-colors {{ request()->routeIs('work.*') || request()->routeIs('project.*') ? 'text-text-ink dark:text-lilac font-bold underline decoration-brand-purple dark:decoration-orchid decoration-2' : '' }}"
             >
                 Portfolio & Work
             </a>
             <a
                 href="{{ route('services') }}"
                 @click="mobileMenuOpen = false"
-                class="text-ink dark:text-paper hover:text-ink dark:hover:text-mint-400 transition-colors {{ request()->routeIs('services') ? 'text-ink dark:text-mint-400 font-bold underline decoration-mint-500 decoration-2 dark:no-underline' : '' }}"
+                class="text-text-ink dark:text-white hover:text-text-ink dark:hover:text-lilac transition-colors {{ request()->routeIs('services') ? 'text-text-ink dark:text-lilac font-bold underline decoration-brand-purple dark:decoration-orchid decoration-2' : '' }}"
             >
                 Services
             </a>
             <a
                 href="{{ route('about') }}"
                 @click="mobileMenuOpen = false"
-                class="text-ink dark:text-paper hover:text-ink dark:hover:text-mint-400 transition-colors {{ request()->routeIs('about') ? 'text-ink dark:text-mint-400 font-bold underline decoration-mint-500 decoration-2 dark:no-underline' : '' }}"
+                class="text-text-ink dark:text-white hover:text-text-ink dark:hover:text-lilac transition-colors {{ request()->routeIs('about') ? 'text-text-ink dark:text-lilac font-bold underline decoration-brand-purple dark:decoration-orchid decoration-2' : '' }}"
             >
                 About Entu
             </a>
             <a
                 href="{{ url('/#testimonials') }}"
                 @click="mobileMenuOpen = false"
-                class="text-ink dark:text-paper hover:text-ink dark:hover:text-mint-400 transition-colors"
+                class="text-text-ink dark:text-white hover:text-text-ink dark:hover:text-lilac transition-colors"
             >
                 Client Testimonials
             </a>
             <a
                 href="{{ route('contact') }}"
                 @click="mobileMenuOpen = false"
-                class="text-ink dark:text-paper hover:text-ink dark:hover:text-mint-400 transition-colors {{ request()->routeIs('contact') ? 'text-ink dark:text-mint-400 font-bold underline decoration-mint-500 decoration-2 dark:no-underline' : '' }}"
+                class="text-text-ink dark:text-white hover:text-text-ink dark:hover:text-lilac transition-colors {{ request()->routeIs('contact') ? 'text-text-ink dark:text-lilac font-bold underline decoration-brand-purple dark:decoration-orchid decoration-2' : '' }}"
             >
                 Contact & Inquiries
             </a>
@@ -166,10 +166,10 @@
                 <button
                     type="button"
                     @click="$store.theme.toggle()"
-                    class="flex items-center justify-between w-full py-2.5 px-4 rounded-xl bg-black/5 dark:bg-panel text-ink dark:text-paper text-sm font-medium transition-colors"
+                    class="flex items-center justify-between w-full py-2.5 px-4 rounded-xl bg-black/5 dark:bg-ink-raised text-text-ink dark:text-white text-sm font-medium transition-colors"
                 >
                     <span class="flex items-center gap-2">
-                        <svg x-show="$store.theme.dark" x-cloak class="w-4 h-4 text-mint-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <svg x-show="$store.theme.dark" x-cloak class="w-4 h-4 text-lilac" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
                         </svg>
                         <svg x-show="!$store.theme.dark" x-cloak class="w-4 h-4 text-neutral-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -183,13 +183,13 @@
                 <a
                     href="{{ url('/#contact') }}"
                     @click="mobileMenuOpen = false"
-                    class="w-full text-center py-3 px-6 rounded-full bg-mint-500 text-panel-deep font-sans text-sm font-bold hover:bg-mint-400 transition-colors"
+                    class="w-full text-center py-3 px-6 rounded-full bg-brand-gradient text-white font-sans text-sm font-bold hover:brightness-110 shadow-md transition-all"
                 >
                     Start a Project
                 </a>
                 <a
                     href="{{ url('/admin') }}"
-                    class="text-center text-xs text-neutral-500 hover:text-ink dark:hover:text-paper"
+                    class="text-center text-xs text-neutral-500 hover:text-text-ink dark:hover:text-white"
                 >
                     Admin Portal
                 </a>

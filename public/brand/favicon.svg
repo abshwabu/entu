@@ -1,5 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
-    <rect width="32" height="32" rx="8" fill="#17333F" />
-    <circle cx="16" cy="16" r="12" fill="#1F4452" stroke="#2EE6C8" stroke-width="1" />
-    <text x="16" y="22" text-anchor="middle" font-family="'Montserrat', 'Plus Jakarta Sans', system-ui, sans-serif" font-weight="900" font-size="18" fill="#2DF5B0">e</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="entuBrandGradIcon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B0F8F" />
+      <stop offset="35%" stop-color="#5B1BB0" />
+      <stop offset="70%" stop-color="#8A1FC9" />
+      <stop offset="100%" stop-color="#B820D8" />
+    </linearGradient>
+  </defs>
+  <circle cx="256" cy="256" r="230" fill="url(#entuBrandGradIcon)" />
+  <text x="256" y="325" fill="#FFFFFF" text-anchor="middle" font-family="'Plus Jakarta Sans', 'Montserrat', -apple-system, sans-serif" font-size="220" font-weight="800">e</text>
 </svg>

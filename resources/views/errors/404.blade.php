@@ -2,31 +2,36 @@
     title="404 — Page Not Found"
     description="The page or design piece you were looking for could not be found."
 >
-    <div class="min-h-[70vh] flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-2xl text-center space-y-8">
-            <span class="inline-block px-4 py-1.5 rounded-full text-xs font-mono font-semibold uppercase tracking-widest bg-mint-500/15 text-ink dark:text-mint-400 border border-mint-500/30">
+    <div class="min-h-[70vh] flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <!-- Aurora ambient glow -->
+        <div class="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center">
+            <div class="w-[500px] h-[500px] rounded-full bg-brand-violet/20 blur-[120px] dark:bg-brand-violet/30"></div>
+        </div>
+
+        <div class="max-w-2xl text-center space-y-8 relative z-10">
+            <span class="inline-block px-4 py-1.5 rounded-full text-xs font-mono font-semibold uppercase tracking-widest bg-brand-500/10 text-text-ink dark:text-lilac border border-brand-500/20">
                 Error 404
             </span>
 
-            <h1 class="font-display font-extrabold text-5xl sm:text-7xl text-neutral-900 dark:text-white tracking-tight leading-none">
+            <h1 class="font-display font-extrabold text-5xl sm:text-7xl text-text-ink dark:text-white tracking-tight leading-none">
                 Page Not Found
             </h1>
 
-            <p class="text-neutral-600 dark:text-neutral-400 text-base sm:text-lg max-w-lg mx-auto leading-relaxed">
+            <p class="text-text-muted-light dark:text-text-muted-dark text-base sm:text-lg max-w-lg mx-auto leading-relaxed">
                 The visual artifact, case study, or page you are seeking might have been archived, renamed, or never existed.
             </p>
 
             <div class="pt-4 flex flex-wrap items-center justify-center gap-4">
                 <a
                     href="{{ route('home') }}"
-                    class="px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider bg-mint-500 text-panel-deep hover:bg-mint-400 transition-all duration-200 shadow-md"
+                    class="px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-gradient text-white hover:brightness-110 hover:shadow-lg hover:shadow-brand-500/25 transition-all duration-200"
                 >
                     &larr; Back to Home
                 </a>
 
                 <a
                     href="{{ route('work.index') }}"
-                    class="px-8 py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-neutral-100 dark:bg-panel-soft text-neutral-800 dark:text-neutral-200 hover:bg-neutral-200 dark:hover:bg-panel-raised transition-all duration-200 border border-[#e5e5df] dark:border-panel-soft"
+                    class="px-8 py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-paper-raised dark:bg-ink-soft text-text-ink dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-ink-raised transition-all duration-200 border border-neutral-200 dark:border-line"
                 >
                     Browse Selected Work
                 </a>

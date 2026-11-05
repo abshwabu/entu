@@ -15,29 +15,29 @@
     ]);
 @endphp
 
-<footer class="bg-paper dark:bg-panel-deep text-ink dark:text-paper border-t border-black/10 dark:border-white/10 transition-colors duration-300 pt-20 pb-12 mt-auto">
+<footer class="bg-paper dark:bg-ink text-text-ink dark:text-white border-t border-black/10 dark:border-white/10 transition-colors duration-300 pt-20 pb-12 mt-auto">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Main Footer Top Section -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 pb-16 border-b border-black/10 dark:border-white/10">
             <!-- Col 1: Big Branding Statement -->
             <div class="lg:col-span-6 space-y-6">
                 <a href="{{ url('/') }}" class="inline-flex items-center gap-3 group" aria-label="Entu Creative Home">
-                    <div class="w-8 h-8 rounded-full overflow-hidden shadow-xs">
-                        <img src="{{ asset('brand/logo-icon.svg') }}" alt="Entu Creative" class="w-full h-full object-cover" />
+                    <div class="group-hover:scale-105 transition-transform duration-200">
+                        <x-logo size="w-8 h-8" />
                     </div>
-                    <span class="font-display font-bold text-xl tracking-tight text-ink dark:text-paper">
-                        Entu <span class="text-ink dark:text-mint-400 font-light text-base tracking-widest uppercase">Creative</span>
+                    <span class="font-display font-bold text-xl tracking-tight text-text-ink dark:text-white">
+                        Entu <span class="text-text-ink dark:text-lilac font-light text-base tracking-widest uppercase">Creative</span>
                     </span>
                 </a>
 
-                <p class="font-display text-2xl sm:text-3xl text-ink dark:text-paper font-medium max-w-lg leading-snug">
+                <p class="font-display text-2xl sm:text-3xl text-text-ink dark:text-white font-medium max-w-lg leading-snug">
                     {{ $tagline }}
                 </p>
 
                 <div class="pt-2">
                     <a
                         href="mailto:{{ $email }}"
-                        class="inline-flex items-center gap-3 text-lg font-display text-ink dark:text-mint-400 hover:underline underline-offset-4 decoration-mint-500 decoration-2 group"
+                        class="inline-flex items-center gap-3 text-lg font-display text-text-ink dark:text-lilac hover:underline underline-offset-4 decoration-brand-purple dark:decoration-orchid decoration-2 group"
                     >
                         <span>{{ $email }}</span>
                         <svg class="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
@@ -53,11 +53,11 @@
                     Navigation
                 </h4>
                 <ul class="space-y-3 text-sm font-medium">
-                    <li><a href="{{ url('/#work') }}" class="hover:text-ink dark:hover:text-mint-400 transition-colors">Selected Projects</a></li>
-                    <li><a href="{{ url('/#services') }}" class="hover:text-ink dark:hover:text-mint-400 transition-colors">Design Services</a></li>
-                    <li><a href="{{ url('/#about') }}" class="hover:text-ink dark:hover:text-mint-400 transition-colors">About & Ethos</a></li>
-                    <li><a href="{{ url('/#testimonials') }}" class="hover:text-ink dark:hover:text-mint-400 transition-colors">Client Testimonials</a></li>
-                    <li><a href="{{ url('/#contact') }}" class="hover:text-ink dark:hover:text-mint-400 transition-colors">Start an Inquiry</a></li>
+                    <li><a href="{{ url('/#work') }}" class="hover:text-text-ink dark:hover:text-lilac transition-colors">Selected Projects</a></li>
+                    <li><a href="{{ url('/#services') }}" class="hover:text-text-ink dark:hover:text-lilac transition-colors">Design Services</a></li>
+                    <li><a href="{{ url('/#about') }}" class="hover:text-text-ink dark:hover:text-lilac transition-colors">About & Ethos</a></li>
+                    <li><a href="{{ url('/#testimonials') }}" class="hover:text-text-ink dark:hover:text-lilac transition-colors">Client Testimonials</a></li>
+                    <li><a href="{{ url('/#contact') }}" class="hover:text-text-ink dark:hover:text-lilac transition-colors">Start an Inquiry</a></li>
                 </ul>
             </div>
 
@@ -67,7 +67,7 @@
                     Studio Coordinates
                 </h4>
                 <div class="space-y-1 text-sm text-neutral-600 dark:text-neutral-400">
-                    <p class="font-medium text-ink dark:text-paper">{{ $location }}</p>
+                    <p class="font-medium text-text-ink dark:text-white">{{ $location }}</p>
                     <p>{{ $phone }}</p>
                 </div>
 
@@ -82,7 +82,7 @@
                                     href="{{ $url }}"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    class="px-3 py-1 text-xs rounded-full border border-black/10 dark:border-white/10 hover:border-mint-500 hover:text-ink dark:hover:border-mint-400 dark:hover:text-mint-400 transition-colors"
+                                    class="px-3 py-1 text-xs rounded-full border border-black/10 dark:border-white/10 hover:border-lilac hover:text-text-ink dark:hover:border-lilac dark:hover:text-lilac transition-colors"
                                 >
                                     {{ $platform }}
                                 </a>
@@ -104,7 +104,7 @@
                         href="https://abshewabu.dev"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="font-medium text-ink dark:text-paper hover:text-teal-700 dark:hover:text-mint-400 underline underline-offset-2 decoration-mint-500/50 hover:decoration-mint-500 transition-colors"
+                        class="font-medium text-text-ink dark:text-white hover:text-brand-purple dark:hover:text-lilac underline underline-offset-2 decoration-brand-purple/50 dark:decoration-orchid/50 hover:decoration-brand-purple dark:hover:decoration-orchid transition-colors"
                     >
                         abshewabu.dev
                     </a>
@@ -112,13 +112,13 @@
             </div>
 
             <div class="flex items-center gap-6">
-                <a href="{{ url('/admin') }}" class="hover:text-ink dark:hover:text-paper transition-colors">
+                <a href="{{ url('/admin') }}" class="hover:text-text-ink dark:hover:text-white transition-colors">
                     Admin Access
                 </a>
                 <button
                     type="button"
                     onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
-                    class="hover:text-ink dark:hover:text-mint-400 transition-colors inline-flex items-center gap-1 focus-visible:outline-2 focus-visible:outline-mint-500 rounded-sm"
+                    class="hover:text-text-ink dark:hover:text-lilac transition-colors inline-flex items-center gap-1 focus-visible:outline-2 focus-visible:outline-lilac rounded-sm"
                     aria-label="Back to top of page"
                 >
                     <span>Back to top</span>

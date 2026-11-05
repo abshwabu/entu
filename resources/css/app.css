@@ -13,75 +13,67 @@
     --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
     --font-display: 'Montserrat', 'Syne', ui-sans-serif, system-ui, -apple-system, sans-serif;
 
-    /* Mint Scale (Lettering from reference is #2DF5B0 = mint-500) */
-    --color-mint-50: #EAFAF4;
-    --color-mint-100: #D2F6E8;
-    --color-mint-200: #A6F0D3;
-    --color-mint-300: #74E8BC;
-    --color-mint-400: #48F8B6;
-    --color-mint-500: #2DF5B0; /* Sampled mint lettering */
-    --color-mint-600: #17D997;
-    --color-mint-700: #0EB57C;
-    --color-mint-800: #0A8B60;
-    --color-mint-900: #076647;
-    --color-mint-950: #033B29;
+    /* Brand Scale 50–950 interpolated from violet-deep through magenta (500 ≈ purple #8A1FC9) */
+    --color-brand-50: #FAF5FF;
+    --color-brand-100: #F3E8FF;
+    --color-brand-200: #E9D5FF;
+    --color-brand-300: #D8B4FE;
+    --color-brand-400: #C04CF0;
+    --color-brand-500: #8A1FC9; /* Purple mid-point */
+    --color-brand-600: #7417B3;
+    --color-brand-700: #5B1BB0; /* Violet */
+    --color-brand-800: #48129C;
+    --color-brand-900: #3B0F8F; /* Violet-deep */
+    --color-brand-950: #220757;
 
-    /* Panel Scale: Slate-teal surfaces */
-    --color-panel-50: #F0F6F8;
-    --color-panel-100: #DCE8EC;
-    --color-panel-200: #B9D1D9;
-    --color-panel-300: #8CB3C0;
-    --color-panel-400: #5F92A3;
-    --color-panel-500: #3D7183;
-    --color-panel-600: #2C5868;
-    --color-panel-700: #244B5A;
-    --color-panel-800: #1F4452; /* Sampled Panel (dark mode canvas) */
-    --color-panel-900: #17333F; /* Sampled Panel-deep (footer, lightbox, dark cards) */
-    --color-panel-950: #0F2229; /* Deepest teal-black */
+    /* Core Named Brand Colors */
+    --color-brand-violet-deep: #3B0F8F;
+    --color-brand-violet: #5B1BB0;
+    --color-brand-purple: #8A1FC9;
+    --color-brand-magenta: #B820D8;
 
-    /* Panel semantic aliases */
-    --color-panel: #1F4452;
-    --color-panel-deep: #17333F;
-    --color-panel-soft: #254F5E;
-    --color-panel-raised: #2C5A6B;
+    /* Light tints for dark backgrounds */
+    --color-lilac: #C9A8FF;
+    --color-orchid: #E7A6FF;
 
-    /* Silk accents */
-    --color-silk-aqua: #2EE6C8; /* Silk aqua highlight */
-    --color-silk-teal: #0E8C8A; /* Silk teal midtone */
+    /* Dark Neutrals (violet-tinted blacks) */
+    --color-ink: #0A0710;
+    --color-ink-soft: #120C1C;
+    --color-ink-raised: #1B1329;
 
-    /* Semantic Light & Dark Neutrals */
-    --color-paper: #F4F8F7; /* Faint teal-tinted white */
+    /* Light Neutrals */
+    --color-paper: #F7F4FB;
     --color-paper-raised: #FFFFFF;
-    --color-ink: #0F2229; /* Deep teal-black text */
-    --color-ink-soft: #17333F;
-    --color-ink-raised: #1F4452;
+    --color-text-ink: #17102A;
 }
 
 :root {
-    --canvas: #F4F8F7;
+    --canvas: #F7F4FB;
+    --canvas-deep: #FFFFFF;
     --surface: #FFFFFF;
     --surface-raised: #FFFFFF;
-    --line: rgba(15, 34, 41, 0.10);
-    --text-primary: #0F2229;
-    --text-muted: #526B72;
-    --accent: #2DF5B0;
-    --accent-contrast: #0F2229;
+    --line: rgba(23, 16, 42, 0.10);
+    --text-primary: #17102A;
+    --text-muted: #6B5E87;
+    --accent: #8A1FC9;
+    --accent-contrast: #FFFFFF;
 }
 
 .dark {
-    --canvas: #1F4452;
-    --surface: #254F5E;
-    --surface-raised: #2C5A6B;
-    --line: rgba(255, 255, 255, 0.12);
-    --text-primary: #F4F8F7;
-    --text-muted: #A6C2C9;
-    --accent: #2DF5B0;
-    --accent-contrast: #17333F;
+    --canvas: #0A0710;
+    --canvas-deep: #06040A;
+    --surface: #120C1C;
+    --surface-raised: #1B1329;
+    --line: rgba(255, 255, 255, 0.10);
+    --text-primary: #FFFFFF;
+    --text-muted: #9E92B6;
+    --accent: #C9A8FF;
+    --accent-contrast: #0A0710;
 }
 
 ::selection {
-    background-color: #2DF5B0;
-    color: #17333F;
+    background-color: #B820D8;
+    color: #FFFFFF;
 }
 
 [x-cloak] {
@@ -92,48 +84,64 @@
     .font-display {
         font-family: var(--font-display);
     }
+
+    /* Core Brand Gradient Utilities */
+    .bg-brand-gradient {
+        background-image: linear-gradient(135deg, #3B0F8F 0%, #5B1BB0 35%, #8A1FC9 70%, #B820D8 100%);
+    }
+
+    .border-brand-gradient {
+        border-color: #8A1FC9;
+    }
+
+    .text-brand-gradient {
+        background-image: linear-gradient(135deg, #C9A8FF 0%, #E7A6FF 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
 }
 
-/* Reusable Signature Glossy Silk Backdrop Utility */
-@keyframes silk-drift {
+/* Reusable Signature Aurora Backdrop Utility */
+@keyframes aurora-drift {
     0% {
-        background-position: 0% 0%, 100% 50%, 40% 90%;
-        background-size: 150% 150%, 160% 160%, 180% 180%;
+        background-position: 0% 0%, 100% 50%, 50% 100%, 0 0;
+        background-size: 140% 140%, 150% 150%, 160% 160%, auto;
     }
     50% {
-        background-position: 80% 60%, 20% 80%, 90% 20%;
-        background-size: 180% 180%, 140% 140%, 160% 160%;
+        background-position: 70% 50%, 30% 80%, 80% 20%, 0 0;
+        background-size: 170% 170%, 130% 130%, 150% 150%, auto;
     }
     100% {
-        background-position: 0% 0%, 100% 50%, 40% 90%;
-        background-size: 150% 150%, 160% 160%, 180% 180%;
+        background-position: 0% 0%, 100% 50%, 50% 100%, 0 0;
+        background-size: 140% 140%, 150% 150%, 160% 160%, auto;
     }
 }
 
-.bg-silk {
-    background-color: #17333F;
+.bg-aurora {
+    background-color: #0A0710;
     background-image:
-        radial-gradient(ellipse 90% 65% at 20% 15%, rgba(46, 230, 200, 0.35) 0%, transparent 60%),
-        radial-gradient(ellipse 80% 80% at 85% 75%, rgba(14, 140, 138, 0.40) 0%, transparent 65%),
-        radial-gradient(ellipse 70% 60% at 50% 45%, rgba(45, 245, 176, 0.20) 0%, transparent 55%),
-        linear-gradient(135deg, rgba(23, 51, 63, 0.95) 0%, rgba(31, 68, 82, 0.85) 50%, rgba(15, 34, 41, 0.98) 100%);
-    background-repeat: no-repeat;
-    animation: silk-drift 28s ease-in-out infinite alternate;
+        radial-gradient(ellipse 70% 60% at 20% 20%, rgba(91, 27, 176, 0.45) 0%, transparent 65%),
+        radial-gradient(ellipse 65% 55% at 80% 70%, rgba(184, 32, 216, 0.35) 0%, transparent 60%),
+        radial-gradient(circle at 50% 45%, rgba(138, 31, 201, 0.25) 0%, transparent 55%),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+    background-repeat: no-repeat, no-repeat, no-repeat, repeat;
+    animation: aurora-drift 24s ease-in-out infinite alternate;
 }
 
-.bg-silk-subtle {
-    background-color: #17333F;
+.bg-aurora-subtle {
+    background-color: #0A0710;
     background-image:
-        radial-gradient(circle at 15% 20%, rgba(46, 230, 200, 0.20) 0%, transparent 55%),
-        radial-gradient(circle at 85% 80%, rgba(14, 140, 138, 0.25) 0%, transparent 60%),
-        radial-gradient(circle at 50% 50%, rgba(45, 245, 176, 0.12) 0%, transparent 65%);
-    background-size: 150% 150%, 160% 160%, 170% 170%;
-    animation: silk-drift 32s ease-in-out infinite alternate;
+        radial-gradient(ellipse 60% 50% at 25% 25%, rgba(91, 27, 176, 0.25) 0%, transparent 60%),
+        radial-gradient(ellipse 55% 45% at 75% 75%, rgba(184, 32, 216, 0.20) 0%, transparent 55%),
+        radial-gradient(circle at 50% 50%, rgba(138, 31, 201, 0.15) 0%, transparent 60%);
+    background-size: 150% 150%, 150% 150%, 160% 160%;
+    animation: aurora-drift 28s ease-in-out infinite alternate;
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .bg-silk,
-    .bg-silk-subtle {
+    .bg-aurora,
+    .bg-aurora-subtle {
         animation: none !important;
     }
 }
@@ -146,7 +154,7 @@
         left: 0;
         width: 36px;
         height: 36px;
-        border: 1.5px solid rgba(45, 245, 176, 0.7);
+        border: 1.5px solid rgba(201, 168, 255, 0.7);
         border-radius: 50%;
         pointer-events: none;
         z-index: 9999;
@@ -158,8 +166,9 @@
     .custom-cursor-ring.cursor-hover {
         width: 54px;
         height: 54px;
-        border-color: rgba(45, 245, 176, 0.95);
-        background-color: rgba(45, 245, 176, 0.15);
+        border-color: rgba(231, 166, 255, 0.95);
+        background-color: rgba(184, 32, 216, 0.15);
+        box-shadow: 0 0 16px rgba(138, 31, 201, 0.35);
     }
 
     .custom-cursor-dot {
@@ -168,12 +177,28 @@
         left: -3px;
         width: 6px;
         height: 6px;
-        background-color: #2DF5B0;
+        background: linear-gradient(135deg, #5B1BB0, #B820D8);
         border-radius: 50%;
         pointer-events: none;
         z-index: 10000;
         will-change: transform;
     }
+}
+
+/* Scrollbar styling with brand gradient */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0A0710;
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #3B0F8F, #8A1FC9, #B820D8);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #5B1BB0, #8A1FC9, #E7A6FF);
 }
 
 /* Skeleton shimmer placeholder for images & content */
@@ -186,11 +211,11 @@
 .skeleton-shimmer {
     position: relative;
     overflow: hidden;
-    background-color: #E2ECE9;
+    background-color: #EDE8F5;
 }
 
 .dark .skeleton-shimmer {
-    background-color: #17333F;
+    background-color: #120C1C;
 }
 
 .skeleton-shimmer::after {
@@ -203,7 +228,7 @@
     background-image: linear-gradient(
         90deg,
         rgba(255, 255, 255, 0) 0,
-        rgba(255, 255, 255, 0.25) 20%,
+        rgba(255, 255, 255, 0.3) 20%,
         rgba(255, 255, 255, 0.6) 60%,
         rgba(255, 255, 255, 0)
     );
@@ -215,8 +240,8 @@
     background-image: linear-gradient(
         90deg,
         rgba(255, 255, 255, 0) 0,
-        rgba(45, 245, 176, 0.05) 20%,
-        rgba(45, 245, 176, 0.10) 60%,
+        rgba(201, 168, 255, 0.08) 20%,
+        rgba(231, 166, 255, 0.15) 60%,
         rgba(255, 255, 255, 0)
     );
 }

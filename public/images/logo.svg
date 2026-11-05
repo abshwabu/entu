@@ -1,13 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" fill="none">
-    <defs>
-        <radialGradient id="entu-logo-grad" cx="35%" cy="30%" r="70%">
-            <stop offset="0%" stop-color="#A6F000" />
-            <stop offset="50%" stop-color="#7ED321" />
-            <stop offset="100%" stop-color="#2A6B00" />
-        </radialGradient>
-    </defs>
-    <circle cx="30" cy="30" r="20" fill="url(#entu-logo-grad)" />
-    <text x="30" y="37" text-anchor="middle" font-family="'Montserrat', system-ui, sans-serif" font-weight="900" font-size="22" fill="#0A0A0A">e</text>
-    <text x="62" y="37" fill="#FFFFFF" font-family="'Montserrat', system-ui, sans-serif" font-weight="900" font-size="22" letter-spacing="-0.5">entu</text>
-    <text x="125" y="37" fill="#A6F000" font-family="'Montserrat', system-ui, sans-serif" font-weight="700" font-size="13" letter-spacing="3">CREATIVE</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="entuBrandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B0F8F" />
+      <stop offset="35%" stop-color="#5B1BB0" />
+      <stop offset="70%" stop-color="#8A1FC9" />
+      <stop offset="100%" stop-color="#B820D8" />
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="1024" fill="#0A0A0A" />
+  <circle cx="512" cy="512" r="380" fill="url(#entuBrandGrad)" />
+  <g fill="#FFFFFF" text-anchor="middle" font-family="'Plus Jakarta Sans', 'Montserrat', -apple-system, sans-serif">
+    <text x="512" y="525" font-size="180" font-weight="800" letter-spacing="-2">entu</text>
+    <text x="512" y="605" font-size="44" font-weight="700" letter-spacing="14">CREATIVE</text>
+  </g>
 </svg>

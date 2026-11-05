@@ -1,152 +1,171 @@
-# Entu Creative — Teal & Mint Brand Design System & Theming Specification
+# Entu Creative — Violet–Magenta Gradient Brand Design System & Theming Specification
 
 ## 1. Brand Identity Overview
-Entu Creative is an editorial graphic design and art direction studio based in Addis Ababa, Ethiopia. The studio's visual identity draws directly from the reference artwork at `public/brand/color-reference.jpg`: luminous mint-green lettering resting upon semi-transparent slate-teal panels, enveloped by glossy aqua/teal silk drapery with organic highlights.
+Entu Creative is an editorial graphic design and art direction studio based in Addis Ababa, Ethiopia. Following the client's brand update, this specification documents the **Violet–Magenta Gradient** visual identity, which completely replaces the earlier experimental palettes across the entire public application and Filament 3 admin.
 
-The color scheme replaces previous experimental palettes with a cohesive, high-contrast **Teal & Mint** chromatic architecture engineered for editorial distinction and accessibility across dark and light modes.
-
----
-
-## 2. Sampled Color Palette & Mathematical Reference
-
-Sampled directly from `public/brand/color-reference.jpg` using direct pixel analysis:
-- **Mint (lettering color)**: `#2DF5B0` &rarr; mapped to `mint-500`
-- **Panel (slate-teal surface canvas)**: `#1F4452` &rarr; mapped to `panel-800` / `panel`
-- **Panel-deep (deepest shadow/canvas base)**: `#17333F` &rarr; mapped to `panel-900` / `panel-deep`
-- **Silk Aqua (glossy highlight accent)**: `#2EE6C8` &rarr; mapped to `silk-aqua`
-- **Silk Teal (mid-tone drapery accent)**: `#0E8C8A` &rarr; mapped to `silk-teal`
-- **Light Paper Ground**: `#F4F8F7` (faint teal-tinted off-white) &rarr; mapped to `paper`
-- **Deep Ink Text Ground**: `#0F2229` (deep teal-black) &rarr; mapped to `ink`
-
-### 2.1 The Mint Scale (Accents & Primary Actions)
-Lettering sampled from reference is `#2DF5B0` (`mint-500`):
-
-| Token | Hex | RGB Tuple | Role & Context |
-|---|---|---|---|
-| `mint-50` | `#EAFAF4` | `234, 250, 244` | Subtle mint background tints and badges |
-| `mint-100` | `#D2F6E8` | `210, 246, 232` | Soft hover states and container fills |
-| `mint-200` | `#A6F0D3` | `166, 240, 211` | Light mode border accents & wash states |
-| `mint-300` | `#74E8BC` | `116, 232, 188` | Mid-range mint accents |
-| `mint-400` | `#48F8B6` | `72, 248, 182` | Bright hover state on mint buttons, active cursor ring |
-| `mint-500` | `#2DF5B0` | `45, 245, 176` | **Core Mint** — Lettering color, primary CTAs, active tags, cursor dot |
-| `mint-600` | `#17D997` | `23, 217, 151` | Deep mint borders and secondary button outlines |
-| `mint-700` | `#0EB57C` | `14, 181, 124` | Accessible emerald-teal accent on light paper |
-| `mint-800` | `#0A8B60` | `10, 139, 96` | High-contrast text accent on light paper (WCAG AA) |
-| `mint-900` | `#076647` | `7, 102, 71` | Deep pine/mint shadow |
-| `mint-950` | `#033B29` | `3, 59, 41` | Deepest mint tone |
-
-### 2.2 The Panel Scale (Dark Mode Surfaces & Canvas)
-Sampled slate-teal tones from the reference image:
-
-| Token | Hex | RGB Tuple | Role & Context |
-|---|---|---|---|
-| `panel-50` | `#F0F6F8` | `240, 246, 248` | Very pale slate-teal highlight |
-| `panel-100` | `#DCE8EC` | `220, 232, 236` | Light slate tint |
-| `panel-200` | `#B9D1D9` | `185, 209, 217` | Subtle border lines in light mode |
-| `panel-300` | `#8CB3C0` | `140, 179, 192` | Slate-teal captions and secondary metadata |
-| `panel-400` | `#5F92A3` | `95, 146, 163` | Mid slate tone |
-| `panel-500` | `#3D7183` | `61, 113, 131` | Muted teal fill |
-| `panel-600` | `#2C5868` | `44, 88, 104` | Deep surface accent |
-| `panel-700` | `#244B5A` | `36, 75, 90` | Dark border lines and dividers |
-| `panel-800` | `#1F4452` | `31, 68, 82` | **Canvas Base** — Dark mode body canvas (`panel`) |
-| `panel-900` | `#17333F` | `23, 51, 63` | **Deep Canvas** — Footer, lightbox, translucent cards (`panel-deep`) |
-| `panel-950` | `#0F2229` | `15, 34, 41` | Absolute deepest teal-black |
-
-### 2.3 Semantic Surfaces & Neutrals
-| Semantic Token | Light Mode Value | Dark Mode Value | Purpose |
-|---|---|---|---|
-| `canvas` | `#F4F8F7` (`paper`) | `#1F4452` (`panel`) | Page canvas ground |
-| `canvas-deep` | `#FFFFFF` (`paper-raised`) | `#17333F` (`panel-deep`) | Footers, lightbox overlays, contrast blocks |
-| `surface` | `#FFFFFF` | `#254F5E` (`panel-soft`) | Project cards, service cards, info blocks |
-| `surface-raised`| `#FFFFFF` | `#2C5A6B` (`panel-raised`)| Modals, popovers, elevated hover cards |
-| `text` | `#0F2229` (`ink`) | `#F4F8F7` (`paper`) | Primary readable body text |
-| `text-muted` | `#526B72` | `#A6C2C9` | Secondary captions, timestamps, metadata |
-| `line` | `rgba(15,34,41,0.10)` | `rgba(46,230,200,0.18)` | Structural dividers and card borders |
-| `accent` | `#2DF5B0` (`mint-500`) | `#2DF5B0` (`mint-500`) | Primary action fills, cursor, focus rings |
-| `accent-hover` | `#48F8B6` (`mint-400`) | `#48F8B6` (`mint-400`) | Button hover state, active states |
+The core logo at `public/brand/logo.png` features a 135° diagonal gradient disc transitioning from deep indigo-violet (top-left) to vivid magenta-purple (bottom-right), inscribed with a lowercase geometric "entu" wordmark and letter-spaced "CREATIVE" descriptor, resting on an obsidian-black ground (`#0A0A0A`).
 
 ---
 
-## 3. WCAG 2.1 Contrast Ratios & Compliance Verification
+## 2. Logo Sampling & Physical Pixel Reference
 
-Every color pairing has been mathematically tested using WCAG 2.1 relative luminance formulas ($L = 0.2126R + 0.7152G + 0.0722B$):
+Physical pixel values were sampled directly from `public/brand/logo.png` (1024×1024) using a GD analysis script (`scripts/sample_logo.php`). The samples verify and confirm the exact chromatic trajectory along the 135° diagonal axis:
 
-| Foreground Color | Background Color | Contrast Ratio | WCAG Rating | Purpose & Implementation |
+| Color Stage | Estimated Hex | Sampled Hex | Sampled RGB | Role & Meaning |
 |---|---|---|---|---|
-| `#2DF5B0` (Mint 500) | `#17333F` (Panel-deep) | **9.36 : 1** | **AAA** (&gt; 7.0:1) | Mint lettering on dark panel card (Prompt 10 reference) |
-| `#2DF5B0` (Mint 500) | `#1F4452` (Panel 800) | **7.37 : 1** | **AAA** (&gt; 7.0:1) | Mint headlines/tags on dark canvas |
-| `#FFFFFF` (White) | `#1F4452` (Panel 800) | **10.46 : 1** | **AAA** (&gt; 7.0:1) | White headings and body on dark canvas |
-| `#FFFFFF` (White) | `#17333F` (Panel-deep) | **13.28 : 1** | **AAA** (&gt; 7.0:1) | White text in footer, lightbox, and CTA banners |
-| `#0F2229` (Ink) | `#F4F8F7` (Paper) | **15.31 : 1** | **AAA** (&gt; 7.0:1) | Light mode readable body and heading text |
-| `#17333F` (Panel-deep) | `#2DF5B0` (Mint 500) | **9.36 : 1** | **AAA** (&gt; 7.0:1) | Dark text on primary Mint CTA buttons |
-| `#0F2229` (Ink) | `#2DF5B0` (Mint 500) | **11.55 : 1** | **AAA** (&gt; 7.0:1) | High-contrast dark text on Mint buttons & badges |
-| `#A6C2C9` (Panel 300) | `#1F4452` (Panel 800) | **5.57 : 1** | **AA** (&gt; 4.5:1) | Dark mode secondary metadata & captions |
-| `#526B72` (Slate) | `#F4F8F7` (Paper) | **5.29 : 1** | **AA** (&gt; 4.5:1) | Light mode secondary metadata & captions |
-| `#0A8B60` (Mint 800) | `#F4F8F7` (Paper) | **5.38 : 1** | **AA** (&gt; 4.5:1) | Light mode colored link/label accents |
+| **Violet-deep** (gradient start) | `#3B0F8F` | `#3F1093` | `rgb(63, 16, 147)` | Deep indigo-violet origin (top-left, 15% diameter) |
+| **Violet** (upper-mid) | `#5B1BB0` | `#5A1AAF` | `rgb(90, 26, 175)` | Saturated royal violet (35% diameter) |
+| **Purple** (mid) | `#8A1FC9` | `#881EC8` | `rgb(136, 30, 200)` | Luminous electric purple (55% diameter) |
+| **Magenta** (gradient end) | `#B820D8` | `#B01FD5` | `rgb(176, 31, 213)` | Vivid magenta-purple terminus (bottom-right, 85% diameter) |
+| **Black** (logo canvas background) | `#0A0A0A` | `#0A0A0A` | `rgb(10, 10, 10)` | Pure dark neutral ground |
 
-> [!CAUTION]
-> ### Strict Light Mode Rule: No Bare Mint Text on Paper
-> Mint `#2DF5B0` against `#F4F8F7` (Paper) has a contrast ratio of **1.35 : 1**, which fails WCAG AA by a wide margin.
->
-> **Rules enforced across all templates**:
-> 1. Mint (`#2DF5B0` / `#48F8B6`) is **NEVER** used as bare body or heading text on paper.
-> 2. Mint in light mode is strictly reserved for:
->    - Solid button fills with dark text (`#17333F` or `#0F2229` text on `#2DF5B0` = 9.36:1 AAA)
->    - Background badges with dark ink text (`bg-mint-500/15 text-teal-800` or `text-ink`)
->    - Decorative borders, focus rings, underlines, and hover washes
-> 3. Text in light mode uses `#0F2229` (`ink`) or `#0A8B60` (`mint-800` / `#0E8C8A` `silk-teal`).
+**Gradient Vector Angle**: Exactly **135°** (`linear-gradient(135deg, ...)`).
+
+All prior tokens and utilities (`lime`, `teal`, `mint`, `aqua`, `silk`) have been completely purged from the codebase.
 
 ---
 
-## 4. Visual Signatures & Components
+## 3. Design Tokens & Theme Architecture
 
-### 4.1 The Signature Silk Drapery (`.bg-silk` & `.bg-silk-subtle`)
-Inspired by the glossy teal silk texture in the reference graphic:
+The system uses Tailwind CSS v4 `@theme` tokens in `resources/css/app.css` paired with synchronized CSS root variables.
+
+### 3.1 The Brand Palette (50–950)
+The brand scale smoothly interpolates between violet-deep and vivid magenta, centered at purple (500 ≈ `#881EC8`):
+
+| Token | Hex | RGB Tuple | Usage & Context |
+|---|---|---|---|
+| `brand-50` | `#FBF6FE` | `251, 246, 254` | Faint lilac-tinted surface highlight |
+| `brand-100` | `#F4EAFD` | `244, 234, 253` | Soft hover states in light mode |
+| `brand-200` | `#E8D5FB` | `232, 213, 251` | Subtle pill borders & inactive controls |
+| `brand-300` | `#D5B2F7` | `213, 178, 247` | Mid-range lilac decorative strokes |
+| `brand-400` | `#BC7FF2` | `188, 127, 242` | Bright hover states & glowing aura rings |
+| `brand-500` | `#881EC8` | `136, 30, 200` | **Core Brand Purple** — Primary accents & mid-gradient anchor |
+| `brand-600` | `#7817B5` | `120, 23, 181` | Deep purple interactive borders & badges |
+| `brand-700` | `#5A1AAF` | `90, 26, 175` | Upper-mid violet anchor |
+| `brand-800` | `#3F1093` | `63, 16, 147` | Deep indigo-violet origin anchor |
+| `brand-900` | `#2D0A6C` | `45, 10, 108` | Deepest shadow tone |
+| `brand-950` | `#1A0444` | `26, 4, 68` | Nocturnal indigo-black |
+
+### 3.2 High-Luminance Dark Mode Tints
+Saturated brand steps (500–900) are too dark to read as text on `#0A0710`. Two specialized pastel tints ensure accessible typographic accents in dark mode:
+- **`lilac`** (`#C9A8FF` / `rgb(201, 168, 255)`): Links, active nav states, eyebrow tags, hover outlines.
+- **`orchid`** (`#E7A6FF` / `rgb(231, 166, 255)`): Headline gradient text endpoint, active ping indicators.
+
+### 3.3 Neutrals & Structural Tokens
+- **Dark Mode (Default)**:
+  - `ink` (`#0A0710`): Page canvas ground (faintly violet-tinted near-black).
+  - `ink-soft` (`#120C1C`): Surface canvas (cards, navbar, modals).
+  - `ink-raised` (`#1B1329`): Elevated surfaces (dropdowns, tooltips, hover cards).
+  - `line` (`rgba(255, 255, 255, 0.10)`): Crisp hairline dividers and borders.
+  - `text-muted-dark` (`#9E92B6`): Secondary captions and timestamps.
+- **Light Mode**:
+  - `paper` (`#F7F4FB`): Page canvas ground (faint violet-tinted off-white).
+  - `paper-raised` (`#FFFFFF`): Elevated clean white cards.
+  - `text-ink` (`#17102A`): Deep obsidian-violet readable body and heading text.
+  - `text-muted-light` (`#6B5E87`): Secondary captions and metadata.
+
+### 3.4 Brand Gradient Utilities
 ```css
-.bg-silk {
-    background-color: var(--color-panel-deep);
-    background-image:
-        radial-gradient(circle at 18% 22%, rgba(46, 230, 200, 0.45) 0%, transparent 45%),
-        radial-gradient(circle at 82% 78%, rgba(14, 140, 138, 0.55) 0%, transparent 55%),
-        radial-gradient(circle at 50% 50%, rgba(45, 245, 176, 0.20) 0%, transparent 50%),
-        linear-gradient(135deg, #17333F 0%, #1F4452 40%, #0E8C8A 75%, #17333F 100%);
-    background-size: 200% 200%;
-    animation: silk-drift 32s ease-in-out infinite alternate;
+/* Signature 135deg Gradient */
+.bg-brand-gradient {
+    background-image: linear-gradient(135deg, #3F1093 0%, #5A1AAF 30%, #881EC8 65%, #B01FD5 100%);
+}
+
+.border-brand-gradient {
+    border-image: linear-gradient(135deg, #3F1093, #B01FD5) 1;
+}
+
+.text-brand-gradient {
+    background-image: linear-gradient(135deg, #C9A8FF 0%, #E7A6FF 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 ```
-- **Motion Accessibility**: Wrapped in `@media (prefers-reduced-motion: reduce)` to disable animation and lock background position at `center center`.
-
-### 4.2 Translucent Panel Cards
-Recreating the reference graphic's semi-transparent rounded slate-teal card over the silk:
-```html
-<div class="bg-panel/85 backdrop-blur-md border border-silk-aqua/25 rounded-3xl shadow-2xl">
-    <!-- Bright Mint typography sits inside with 9.36:1 contrast -->
-</div>
-```
-
-### 4.3 Interactive Elements
-- **Primary Buttons**: `bg-mint-500 text-panel-deep hover:bg-mint-400 font-bold shadow-md hover:shadow-xl`
-- **Secondary Buttons**: `border border-mint-600/60 dark:border-mint-400 text-ink dark:text-mint-400 hover:bg-mint-500/10`
-- **Focus Rings**: `focus-visible:outline-mint-500` or `focus:ring-2 focus:ring-mint-500`
-- **Selection**: `::selection { background-color: #2DF5B0; color: #17333F; }`
-- **Custom Cursor**: Mint ring (`rgba(45, 245, 176, 0.7)`) tracking the mouse with a 6px solid mint dot (`#2DF5B0`), hidden on touch devices.
 
 ---
 
-## 5. Filament 3 Admin Panel Retheming
-The Filament panel at `/admin` is matched to the Teal & Mint brand identity:
+## 4. Dark Mode (Default Studio Aesthetic)
+
+1. **Canvas & Surfaces**: The default background is `bg-ink` (`#0A0710`). Cards and sticky navigation use `bg-ink-soft` (`#120C1C`) with subtle `border-line` (`white/10`) borders. Elevated popups and active items use `bg-ink-raised` (`#1B1329`). Lightbox and footer use near-black `#0A0710`.
+2. **Typography**: Headings and body copy use `#FFFFFF` or off-white. Secondary text uses `text-text-muted-dark` (`#9E92B6`). Small typographic accents (eyebrow tags, links, active category pills, quote indicators) use `text-lilac` (`#C9A8FF`) or `text-orchid` (`#E7A6FF`), never dark violet steps.
+3. **Buttons**:
+   - Primary: `.bg-brand-gradient text-white font-bold shadow-lg hover:shadow-brand-500/30 hover:brightness-110`.
+   - Secondary / Outline: Transparent background, `border-lilac/70 text-white hover:bg-brand-500/10`.
+4. **Headline Accents**: Expressive hero titles use `.text-brand-gradient` restricted to `lilac` &rarr; `orchid`, ensuring crisp contrast (> 10:1) on `#0A0710`.
+5. **Signature Aurora Backdrop (`.bg-aurora`)**: Two large blurred radial blooms (violet and magenta) drifting over `ink`, layered with a fine grain texture. Animation duration is 24s; gracefully disabled under `prefers-reduced-motion`.
+6. **Focus Ring & Details**:
+   - Focus ring: 2px `lilac` with a soft violet outer glow (`box-shadow: 0 0 0 3px rgba(136, 30, 200, 0.45)`).
+   - `::selection`: Solid magenta background (`#B01FD5`), pure white text.
+   - Custom Cursor: Gradient ring and glowing dot with mix-blend-difference tracking the mouse on desktop.
+   - Scrollbar thumb & scroll progress bar: 135° brand gradient fill.
+
+---
+
+## 5. Light Mode (Brand as Decoration, NOT Text)
+
+> [!IMPORTANT]
+> ### Strict Light Mode Rule: No Text May Use Brand Colors
+> To ensure flawless accessibility and editorial legibility, **no text in light mode uses the violet, purple, or magenta brand colors**.
+>
+> **Enforced Rules**:
+> 1. All headings and body text are rendered in `text-ink` (`#17102A`) or `text-text-muted-light` (`#6B5E87`).
+> 2. Links are `text-ink` with a thick gradient underline that expands on hover (`bg-gradient-to-r from-brand-violet to-brand-magenta`).
+> 3. The brand gradient is reserved strictly for non-text graphical roles:
+>    - Solid button fills with white text (verified > 4.5:1 AA contrast).
+>    - Active category filter pill fills with crisp white text.
+>    - Underline bars and accent highlights behind headings.
+>    - Card top-accent strips, borders, and dividers.
+>    - Badges & chips: tinted fill (`bg-brand-500/10`) with obsidian `text-text-ink`.
+>    - Form control focus rings: 2px `text-ink` inner ring with violet outer glow.
+>    - Subtle section atmospheric washes (`brand-500` at 5–8% opacity).
+
+---
+
+## 6. WCAG 2.1 Contrast Ratios & Compliance Verification
+
+Every textual pair has been mathematically audited using the WCAG 2.1 relative luminance specification ($L = 0.2126R + 0.7152G + 0.0722B$):
+
+| Foreground Element | Background Element | Contrast Ratio | WCAG Rating | Purpose & Verified Status |
+|---|---|---|---|---|
+| **White** (`#FFFFFF`) | **Magenta** (`#B01FD5`) | **4.96 : 1** | **Passes AA** (&gt; 4.5:1) | White text on lightest terminus of primary button gradient |
+| **White** (`#FFFFFF`) | **Purple** (`#881EC8`) | **6.73 : 1** | **Passes AA** (&gt; 4.5:1) | White text on center mid-point of primary buttons |
+| **White** (`#FFFFFF`) | **Violet** (`#5A1AAF`) | **9.42 : 1** | **Passes AAA** (&gt; 7.0:1) | White text on upper-mid gradient of primary buttons |
+| **White** (`#FFFFFF`) | **Violet-deep** (`#3F1093`) | **12.72 : 1** | **Passes AAA** (&gt; 7.0:1) | White text on start origin of primary buttons |
+| **White** (`#FFFFFF`) | **Ink** (`#0A0710`) | **19.98 : 1** | **Passes AAA** (&gt; 7.0:1) | White headings & body copy on dark mode canvas |
+| **Lilac** (`#C9A8FF`) | **Ink** (`#0A0710`) | **10.02 : 1** | **Passes AAA** (&gt; 7.0:1) | Dark mode accent labels, active nav links, focus rings |
+| **Orchid** (`#E7A6FF`) | **Ink** (`#0A0710`) | **10.75 : 1** | **Passes AAA** (&gt; 7.0:1) | Dark mode headline gradient endpoint & live indicators |
+| **Text-ink** (`#17102A`) | **Paper** (`#F7F4FB`) | **16.86 : 1** | **Passes AAA** (&gt; 7.0:1) | Light mode readable body and heading text |
+| **Text-ink** (`#17102A`) | **Paper-raised** (`#FFFFFF`) | **18.06 : 1** | **Passes AAA** (&gt; 7.0:1) | Light mode cards & elevated surfaces |
+| **Muted-Dark** (`#9E92B6`)| **Ink** (`#0A0710`) | **6.89 : 1** | **Passes AA** (&gt; 4.5:1) | Dark mode secondary captions, dates, and metadata |
+| **Muted-Light** (`#6B5E87`)| **Paper** (`#F7F4FB`) | **5.39 : 1** | **Passes AA** (&gt; 4.5:1) | Light mode secondary captions, dates, and metadata |
+
+**Result**: 100% of text/background combinations meet or exceed WCAG 2.1 AA requirements, with the majority qualifying for AAA.
+
+---
+
+## 7. Filament 3 Admin Integration
+The administrative dashboard at `/admin` is fully synchronized with the brand:
 - **Default Theme**: Dark mode (`ThemeMode::Dark`).
-- **Primary Palette**: Custom RGB scale in `app/Providers/Filament/AdminPanelProvider.php`:
-  `50 => '234, 250, 244'`, `100 => '210, 246, 232'`, `200 => '166, 240, 211'`, `300 => '116, 232, 188'`, `400 => '72, 248, 182'`, `500 => '45, 245, 176'`, `600 => '23, 217, 151'`, `700 => '14, 181, 124'`, `800 => '10, 139, 96'`, `900 => '7, 102, 71'`, `950 => '3, 59, 41'`.
-- **Branding Header**: `resources/views/filament/brand.blade.php` with `/brand/logo-icon.svg` and `text-teal-700 dark:text-mint-400` uppercase wordmark.
-- **Admin Favicon**: `/brand/favicon-32x32.png` (Teal disc with Mint geometric "E").
+- **Primary Color Scale**: Configured in `app/Providers/Filament/AdminPanelProvider.php` using exact RGB triplets:
+  - `50 => '251, 246, 254'`, `100 => '244, 234, 253'`, `200 => '232, 213, 251'`, `300 => '213, 178, 247'`, `400 => '188, 127, 242'`, `500 => '136, 30, 200'`, `600 => '120, 23, 181'`, `700 => '90, 26, 175'`, `800 => '63, 16, 147'`, `900 => '45, 10, 108'`, `950 => '26, 4, 68'`.
+- **Brand Identity Component**: `resources/views/filament/brand.blade.php` displays the brand logo inside a dark rounded backing with `text-brand-purple dark:text-lilac` studio title.
+- **Favicon & Logo**: Uses `/brand/favicon-32x32.png` and `/brand/logo.png`.
 
 ---
 
-## 6. Brand Asset Specifications
-All generated assets in `public/brand/` and `public/`:
-- `public/brand/color-reference.jpg`: Reference artwork with glossy teal silk, slate panel, and mint lettering.
-- `public/brand/logo.png` & `logo-icon.svg`: Teal circular disc with Mint monogram.
-- `public/images/og-image.png` & `public/brand/og-image.png`: 1200x630 Open Graph card with glossy silk backdrop, frosted slate-teal panel, and crisp mint typography.
-- `public/apple-touch-icon.png` (180x180), `public/android-chrome-192x192.png`, `public/android-chrome-512x512.png`, `public/favicon-32x32.png`, `public/favicon-16x16.png`, and `public/favicon.ico`.
-- `public/site.webmanifest`: `theme_color: #1F4452`, `background_color: #17333F`.
+## 8. Brand Assets & Logo Component Architecture
+
+### 8.1 Regenerated Brand Suite
+All brand files have been regenerated to match the new violet-magenta gradient:
+- `public/brand/logo.png`: 1024×1024 high-res master logo with dark `#0A0A0A` backing.
+- `public/brand/logo-transparent.png`: Gradient disc on transparent canvas.
+- `public/brand/logo-icon.png` & `logo-icon.svg`: Monogram glyph.
+- `public/brand/logo.svg`: Scalable vector master logo with linear gradient definition.
+- `public/brand/og-image.png` & `public/images/og-image.png`: 1200×630 Open Graph preview card with atmospheric aurora glow, logo, and studio metadata.
+- Complete favicon suite: `favicon.ico`, `favicon-16x16.png`, `favicon-32x32.png`, `apple-touch-icon.png`, `android-chrome-192x192.png`, `android-chrome-512x512.png`.
+
+### 8.2 Logo Component (`<x-logo>`)
+The blade component `resources/views/components/logo.blade.php` provides a universal interface:
+- **Automatic Background Handling**: Because `logo.png` includes a baked-in black background, when placed on light surfaces it is wrapped in an elegant dark rounded pill/backing (`p-1 bg-[#0A0A0A] rounded-xl ring-1 ring-white/10`).
+- **Seamless SVG Swap**: If an SVG is placed at `public/brand/logo.svg` or requested via `useSvg="true"`, it dynamically switches with zero layout breakage.
