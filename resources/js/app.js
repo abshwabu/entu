@@ -6,7 +6,7 @@ Alpine.plugin(intersect);
 
 // Global Theme Store - Defaulting to Dark Mode
 Alpine.store('theme', {
-    dark: localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && !window.matchMedia('(prefers-color-scheme: light)').matches),
+    dark: localStorage.getItem('theme') !== 'light',
 
     init() {
         this.apply();
@@ -30,16 +30,6 @@ Alpine.store('theme', {
 window.toggleTheme = function() {
     Alpine.store('theme').toggle();
 };
-
-// Listen to OS theme changes if user hasn't explicitly set a preference (defaulting to dark)
-if (window.matchMedia) {
-    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
-        if (!('theme' in localStorage)) {
-            Alpine.store('theme').dark = !e.matches;
-            Alpine.store('theme').apply();
-        }
-    });
-}
 
 window.Alpine = Alpine;
 Alpine.start();

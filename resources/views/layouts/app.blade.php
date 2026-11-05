@@ -80,14 +80,14 @@
     <!-- Anti-FOUT Dark Mode Script: Dark is Default -->
     <script>
         (function() {
-            var stored = localStorage.getItem('theme');
-            if (stored === 'light') {
-                document.documentElement.classList.remove('dark');
-            } else if (stored === 'dark') {
-                document.documentElement.classList.add('dark');
-            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-                document.documentElement.classList.remove('dark');
-            } else {
+            try {
+                var stored = localStorage.getItem('theme');
+                if (stored === 'light') {
+                    document.documentElement.classList.remove('dark');
+                } else {
+                    document.documentElement.classList.add('dark');
+                }
+            } catch (e) {
                 document.documentElement.classList.add('dark');
             }
         })();
